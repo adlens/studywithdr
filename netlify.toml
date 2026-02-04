@@ -1,0 +1,6 @@
+# Netlify: publish entire repo root (no build)
+[build]
+  publish = "."
+
+# No redirects – serve all files as-is
+# (removes any default SPA-style redirect)
