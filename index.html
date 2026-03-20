@@ -29,17 +29,28 @@
 <body>
     <div class="container">
         <header>
-            <p class="location">Study with Dr · Maths & Physics Tutoring in Manchester</p>
+            <p class="brand">Study with Dr</p>
             <h1>Hi, I'm Dr Xin<span class="wave">👋</span></h1>
-            <p class="subtitle">PhD-Qualified Tutor · Specialist in University, A-Level & GCSE Mathematics & Sciences</p>
-            <p class="tagline">I bridge the gap between school-level basics and advanced university applications—with clear, calm, and rigorous support.</p>
-            <div class="badges">
-                <span class="badge">PhD, University of Manchester</span>
-                <span class="badge">7+ years experience</span>
-                <span class="badge">Highly rated by parents & students</span>
-                <span class="badge">50% off first lesson</span>
-            </div>
+            <p class="hero-line">PhD-qualified Maths & Physics tutor. GCSE to University. Manchester.</p>
+            <p class="hero-cta">50% off your first lesson</p>
         </header>
+
+        <nav class="top-nav" aria-label="Primary navigation">
+            <a class="nav-link active" href="./index.html">Home</a>
+            <a class="nav-link" href="./student-projects.html">Student Projects</a>
+        </nav>
+    </div>
+
+    <div class="intro-strip">
+        <div class="container">
+            <p class="intro-specialism">Specialist in University, A-Level & GCSE Mathematics & Sciences</p>
+            <p class="intro-tagline">I bridge the gap between school-level basics and advanced university applications—with clear, calm, and rigorous support.</p>
+            <ul class="intro-badges">
+                <li>PhD, University of Manchester</li>
+                <li>7+ years experience</li>
+                <li>Highly rated by parents & students</li>
+            </ul>
+        </div>
     </div>
 
     <div class="section">
@@ -88,27 +99,34 @@
     <div class="testimonials section">
         <div class="container">
             <h2 class="section-title">What Parents & Students Say</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial">
-                    <h4>From Farah</h4>
-                    <p>"Zhiying has been fantastic so far! My son feels that she explains the material in detail so that he better understands it. She also sends notes from the lesson every week for his revision and some review homework questions to further cement the learning. She's fab!"</p>
+            <div class="testimonial-carousel">
+                <div class="testimonial-track" id="testimonial-track">
+                    <div class="testimonial">
+                        <h4>From Farah</h4>
+                        <p>"Zhiying has been fantastic so far! My son feels that she explains the material in detail so that he better understands it. She also sends notes from the lesson every week for his revision and some review homework questions to further cement the learning. She's fab!"</p>
+                    </div>
+                    <div class="testimonial">
+                        <h4>From Ada</h4>
+                        <p>"My son's been receiving physics tutoring from Zhiying for around a month now, and his comments could not be more positive. Lessons are effective and productive, with a clear balance between completing adequately challenging questions and learning at an appropriate pace. Thanks Zhiying!"</p>
+                    </div>
+                    <div class="testimonial">
+                        <h4>From Ciaran</h4>
+                        <p>"Wonderful tutor. Zhiying has been helping me improve confidence in maths and prepare for an entrance exam for a trade school. She has a brilliant calm teaching style. I would strongly recommend her to anyone preparing for an exam—or who just needs more confidence with maths."</p>
+                    </div>
+                    <div class="testimonial">
+                        <h4>From Mira</h4>
+                        <p>"We have had several lessons so far in GCSE maths and physics and feel happy with our son's progress. Zhiying has been professional from the beginning. She's very good at what she does and clearly very knowledgeable. She is organised and everything is prepared. We also appreciate that she provides homework to complete after the lesson and marks the answers. We feel lucky to have found her."</p>
+                    </div>
+                    <div class="testimonial">
+                        <h4>From Elizabeth</h4>
+                        <p>"Zhiying has adapted her teaching to suit my daughter well. My daughter is showing improvement and increased confidence even after a few weeks. Thank you."</p>
+                    </div>
                 </div>
-                <div class="testimonial">
-                    <h4>From Ada</h4>
-                    <p>"My son's been receiving physics tutoring from Zhiying for around a month now, and his comments could not be more positive. Lessons are effective and productive, with a clear balance between completing adequately challenging questions and learning at an appropriate pace. Thanks Zhiying!"</p>
+                <div class="carousel-controls">
+                    <button type="button" class="carousel-btn carousel-prev" id="carousel-prev" aria-label="Previous review">‹</button>
+                    <button type="button" class="carousel-btn carousel-next" id="carousel-next" aria-label="Next review">›</button>
                 </div>
-                <div class="testimonial">
-                    <h4>From Ciaran</h4>
-                    <p>"Wonderful tutor. Zhiying has been helping me improve confidence in maths and prepare for an entrance exam for a trade school. She has a brilliant calm teaching style. I would strongly recommend her to anyone preparing for an exam—or who just needs more confidence with maths."</p>
-                </div>
-                <div class="testimonial">
-                    <h4>From Mira</h4>
-                    <p>"We have had several lessons so far in GCSE maths and physics and feel happy with our son's progress. Zhiying has been professional from the beginning. She's very good at what she does and clearly very knowledgeable. She is organised and everything is prepared. We also appreciate that she provides homework to complete after the lesson and marks the answers. We feel lucky to have found her."</p>
-                </div>
-                <div class="testimonial">
-                    <h4>From Elizabeth</h4>
-                    <p>"Zhiying has adapted her teaching to suit my daughter well. My daughter is showing improvement and increased confidence even after a few weeks. Thank you."</p>
-                </div>
+                <div class="carousel-dots" id="carousel-dots" aria-hidden="true"></div>
             </div>
             <p class="testimonials-verify"><a href="https://www.firsttutors.com/uk/tutor/zhiying.maths.physics/" target="_blank" rel="noopener">These reviews are from my First Tutors profile</a></p>
         </div>

@@ -66,3 +66,69 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.section, .service-card, .testimonial').forEach(el => {
     observer.observe(el);
 });
+
+// Testimonial carousel – rotate reviews (one card centered, gap between cards)
+(function () {
+    const carousel = document.querySelector('.testimonial-carousel');
+    const track = document.getElementById('testimonial-track');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+    const dotsEl = document.getElementById('carousel-dots');
+    if (!carousel || !track || !prevBtn || !nextBtn) return;
+
+    const cards = track.querySelectorAll('.testimonial');
+    const total = cards.length;
+    const GAP = 24;
+    let current = 0;
+    let slotWidth = 0;  // one card width + gap, set in setTrackWidth
+    let autoTimer = null;
+    const AUTO_MS = 6000;
+
+    function setTrackWidth() {
+        var w = carousel.offsetWidth;
+        if (w <= 0) {
+            requestAnimationFrame(setTrackWidth);
+            return;
+        }
+        slotWidth = w + GAP;
+        track.style.width = (total * w + (total - 1) * GAP) + 'px';
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].style.width = w + 'px';
+            cards[i].style.flexBasis = w + 'px';
+        }
+        track.style.transform = 'translateX(-' + (current * slotWidth) + 'px)';
+    }
+
+    function goTo(index) {
+        current = (index + total) % total;
+        track.style.transform = 'translateX(-' + (current * slotWidth) + 'px)';
+        if (dotsEl) {
+            var dots = dotsEl.querySelectorAll('.carousel-dot');
+            for (var i = 0; i < dots.length; i++) {
+                dots[i].classList.toggle('active', i === current);
+            }
+        }
+        resetAuto();
+    }
+
+    function resetAuto() {
+        if (autoTimer) clearInterval(autoTimer);
+        autoTimer = setInterval(function () { goTo(current + 1); }, AUTO_MS);
+    }
+
+    prevBtn.addEventListener('click', function () { goTo(current - 1); });
+    nextBtn.addEventListener('click', function () { goTo(current + 1); });
+
+    for (var i = 0; i < cards.length; i++) {
+        var dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to review ' + (i + 1));
+        dot.addEventListener('click', (function (j) { return function () { goTo(j); }; })(i));
+        dotsEl.appendChild(dot);
+    }
+
+    setTrackWidth();
+    window.addEventListener('resize', setTrackWidth);
+    resetAuto();
+})();
