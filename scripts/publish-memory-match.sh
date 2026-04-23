@@ -3,7 +3,8 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 GAMES_APP_DIR="$(cd "${ROOT_DIR}/../Games/memory-match" && pwd)"
-DEST_DIR="${ROOT_DIR}/games/memory-match/dist"
+# Publish the build directly under /games/memory-match/ (no /dist in URL)
+DEST_DIR="${ROOT_DIR}/games/memory-match"
 
 if [[ ! -f "${ROOT_DIR}/netlify.toml" ]]; then
   echo "Error: expected website root at: ${ROOT_DIR}"
