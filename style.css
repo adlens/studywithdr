@@ -386,6 +386,25 @@ h1 {
 }
 
 /* Student projects */
+.resource-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.resource-card:hover .resource-card-link {
+    text-decoration: underline;
+}
+
+.resource-card-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 0.9375rem;
+}
+
 .student-projects .section-title {
     margin-bottom: 28px;
 }

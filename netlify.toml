@@ -6,6 +6,11 @@
 # (removes any default SPA-style redirect)
 
 [[redirects]]
+  from = "/resources"
+  to = "/resources/"
+  status = 301
+
+[[redirects]]
   from = "/games/memory-match/dist/*"
   to = "/games/memory-match/:splat"
   status = 301
