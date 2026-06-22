@@ -1,0 +1,34 @@
+{
+  "categories": [
+    {
+      "name": "GCSE Maths",
+      "slug": "gcse-maths",
+      "items": []
+    },
+    {
+      "name": "A-Level Maths",
+      "slug": "a-level-maths",
+      "items": []
+    },
+    {
+      "name": "A-Level Physics",
+      "slug": "a-level-physics",
+      "items": []
+    },
+    {
+      "name": "A-Level Chemistry",
+      "slug": "a-level-chemistry",
+      "items": []
+    },
+    {
+      "name": "Chemistry",
+      "slug": "chemistry",
+      "items": []
+    },
+    {
+      "name": "University",
+      "slug": "university",
+      "items": []
+    }
+  ]
+}

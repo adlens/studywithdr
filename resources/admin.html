@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Study with Dr | Upload Resources</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="admin-header">
+            <p class="brand">Study with Dr</p>
+            <h1 class="admin-title">Upload Resources</h1>
+            <p class="admin-subtitle">Sign in to add or remove revision PDFs.</p>
+        </header>
+    </div>
+
+    <div class="section admin-section">
+        <div class="container admin-container">
+            <div id="admin-setup" class="admin-panel admin-message" hidden>
+                <p><strong>Setup required.</strong> Copy <code>config.example.js</code> to <code>config.js</code>, add your Supabase URL and anon key, then run <code>supabase/setup.sql</code> in your Supabase project.</p>
+            </div>
+
+            <div id="admin-login" class="admin-panel">
+                <h2>Sign in</h2>
+                <form id="login-form" class="admin-form">
+                    <label class="admin-label" for="login-email">Email</label>
+                    <input class="admin-input" type="email" id="login-email" required autocomplete="username">
+
+                    <label class="admin-label" for="login-password">Password</label>
+                    <input class="admin-input" type="password" id="login-password" required autocomplete="current-password">
+
+                    <button type="submit" class="btn btn-primary admin-submit">Sign in</button>
+                    <p id="login-error" class="admin-error" hidden></p>
+                </form>
+            </div>
+
+            <div id="admin-dashboard" class="admin-panel" hidden>
+                <div class="admin-toolbar">
+                    <p class="admin-signed-in">Signed in as <span id="admin-email"></span></p>
+                    <button type="button" id="logout-btn" class="btn btn-secondary">Sign out</button>
+                </div>
+
+                <h2>Upload a PDF</h2>
+                <form id="upload-form" class="admin-form">
+                    <label class="admin-label" for="upload-category">Category</label>
+                    <select class="admin-input" id="upload-category" required></select>
+
+                    <label class="admin-label" for="upload-title">Title</label>
+                    <input class="admin-input" type="text" id="upload-title" required placeholder="e.g. Quadratic equations revision">
+
+                    <label class="admin-label" for="upload-description">Description <span class="admin-optional">(optional)</span></label>
+                    <input class="admin-input" type="text" id="upload-description" placeholder="e.g. AQA topic review">
+
+                    <label class="admin-label" for="upload-file">PDF file</label>
+                    <input class="admin-input admin-file" type="file" id="upload-file" accept="application/pdf,.pdf" required>
+
+                    <button type="submit" class="btn btn-primary admin-submit" id="upload-btn">Upload</button>
+                    <p id="upload-status" class="admin-status" hidden></p>
+                </form>
+
+                <h2 class="admin-list-title">Uploaded PDFs</h2>
+                <div id="admin-list" class="admin-list">
+                    <p class="pdf-empty">Loading…</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p><a href="./">← Back to Resources</a></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./config.js"></script>
+    <script src="./supabase-client.js?v=2"></script>
+    <script src="./admin.js"></script>
+</body>
+</html>
