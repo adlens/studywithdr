@@ -72,22 +72,20 @@
         if (result.error) throw result.error;
 
         var topics = result.data || [];
-        if (!topics.length) {
-          var empty = document.createElement('option');
-          empty.value = '';
-          empty.textContent = 'No topics yet — create one below';
-          empty.disabled = true;
-          empty.selected = true;
-          topicSelect.appendChild(empty);
-        } else {
-          topics.forEach(function (topic) {
+
+        var none = document.createElement('option');
+        none.value = '';
+        none.textContent = 'No topic';
+        none.selected = true;
+        topicSelect.appendChild(none);
+
+        topics.forEach(function (topic) {
             var option = document.createElement('option');
             option.value = topic.topic_slug;
             option.textContent = topic.topic_name;
             option.dataset.name = topic.topic_name;
             topicSelect.appendChild(option);
           });
-        }
 
         var createNew = document.createElement('option');
         createNew.value = '__new__';
@@ -131,7 +129,7 @@
     }
 
     topicWrap.hidden = false;
-    topicSelect.required = true;
+    topicSelect.required = false;
     topicNewWrap.hidden = true;
     topicNewInput.required = false;
     showTopicStatus('', false);
@@ -219,6 +217,10 @@
   }
 
   function resolveTopic() {
+    if (!topicSelect.value) {
+      return Promise.resolve({ slug: null, name: null });
+    }
+
     if (topicSelect.value === '__new__') {
       var newName = topicNewInput.value.trim();
       if (!newName) {
@@ -353,13 +355,13 @@
 
     resolveTopic()
       .then(function (topic) {
-        if (!boards.length) {
-          return { topicSlug: null, topicName: null };
+        var topicSlug = null;
+        var topicName = null;
+        if (boards.length && topic && topic.slug) {
+          topicSlug = topic.slug;
+          topicName = topic.name;
         }
-        if (!topic || !topic.slug) {
-          throw new Error('Please select or create a topic.');
-        }
-        return { topicSlug: topic.slug, topicName: topic.name };
+        return { topicSlug: topicSlug, topicName: topicName };
       })
       .then(function (topicInfo) {
         var filePath = category.slug + '/';

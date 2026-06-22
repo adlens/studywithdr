@@ -105,8 +105,8 @@ window.StudyWithDr.renderTopicGroups = function (boardItems, topicDefs, esc, get
   boardItems.forEach(function (item) {
     var key = item.topic_slug || '__general__';
     if (!topicMap[key]) {
-      topicMap[key] = { name: item.topic_name || 'General', items: [] };
-      order.push(key);
+      topicMap[key] = { name: item.topic_name || 'General resources', items: [] };
+      if (order.indexOf(key) === -1) order.push(key);
     }
     topicMap[key].items.push(item);
   });
