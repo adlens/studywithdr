@@ -28,6 +28,17 @@
     <div class="section">
         <div class="container">
             <h2 class="section-title">Revision Notes</h2>
+            <form class="resource-search" action="./" method="get" role="search">
+                <label class="visually-hidden" for="resource-search">Search resources</label>
+                <input
+                    class="resource-search-input"
+                    type="search"
+                    id="resource-search"
+                    name="q"
+                    placeholder="Search by title, topic, subject or exam board…"
+                    autocomplete="off"
+                >
+            </form>
             <div id="pdf-resources" class="pdf-resources" aria-live="polite">
                 <p class="pdf-empty">Loading resources…</p>
             </div>
@@ -57,7 +68,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="./config.js"></script>
-    <script src="./supabase-client.js?v=2"></script>
+    <script src="./supabase-client.js?v=3"></script>
     <script src="../script.js"></script>
     <script src="./resources-pdfs.js"></script>
 </body>

@@ -1,6 +1,27 @@
 (function () {
   var container = document.getElementById('pdf-resources');
+  var searchInput = document.getElementById('resource-search');
   if (!container) return;
+
+  var allRows = [];
+
+  function getQueryFromUrl() {
+    return new URLSearchParams(window.location.search).get('q') || '';
+  }
+
+  function setQueryInUrl(query) {
+    var url = new URL(window.location.href);
+    if (query) {
+      url.searchParams.set('q', query);
+    } else {
+      url.searchParams.delete('q');
+    }
+    window.history.replaceState({}, '', url);
+  }
+
+  function render(query) {
+    window.StudyWithDr.renderPdfList(container, allRows, { query: query });
+  }
 
   function loadFromJson() {
     return fetch('./pdfs.json')
@@ -14,6 +35,8 @@
               category_name: cat.name,
               title: item.title,
               description: item.description || '',
+              exam_board: item.exam_board || null,
+              exam_board_name: item.exam_board_name || null,
               file_path: cat.slug + '/' + item.file,
               _local: true,
               _file: item.file
@@ -32,6 +55,7 @@
       .from('pdf_resources')
       .select('*')
       .order('category_name')
+      .order('exam_board_name')
       .order('created_at', { ascending: false })
       .then(function (result) {
         if (result.error) throw result.error;
@@ -39,54 +63,30 @@
       });
   }
 
-  function renderMerged(supabaseRows, jsonRows) {
-    if (supabaseRows.length) {
-      window.StudyWithDr.renderPdfList(container, supabaseRows);
-      return;
-    }
-
-    if (jsonRows.length) {
-      var grouped = {};
-      jsonRows.forEach(function (row) {
-        if (!grouped[row.category_slug]) {
-          grouped[row.category_slug] = { name: row.category_name, items: [] };
-        }
-        grouped[row.category_slug].items.push(row);
-      });
-
-      var order = window.StudyWithDr.CATEGORIES.map(function (c) { return c.slug; });
-      container.innerHTML = order
-        .filter(function (slug) { return grouped[slug]; })
-        .map(function (slug) {
-          var cat = grouped[slug];
-          var items = cat.items.map(function (item) {
-            var href = './files/' + item.category_slug + '/' + encodeURIComponent(item._file);
-            var desc = item.description ? '<span class="pdf-desc">' + item.description + '</span>' : '';
-            return '<li><a class="pdf-link" href="' + href + '" target="_blank" rel="noopener">' + item.title + '</a>' + desc + '</li>';
-          }).join('');
-          return (
-            '<section class="pdf-category">' +
-              '<h2 class="pdf-category-title">' + cat.name + '</h2>' +
-              '<ul class="pdf-list">' + items + '</ul>' +
-            '</section>'
-          );
-        })
-        .join('');
-
-      if (!container.innerHTML) {
-        container.innerHTML = '<p class="pdf-empty">Revision PDFs will appear here soon. Check back after your next lesson.</p>';
-      }
-      return;
-    }
-
-    container.innerHTML = '<p class="pdf-empty">Revision PDFs will appear here soon. Check back after your next lesson.</p>';
-  }
-
   Promise.all([loadFromSupabase(), loadFromJson()])
     .then(function (results) {
-      renderMerged(results[0], results[1]);
+      allRows = results[0].length ? results[0] : results[1];
+      window.StudyWithDr._allPdfRows = allRows;
+
+      var initialQuery = getQueryFromUrl();
+      if (searchInput) {
+        searchInput.value = initialQuery;
+      }
+      render(initialQuery);
     })
     .catch(function () {
       container.innerHTML = '<p class="pdf-empty">Unable to load resources right now. Please try again later.</p>';
     });
+
+  if (searchInput) {
+    var searchTimer;
+    searchInput.addEventListener('input', function () {
+      clearTimeout(searchTimer);
+      var query = searchInput.value.trim();
+      searchTimer = setTimeout(function () {
+        setQueryInUrl(query);
+        render(query);
+      }, 200);
+    });
+  }
 })();

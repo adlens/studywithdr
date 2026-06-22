@@ -6,6 +6,8 @@
   var uploadForm = document.getElementById('upload-form');
   var logoutBtn = document.getElementById('logout-btn');
   var categorySelect = document.getElementById('upload-category');
+  var examBoardWrap = document.getElementById('exam-board-wrap');
+  var examBoardSelect = document.getElementById('upload-exam-board');
   var adminList = document.getElementById('admin-list');
   var adminEmail = document.getElementById('admin-email');
   var loginError = document.getElementById('login-error');
@@ -27,6 +29,31 @@
     option.dataset.name = cat.name;
     categorySelect.appendChild(option);
   });
+
+  function updateExamBoardField() {
+    var boards = window.StudyWithDr.getExamBoards(categorySelect.value);
+    examBoardSelect.innerHTML = '';
+
+    if (!boards.length) {
+      examBoardWrap.hidden = true;
+      examBoardSelect.required = false;
+      return;
+    }
+
+    examBoardWrap.hidden = false;
+    examBoardSelect.required = true;
+
+    boards.forEach(function (board) {
+      var option = document.createElement('option');
+      option.value = board.slug;
+      option.textContent = board.name;
+      option.dataset.name = board.name;
+      examBoardSelect.appendChild(option);
+    });
+  }
+
+  categorySelect.addEventListener('change', updateExamBoardField);
+  updateExamBoardField();
 
   function showError(el, message) {
     el.textContent = message;
@@ -70,11 +97,12 @@
         }
 
         adminList.innerHTML = rows.map(function (row) {
+          var boardLabel = row.exam_board_name ? ' · ' + row.exam_board_name : '';
           return (
             '<div class="admin-item">' +
               '<div class="admin-item-info">' +
                 '<strong>' + row.title + '</strong>' +
-                '<span>' + row.category_name + '</span>' +
+                '<span>' + row.category_name + boardLabel + '</span>' +
                 (row.description ? '<span class="admin-item-desc">' + row.description + '</span>' : '') +
               '</div>' +
               '<button type="button" class="btn btn-secondary admin-delete" data-id="' + row.id + '" data-path="' + row.file_path + '">Delete</button>' +
@@ -148,6 +176,15 @@
 
     var categorySlug = categorySelect.value;
     var categoryName = categorySelect.options[categorySelect.selectedIndex].dataset.name;
+    var boards = window.StudyWithDr.getExamBoards(categorySlug);
+    var examBoardSlug = null;
+    var examBoardName = null;
+
+    if (boards.length) {
+      examBoardSlug = examBoardSelect.value;
+      examBoardName = examBoardSelect.options[examBoardSelect.selectedIndex].dataset.name;
+    }
+
     var title = document.getElementById('upload-title').value.trim();
     var description = document.getElementById('upload-description').value.trim();
     var fileInput = document.getElementById('upload-file');
@@ -161,7 +198,11 @@
       return;
     }
 
-    var filePath = categorySlug + '/' + Date.now() + '-' + sanitizeFileName(file.name);
+    var filePath = categorySlug + '/';
+    if (examBoardSlug) {
+      filePath += examBoardSlug + '/';
+    }
+    filePath += Date.now() + '-' + sanitizeFileName(file.name);
 
     client.storage.from('pdf-resources').upload(filePath, file, { upsert: false })
       .then(function (uploadResult) {
@@ -170,6 +211,8 @@
         return client.from('pdf_resources').insert({
           category_slug: categorySlug,
           category_name: categoryName,
+          exam_board: examBoardSlug,
+          exam_board_name: examBoardName,
           title: title,
           description: description || null,
           file_path: filePath
@@ -179,6 +222,7 @@
         if (insertResult.error) throw insertResult.error;
 
         uploadForm.reset();
+        updateExamBoardField();
         uploadStatus.textContent = 'Uploaded successfully.';
         uploadStatus.className = 'admin-status admin-status-success';
         uploadStatus.hidden = false;

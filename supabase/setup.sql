@@ -7,6 +7,8 @@ create table if not exists public.pdf_resources (
   category_name text not null,
   title text not null,
   description text,
+  exam_board text,
+  exam_board_name text,
   file_path text not null,
   created_at timestamptz not null default now()
 );

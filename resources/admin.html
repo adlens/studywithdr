@@ -47,6 +47,11 @@
                     <label class="admin-label" for="upload-category">Category</label>
                     <select class="admin-input" id="upload-category" required></select>
 
+                    <div id="exam-board-wrap" hidden>
+                        <label class="admin-label" for="upload-exam-board">Exam board</label>
+                        <select class="admin-input" id="upload-exam-board"></select>
+                    </div>
+
                     <label class="admin-label" for="upload-title">Title</label>
                     <input class="admin-input" type="text" id="upload-title" required placeholder="e.g. Quadratic equations revision">
 
@@ -76,7 +81,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="./config.js"></script>
-    <script src="./supabase-client.js?v=2"></script>
+    <script src="./supabase-client.js?v=3"></script>
     <script src="./admin.js"></script>
 </body>
 </html>
