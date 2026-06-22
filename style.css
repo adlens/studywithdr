@@ -1169,7 +1169,11 @@ footer {
         margin-top: 40px;
     }
 
-  .admin-toolbar {
+    .topic-create-row {
+        flex-direction: column;
+    }
+
+    .admin-toolbar {
         flex-direction: column;
         align-items: stretch;
     }

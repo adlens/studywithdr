@@ -4,6 +4,7 @@
   if (!container) return;
 
   var allRows = [];
+  var allTopics = [];
 
   function getQueryFromUrl() {
     return new URLSearchParams(window.location.search).get('q') || '';
@@ -20,7 +21,7 @@
   }
 
   function render(query) {
-    window.StudyWithDr.renderPdfList(container, allRows, { query: query });
+    window.StudyWithDr.renderPdfList(container, allRows, { query: query, topics: allTopics });
   }
 
   function loadFromJson() {
@@ -37,6 +38,8 @@
               description: item.description || '',
               exam_board: item.exam_board || null,
               exam_board_name: item.exam_board_name || null,
+              topic_slug: item.topic_slug || null,
+              topic_name: item.topic_name || null,
               file_path: cat.slug + '/' + item.file,
               _local: true,
               _file: item.file
@@ -49,24 +52,36 @@
 
   function loadFromSupabase() {
     var client = window.StudyWithDr.getSupabase();
-    if (!client) return Promise.resolve([]);
+    if (!client) return Promise.resolve({ rows: [], topics: [] });
 
-    return client
-      .from('pdf_resources')
-      .select('*')
-      .order('category_name')
-      .order('exam_board_name')
-      .order('created_at', { ascending: false })
-      .then(function (result) {
-        if (result.error) throw result.error;
-        return result.data || [];
-      });
+    return Promise.all([
+      client.from('pdf_resources').select('*').order('category_name').order('exam_board_name').order('topic_name').order('created_at', { ascending: false }),
+      client.from('resource_topics').select('*').order('topic_name')
+    ]).then(function (results) {
+      if (results[0].error) throw results[0].error;
+      if (results[1].error) throw results[1].error;
+      return {
+        rows: results[0].data || [],
+        topics: results[1].data || []
+      };
+    });
   }
 
   Promise.all([loadFromSupabase(), loadFromJson()])
     .then(function (results) {
-      allRows = results[0].length ? results[0] : results[1];
+      var supabaseData = results[0];
+      var jsonRows = results[1];
+
+      if (supabaseData.rows.length) {
+        allRows = supabaseData.rows;
+        allTopics = supabaseData.topics;
+      } else {
+        allRows = jsonRows;
+        allTopics = [];
+      }
+
       window.StudyWithDr._allPdfRows = allRows;
+      window.StudyWithDr._allTopics = allTopics;
 
       var initialQuery = getQueryFromUrl();
       if (searchInput) {

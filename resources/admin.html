@@ -52,6 +52,22 @@
                         <select class="admin-input" id="upload-exam-board"></select>
                     </div>
 
+                    <div id="topic-wrap" hidden>
+                        <label class="admin-label" for="upload-topic">Topic</label>
+                        <select class="admin-input" id="upload-topic"></select>
+
+                        <div id="topic-new-wrap" class="topic-new-wrap" hidden>
+                            <label class="admin-label" for="upload-topic-new">New topic name</label>
+                            <input class="admin-input" type="text" id="upload-topic-new" placeholder="e.g. Energetics, Organic chemistry">
+                        </div>
+
+                        <div class="topic-create-row">
+                            <input class="admin-input" type="text" id="create-topic-name" placeholder="Create a topic folder (e.g. Bonding)">
+                            <button type="button" class="btn btn-secondary" id="create-topic-btn">Create topic</button>
+                        </div>
+                        <p id="topic-status" class="admin-status" hidden></p>
+                    </div>
+
                     <label class="admin-label" for="upload-title">Title</label>
                     <input class="admin-input" type="text" id="upload-title" required placeholder="e.g. Quadratic equations revision">
 
@@ -81,7 +97,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="./config.js"></script>
-    <script src="./supabase-client.js?v=3"></script>
+    <script src="./supabase-client.js?v=4"></script>
     <script src="./admin.js"></script>
 </body>
 </html>

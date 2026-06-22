@@ -19,6 +19,15 @@ window.StudyWithDr.getExamBoards = function (categorySlug) {
   return window.StudyWithDr.EXAM_BOARDS[categorySlug] || [];
 };
 
+window.StudyWithDr.slugify = function (text) {
+  return String(text || '')
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+};
+
 window.StudyWithDr.escapeHtml = function (text) {
   return String(text || '')
     .replace(/&/g, '&amp;')
@@ -32,7 +41,8 @@ window.StudyWithDr.getSearchText = function (row) {
     row.title,
     row.description,
     row.category_name,
-    row.exam_board_name
+    row.exam_board_name,
+    row.topic_name
   ].filter(Boolean).join(' ').toLowerCase();
 };
 
@@ -57,22 +67,79 @@ window.StudyWithDr.getPdfUrl = function (filePath) {
 window.StudyWithDr.renderPdfItem = function (item, href) {
   var esc = window.StudyWithDr.escapeHtml;
   var desc = item.description ? '<span class="pdf-desc">' + esc(item.description) + '</span>' : '';
-  var board = item.exam_board_name ? '<span class="pdf-board-tag">' + esc(item.exam_board_name) + '</span>' : '';
+  var meta = [];
+  if (item.exam_board_name) meta.push(item.exam_board_name);
+  if (item.topic_name) meta.push(item.topic_name);
+  var tags = meta.length
+    ? '<span class="pdf-board-tag">' + esc(meta.join(' · ')) + '</span>'
+    : '';
   var searchText = esc(window.StudyWithDr.getSearchText(item));
 
   return (
     '<li data-search-text="' + searchText + '">' +
       '<a class="pdf-link" href="' + href + '" target="_blank" rel="noopener">' +
-        esc(item.title) + board +
+        esc(item.title) + tags +
       '</a>' +
       desc +
     '</li>'
   );
 };
 
+window.StudyWithDr.getTopicsForBoard = function (topics, categorySlug, examBoardSlug) {
+  return (topics || []).filter(function (topic) {
+    return topic.category_slug === categorySlug && topic.exam_board === examBoardSlug;
+  }).sort(function (a, b) {
+    return a.topic_name.localeCompare(b.topic_name);
+  });
+};
+
+window.StudyWithDr.renderTopicGroups = function (boardItems, topicDefs, esc, getHref) {
+  var topicMap = {};
+  var order = [];
+
+  topicDefs.forEach(function (topic) {
+    topicMap[topic.topic_slug] = { name: topic.topic_name, items: [] };
+    order.push(topic.topic_slug);
+  });
+
+  boardItems.forEach(function (item) {
+    var key = item.topic_slug || '__general__';
+    if (!topicMap[key]) {
+      topicMap[key] = { name: item.topic_name || 'General', items: [] };
+      order.push(key);
+    }
+    topicMap[key].items.push(item);
+  });
+
+  return order.map(function (slug) {
+    var group = topicMap[slug];
+    if (!group.items.length && slug !== '__general__' && topicDefs.some(function (t) { return t.topic_slug === slug; })) {
+      return (
+        '<div class="pdf-topic-group">' +
+          '<h4 class="pdf-topic-title">' + esc(group.name) + '</h4>' +
+          '<p class="pdf-topic-empty">Resources coming soon.</p>' +
+        '</div>'
+      );
+    }
+    if (!group.items.length) return '';
+
+    var itemsHtml = group.items.map(function (item) {
+      return window.StudyWithDr.renderPdfItem(item, getHref(item));
+    }).join('');
+
+    return (
+      '<div class="pdf-topic-group">' +
+        '<h4 class="pdf-topic-title">' + esc(group.name) + '</h4>' +
+        '<ul class="pdf-list">' + itemsHtml + '</ul>' +
+      '</div>'
+    );
+  }).join('');
+};
+
 window.StudyWithDr.renderPdfList = function (container, rows, options) {
   options = options || {};
   var query = (options.query || '').trim().toLowerCase();
+  var topics = options.topics || [];
   var filtered = rows;
 
   if (query) {
@@ -81,7 +148,7 @@ window.StudyWithDr.renderPdfList = function (container, rows, options) {
     });
   }
 
-  if (!filtered.length) {
+  if (!filtered.length && !topics.length) {
     container.innerHTML = query
       ? '<p class="pdf-empty">No resources matched your search. Try a different keyword.</p>'
       : '<p class="pdf-empty">Revision PDFs will appear here soon. Check back after your next lesson.</p>';
@@ -116,14 +183,18 @@ window.StudyWithDr.renderPdfList = function (container, rows, options) {
   var order = window.StudyWithDr.CATEGORIES.map(function (c) { return c.slug; });
   var esc = window.StudyWithDr.escapeHtml;
 
-  container.innerHTML = order
-    .filter(function (slug) { return byCategory[slug]; })
+  var html = order
+    .filter(function (slug) {
+      return byCategory[slug] || topics.some(function (t) { return t.category_slug === slug; });
+    })
     .map(function (slug) {
-      var cat = byCategory[slug];
+      var cat = byCategory[slug] || { name: '', items: [] };
+      var catName = cat.name || (topics.find(function (t) { return t.category_slug === slug; }) || {}).category_name;
       var boards = window.StudyWithDr.getExamBoards(slug);
       var hasBoards = boards.length > 0;
 
       if (!hasBoards) {
+        if (!cat.items.length) return '';
         var flatItems = cat.items.map(function (item) {
           var href = item._local
             ? './files/' + item.category_slug + '/' + encodeURIComponent(item._file)
@@ -133,7 +204,7 @@ window.StudyWithDr.renderPdfList = function (container, rows, options) {
 
         return (
           '<section class="pdf-category">' +
-            '<h2 class="pdf-category-title">' + esc(cat.name) + '</h2>' +
+            '<h2 class="pdf-category-title">' + esc(catName) + '</h2>' +
             '<ul class="pdf-list">' + flatItems + '</ul>' +
           '</section>'
         );
@@ -143,45 +214,31 @@ window.StudyWithDr.renderPdfList = function (container, rows, options) {
         var boardItems = cat.items.filter(function (item) {
           return item.exam_board === board.slug;
         });
+        var boardTopics = window.StudyWithDr.getTopicsForBoard(topics, slug, board.slug);
 
-        if (!boardItems.length) return '';
+        if (!boardItems.length && !boardTopics.length) return '';
 
-        var itemsHtml = boardItems.map(function (item) {
-          var href = window.StudyWithDr.getPdfUrl(item.file_path);
-          return window.StudyWithDr.renderPdfItem(item, href);
-        }).join('');
+        var topicHtml = window.StudyWithDr.renderTopicGroups(
+          boardItems,
+          boardTopics,
+          esc,
+          function (item) { return window.StudyWithDr.getPdfUrl(item.file_path); }
+        );
 
         return (
           '<div class="pdf-board-group">' +
             '<h3 class="pdf-board-title">' + esc(board.name) + '</h3>' +
-            '<ul class="pdf-list">' + itemsHtml + '</ul>' +
+            topicHtml +
           '</div>'
         );
       }).join('');
 
-      var ungrouped = cat.items.filter(function (item) {
-        return !item.exam_board;
-      });
-
-      if (ungrouped.length) {
-        boardSections += (
-          '<div class="pdf-board-group">' +
-            '<h3 class="pdf-board-title">General</h3>' +
-            '<ul class="pdf-list">' +
-              ungrouped.map(function (item) {
-                return window.StudyWithDr.renderPdfItem(item, window.StudyWithDr.getPdfUrl(item.file_path));
-              }).join('') +
-            '</ul>' +
-          '</div>'
-        );
-      }
-
-      return (
-        '<section class="pdf-category">' +
-          '<h2 class="pdf-category-title">' + esc(cat.name) + '</h2>' +
-          boardSections +
-        '</section>'
-      );
+      return boardSections
+        ? '<section class="pdf-category"><h2 class="pdf-category-title">' + esc(catName) + '</h2>' + boardSections + '</section>'
+        : '';
     })
+    .filter(Boolean)
     .join('');
+
+  container.innerHTML = html || '<p class="pdf-empty">Revision PDFs will appear here soon. Check back after your next lesson.</p>';
 };
