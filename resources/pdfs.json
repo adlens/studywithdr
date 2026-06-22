@@ -6,6 +6,11 @@
       "items": []
     },
     {
+      "name": "GCSE Chemistry",
+      "slug": "chemistry",
+      "items": []
+    },
+    {
       "name": "A-Level Maths",
       "slug": "a-level-maths",
       "items": []
@@ -21,13 +26,13 @@
       "items": []
     },
     {
-      "name": "Chemistry",
-      "slug": "chemistry",
+      "name": "University",
+      "slug": "university",
       "items": []
     },
     {
-      "name": "University",
-      "slug": "university",
+      "name": "General Maths Drills",
+      "slug": "general-maths-drills",
       "items": []
     }
   ]

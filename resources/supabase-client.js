@@ -1,13 +1,32 @@
 window.StudyWithDr = window.StudyWithDr || {};
 
 window.StudyWithDr.CATEGORIES = [
-  { slug: 'gcse-maths', name: 'GCSE Maths' },
-  { slug: 'a-level-maths', name: 'A-Level Maths' },
-  { slug: 'a-level-physics', name: 'A-Level Physics' },
-  { slug: 'a-level-chemistry', name: 'A-Level Chemistry' },
-  { slug: 'chemistry', name: 'Chemistry' },
-  { slug: 'university', name: 'University' }
+  { slug: 'gcse-maths', name: 'GCSE Maths', level: 'gcse' },
+  { slug: 'chemistry', name: 'GCSE Chemistry', level: 'gcse' },
+  { slug: 'a-level-maths', name: 'A-Level Maths', level: 'a-level' },
+  { slug: 'a-level-physics', name: 'A-Level Physics', level: 'a-level' },
+  { slug: 'a-level-chemistry', name: 'A-Level Chemistry', level: 'a-level' },
+  { slug: 'university', name: 'University', level: 'university' },
+  { slug: 'general-maths-drills', name: 'General Maths Drills', level: 'drills' }
 ];
+
+window.StudyWithDr.RESOURCE_LEVELS = [
+  { id: 'gcse', label: 'GCSE' },
+  { id: 'a-level', label: 'A-Level' },
+  { id: 'university', label: 'University' },
+  { id: 'drills', label: 'General Maths Drills' }
+];
+
+window.StudyWithDr.getLevelForCategory = function (categorySlug) {
+  var cat = window.StudyWithDr.CATEGORIES.find(function (c) { return c.slug === categorySlug; });
+  return cat ? cat.level : null;
+};
+
+window.StudyWithDr.getCategoriesForLevel = function (levelId) {
+  return window.StudyWithDr.CATEGORIES
+    .filter(function (c) { return c.level === levelId; })
+    .map(function (c) { return c.slug; });
+};
 
 window.StudyWithDr.EXAM_BOARDS = {
   'a-level-chemistry': [
@@ -140,18 +159,31 @@ window.StudyWithDr.renderPdfList = function (container, rows, options) {
   options = options || {};
   var query = (options.query || '').trim().toLowerCase();
   var topics = options.topics || [];
+  var level = options.level || '';
+  var levelDef = window.StudyWithDr.RESOURCE_LEVELS.find(function (l) { return l.id === level; });
   var filtered = rows;
 
   if (query) {
     filtered = rows.filter(function (row) {
       return window.StudyWithDr.getSearchText(row).indexOf(query) !== -1;
     });
+  } else if (levelDef) {
+    var levelCategories = window.StudyWithDr.getCategoriesForLevel(level);
+    filtered = rows.filter(function (row) {
+      return levelCategories.indexOf(row.category_slug) !== -1;
+    });
+    topics = topics.filter(function (topic) {
+      return levelCategories.indexOf(topic.category_slug) !== -1;
+    });
   }
 
   if (!filtered.length && !topics.length) {
-    container.innerHTML = query
-      ? '<p class="pdf-empty">No resources matched your search. Try a different keyword.</p>'
-      : '<p class="pdf-empty">Revision PDFs will appear here soon. Check back after your next lesson.</p>';
+    var emptyMsg = query
+      ? 'No resources matched your search. Try a different keyword.'
+      : levelDef
+        ? 'No ' + levelDef.label + ' resources yet. Check back soon.'
+        : 'Revision PDFs will appear here soon. Check back after your next lesson.';
+    container.innerHTML = '<p class="pdf-empty">' + emptyMsg + '</p>';
     return;
   }
 
@@ -180,7 +212,9 @@ window.StudyWithDr.renderPdfList = function (container, rows, options) {
     byCategory[row.category_slug].items.push(row);
   });
 
-  var order = window.StudyWithDr.CATEGORIES.map(function (c) { return c.slug; });
+  var order = levelDef
+    ? window.StudyWithDr.getCategoriesForLevel(level)
+    : window.StudyWithDr.CATEGORIES.map(function (c) { return c.slug; });
   var esc = window.StudyWithDr.escapeHtml;
 
   var html = order

@@ -28,6 +28,12 @@
     <div class="section">
         <div class="container">
             <h2 class="section-title">Revision Notes</h2>
+            <div class="resource-level-tabs" role="tablist" aria-label="Resource level">
+                <button type="button" class="level-tab active" data-level="gcse" role="tab" aria-selected="true">GCSE</button>
+                <button type="button" class="level-tab" data-level="a-level" role="tab" aria-selected="false">A-Level</button>
+                <button type="button" class="level-tab" data-level="university" role="tab" aria-selected="false">University</button>
+                <button type="button" class="level-tab" data-level="drills" role="tab" aria-selected="false">General Maths Drills</button>
+            </div>
             <form class="resource-search" action="./" method="get" role="search">
                 <label class="visually-hidden" for="resource-search">Search resources</label>
                 <input
@@ -68,7 +74,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="./config.js"></script>
-    <script src="./supabase-client.js?v=5"></script>
+    <script src="./supabase-client.js?v=6"></script>
     <script src="../script.js"></script>
     <script src="./resources-pdfs.js"></script>
 </body>

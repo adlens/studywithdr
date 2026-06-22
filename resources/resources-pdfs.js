@@ -1,27 +1,57 @@
 (function () {
   var container = document.getElementById('pdf-resources');
   var searchInput = document.getElementById('resource-search');
+  var levelTabs = document.querySelectorAll('.level-tab');
   if (!container) return;
 
   var allRows = [];
   var allTopics = [];
+  var currentLevel = 'gcse';
 
   function getQueryFromUrl() {
     return new URLSearchParams(window.location.search).get('q') || '';
   }
 
-  function setQueryInUrl(query) {
+  function getLevelFromUrl() {
+    var level = new URLSearchParams(window.location.search).get('level') || 'gcse';
+    return window.StudyWithDr.RESOURCE_LEVELS.some(function (l) { return l.id === level; }) ? level : 'gcse';
+  }
+
+  function setUrlState(query, level) {
     var url = new URL(window.location.href);
     if (query) {
       url.searchParams.set('q', query);
     } else {
       url.searchParams.delete('q');
     }
+    if (level && !query) {
+      url.searchParams.set('level', level);
+    } else if (!query) {
+      url.searchParams.set('level', level);
+    }
     window.history.replaceState({}, '', url);
   }
 
+  function updateLevelTabs(level) {
+    levelTabs.forEach(function (tab) {
+      var isActive = tab.getAttribute('data-level') === level;
+      tab.classList.toggle('active', isActive);
+      tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+  }
+
   function render(query) {
-    window.StudyWithDr.renderPdfList(container, allRows, { query: query, topics: allTopics });
+    var searching = !!query;
+    levelTabs.forEach(function (tab) {
+      tab.disabled = searching;
+      tab.style.opacity = searching ? '0.45' : '';
+    });
+
+    window.StudyWithDr.renderPdfList(container, allRows, {
+      query: query,
+      topics: allTopics,
+      level: searching ? '' : currentLevel
+    });
   }
 
   function loadFromJson() {
@@ -83,7 +113,10 @@
       window.StudyWithDr._allPdfRows = allRows;
       window.StudyWithDr._allTopics = allTopics;
 
+      currentLevel = getLevelFromUrl();
       var initialQuery = getQueryFromUrl();
+
+      updateLevelTabs(currentLevel);
       if (searchInput) {
         searchInput.value = initialQuery;
       }
@@ -93,13 +126,25 @@
       container.innerHTML = '<p class="pdf-empty">Unable to load resources right now. Please try again later.</p>';
     });
 
+  levelTabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      if (searchInput && searchInput.value.trim()) {
+        searchInput.value = '';
+      }
+      currentLevel = tab.getAttribute('data-level');
+      updateLevelTabs(currentLevel);
+      setUrlState('', currentLevel);
+      render('');
+    });
+  });
+
   if (searchInput) {
     var searchTimer;
     searchInput.addEventListener('input', function () {
       clearTimeout(searchTimer);
       var query = searchInput.value.trim();
       searchTimer = setTimeout(function () {
-        setQueryInUrl(query);
+        setUrlState(query, currentLevel);
         render(query);
       }, 200);
     });
