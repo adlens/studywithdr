@@ -34,6 +34,27 @@ window.StudyWithDr.EXAM_BOARDS = {
   ]
 };
 
+window.StudyWithDr.CATEGORIES_WITH_COURSES = ['university'];
+
+window.StudyWithDr.CATEGORIES_WITH_TOPICS = [
+  'gcse-maths',
+  'chemistry',
+  'a-level-maths',
+  'a-level-physics'
+];
+
+window.StudyWithDr.hasCourses = function (categorySlug) {
+  return window.StudyWithDr.CATEGORIES_WITH_COURSES.indexOf(categorySlug) !== -1;
+};
+
+window.StudyWithDr.hasTopics = function (categorySlug) {
+  return window.StudyWithDr.CATEGORIES_WITH_TOPICS.indexOf(categorySlug) !== -1;
+};
+
+window.StudyWithDr.hasDirectFolders = function (categorySlug) {
+  return window.StudyWithDr.hasCourses(categorySlug) || window.StudyWithDr.hasTopics(categorySlug);
+};
+
 window.StudyWithDr.getExamBoards = function (categorySlug) {
   return window.StudyWithDr.EXAM_BOARDS[categorySlug] || [];
 };
@@ -155,6 +176,28 @@ window.StudyWithDr.renderTopicGroups = function (boardItems, topicDefs, esc, get
   }).join('');
 };
 
+window.StudyWithDr.renderCategoryWithDirectFolders = function (catName, slug, cat, topics, sectionTitle, esc) {
+  var folderDefs = window.StudyWithDr.getTopicsForBoard(topics, slug, '');
+  if (!cat.items.length && !folderDefs.length) return '';
+
+  var groupHtml = window.StudyWithDr.renderTopicGroups(
+    cat.items,
+    folderDefs,
+    esc,
+    function (item) { return window.StudyWithDr.getPdfUrl(item.file_path); }
+  );
+
+  return (
+    '<section class="pdf-category">' +
+      '<h2 class="pdf-category-title">' + esc(catName) + '</h2>' +
+      '<div class="pdf-board-group">' +
+        '<h3 class="pdf-board-title">' + esc(sectionTitle) + '</h3>' +
+        groupHtml +
+      '</div>' +
+    '</section>'
+  );
+};
+
 window.StudyWithDr.renderPdfList = function (container, rows, options) {
   options = options || {};
   var query = (options.query || '').trim().toLowerCase();
@@ -226,6 +269,16 @@ window.StudyWithDr.renderPdfList = function (container, rows, options) {
       var catName = cat.name || (topics.find(function (t) { return t.category_slug === slug; }) || {}).category_name;
       var boards = window.StudyWithDr.getExamBoards(slug);
       var hasBoards = boards.length > 0;
+      var hasCourses = window.StudyWithDr.hasCourses(slug);
+      var hasTopics = window.StudyWithDr.hasTopics(slug);
+
+      if (hasCourses) {
+        return window.StudyWithDr.renderCategoryWithDirectFolders(catName, slug, cat, topics, 'Courses', esc);
+      }
+
+      if (hasTopics && !hasBoards) {
+        return window.StudyWithDr.renderCategoryWithDirectFolders(catName, slug, cat, topics, 'Topics', esc);
+      }
 
       if (!hasBoards) {
         if (!cat.items.length) return '';

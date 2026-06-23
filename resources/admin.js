@@ -14,6 +14,8 @@
   var topicNewInput = document.getElementById('upload-topic-new');
   var createTopicName = document.getElementById('create-topic-name');
   var createTopicBtn = document.getElementById('create-topic-btn');
+  var folderLabel = document.getElementById('folder-label');
+  var folderNewLabel = document.getElementById('folder-new-label');
   var topicStatus = document.getElementById('topic-status');
   var adminList = document.getElementById('admin-list');
   var adminEmail = document.getElementById('admin-email');
@@ -57,16 +59,52 @@
     };
   }
 
+  function getFolderMode() {
+    var slug = categorySelect.value;
+    if (window.StudyWithDr.getExamBoards(slug).length) return 'exam-board';
+    if (window.StudyWithDr.hasCourses(slug)) return 'courses';
+    if (window.StudyWithDr.hasTopics(slug)) return 'topics';
+    return 'none';
+  }
+
+  function getFolderBoardKey() {
+    var mode = getFolderMode();
+    if (mode === 'exam-board') return getExamBoardContext().slug;
+    if (mode === 'courses' || mode === 'topics') return '';
+    return null;
+  }
+
+  function getFolderLabel() {
+    return getFolderMode() === 'courses' ? 'course' : 'topic';
+  }
+
+  function updateFolderLabels() {
+    var isCourse = getFolderMode() === 'courses';
+    var folder = isCourse ? 'Course' : 'Topic';
+    var folderLower = folder.toLowerCase();
+
+    folderLabel.innerHTML = folder + ' <span class="admin-optional">(optional)</span>';
+    folderNewLabel.textContent = 'New ' + folderLower + ' name';
+    topicNewInput.placeholder = isCourse
+      ? 'e.g. Linear Algebra, Thermodynamics'
+      : 'e.g. Energetics, Organic chemistry';
+    createTopicName.placeholder = isCourse
+      ? 'Create a course folder (e.g. Linear Algebra)'
+      : 'Create a topic folder (e.g. Bonding)';
+    createTopicBtn.textContent = 'Create ' + folderLower;
+  }
+
   function loadTopics() {
     var category = getCategoryContext();
-    var board = getExamBoardContext();
+    var boardKey = getFolderBoardKey();
+    var isCourse = getFolderMode() === 'courses';
     topicSelect.innerHTML = '';
 
     return client
       .from('resource_topics')
       .select('*')
       .eq('category_slug', category.slug)
-      .eq('exam_board', board.slug)
+      .eq('exam_board', boardKey)
       .order('topic_name')
       .then(function (result) {
         if (result.error) throw result.error;
@@ -75,7 +113,7 @@
 
         var none = document.createElement('option');
         none.value = '';
-        none.textContent = 'No topic';
+        none.textContent = isCourse ? 'No course' : 'No topic';
         none.selected = true;
         topicSelect.appendChild(none);
 
@@ -89,19 +127,29 @@
 
         var createNew = document.createElement('option');
         createNew.value = '__new__';
-        createNew.textContent = '+ Add new topic with this upload';
+        createNew.textContent = isCourse
+          ? '+ Add new course with this upload'
+          : '+ Add new topic with this upload';
         topicSelect.appendChild(createNew);
       });
   }
 
   function updateExamBoardField() {
     var boards = window.StudyWithDr.getExamBoards(categorySelect.value);
+    var hasDirectFolders = window.StudyWithDr.hasDirectFolders(categorySelect.value);
     examBoardSelect.innerHTML = '';
 
     if (!boards.length) {
       examBoardWrap.hidden = true;
-      topicWrap.hidden = true;
       examBoardSelect.required = false;
+
+      if (hasDirectFolders) {
+        updateFolderLabels();
+        updateTopicField();
+        return;
+      }
+
+      topicWrap.hidden = true;
       topicSelect.required = false;
       return;
     }
@@ -117,17 +165,19 @@
       examBoardSelect.appendChild(option);
     });
 
+    updateFolderLabels();
     updateTopicField();
   }
 
   function updateTopicField() {
-    var boards = window.StudyWithDr.getExamBoards(categorySelect.value);
-    if (!boards.length) {
+    var mode = getFolderMode();
+    if (mode === 'none') {
       topicWrap.hidden = true;
       topicSelect.required = false;
       return;
     }
 
+    updateFolderLabels();
     topicWrap.hidden = false;
     topicSelect.required = false;
     topicNewWrap.hidden = true;
@@ -135,7 +185,8 @@
     showTopicStatus('', false);
 
     loadTopics().catch(function () {
-      showTopicStatus('Could not load topics.', true);
+      var label = getFolderLabel();
+      showTopicStatus('Could not load ' + label + 's.', true);
     });
   }
 
@@ -151,18 +202,27 @@
 
   function createTopic(topicName) {
     var category = getCategoryContext();
-    var board = getExamBoardContext();
+    var mode = getFolderMode();
     var topicSlug = window.StudyWithDr.slugify(topicName);
+    var label = getFolderLabel();
 
     if (!topicSlug) {
-      return Promise.reject(new Error('Please enter a valid topic name.'));
+      return Promise.reject(new Error('Please enter a valid ' + label + ' name.'));
+    }
+
+    var examBoardSlug = '';
+    var examBoardName = '';
+    if (mode === 'exam-board') {
+      var board = getExamBoardContext();
+      examBoardSlug = board.slug;
+      examBoardName = board.name;
     }
 
     return client.from('resource_topics').insert({
       category_slug: category.slug,
       category_name: category.name,
-      exam_board: board.slug,
-      exam_board_name: board.name,
+      exam_board: examBoardSlug,
+      exam_board_name: examBoardName,
       topic_slug: topicSlug,
       topic_name: topicName.trim()
     }).then(function (result) {
@@ -173,8 +233,9 @@
 
   createTopicBtn.addEventListener('click', function () {
     var name = createTopicName.value.trim();
+    var label = getFolderLabel();
     if (!name) {
-      showTopicStatus('Enter a topic name first.', true);
+      showTopicStatus('Enter a ' + label + ' name first.', true);
       return;
     }
 
@@ -182,13 +243,13 @@
     createTopic(name)
       .then(function (topic) {
         createTopicName.value = '';
-        showTopicStatus('Topic "' + topic.name + '" created.');
+        showTopicStatus(label.charAt(0).toUpperCase() + label.slice(1) + ' "' + topic.name + '" created.');
         return loadTopics().then(function () {
           topicSelect.value = topic.slug;
         });
       })
       .catch(function (err) {
-        showTopicStatus(err.message || 'Could not create topic.', true);
+        showTopicStatus(err.message || 'Could not create ' + label + '.', true);
       })
       .finally(function () {
         createTopicBtn.disabled = false;
@@ -223,8 +284,9 @@
 
     if (topicSelect.value === '__new__') {
       var newName = topicNewInput.value.trim();
+      var label = getFolderLabel();
       if (!newName) {
-        return Promise.reject(new Error('Please enter a name for the new topic.'));
+        return Promise.reject(new Error('Please enter a name for the new ' + label + '.'));
       }
       return createTopic(newName);
     }
@@ -252,7 +314,14 @@
         }
 
         adminList.innerHTML = rows.map(function (row) {
-          var path = [row.category_name, row.exam_board_name, row.topic_name].filter(Boolean).join(' · ');
+          var pathParts = [row.category_name];
+          if (row.exam_board_name) {
+            pathParts.push(row.exam_board_name);
+          } else if (row.topic_name && window.StudyWithDr.hasDirectFolders(row.category_slug)) {
+            pathParts.push(window.StudyWithDr.hasCourses(row.category_slug) ? 'Courses' : 'Topics');
+          }
+          if (row.topic_name) pathParts.push(row.topic_name);
+          var path = pathParts.join(' · ');
           return (
             '<div class="admin-item">' +
               '<div class="admin-item-info">' +
@@ -330,11 +399,11 @@
     uploadBtn.textContent = 'Uploading…';
 
     var category = getCategoryContext();
-    var boards = window.StudyWithDr.getExamBoards(category.slug);
+    var mode = getFolderMode();
     var examBoardSlug = null;
     var examBoardName = null;
 
-    if (boards.length) {
+    if (mode === 'exam-board') {
       var board = getExamBoardContext();
       examBoardSlug = board.slug;
       examBoardName = board.name;
@@ -357,7 +426,7 @@
       .then(function (topic) {
         var topicSlug = null;
         var topicName = null;
-        if (boards.length && topic && topic.slug) {
+        if (mode !== 'none' && topic && topic.slug) {
           topicSlug = topic.slug;
           topicName = topic.name;
         }
