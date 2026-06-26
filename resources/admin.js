@@ -5,7 +5,8 @@
   var loginForm = document.getElementById('login-form');
   var uploadForm = document.getElementById('upload-form');
   var logoutBtn = document.getElementById('logout-btn');
-  var categorySelect = document.getElementById('upload-category');
+  var subjectSelect = document.getElementById('upload-subject');
+  var levelSelect = document.getElementById('upload-level');
   var examBoardWrap = document.getElementById('exam-board-wrap');
   var examBoardSelect = document.getElementById('upload-exam-board');
   var topicWrap = document.getElementById('topic-wrap');
@@ -31,24 +32,26 @@
     return;
   }
 
-  window.StudyWithDr.CATEGORIES.forEach(function (cat) {
+  window.StudyWithDr.RESOURCE_SUBJECTS.forEach(function (subject) {
     var option = document.createElement('option');
-    option.value = cat.slug;
-    option.textContent = cat.name;
-    option.dataset.name = cat.name;
-    categorySelect.appendChild(option);
+    option.value = subject.slug;
+    option.textContent = subject.name;
+    option.dataset.name = subject.name;
+    subjectSelect.appendChild(option);
   });
 
-  function showTopicStatus(message, isError) {
-    topicStatus.textContent = message;
-    topicStatus.className = isError ? 'admin-status admin-status-error' : 'admin-status admin-status-success';
-    topicStatus.hidden = !message;
+  function getCategorySlug() {
+    return window.StudyWithDr.getCategorySlug(subjectSelect.value, levelSelect.value);
   }
 
   function getCategoryContext() {
+    var slug = getCategorySlug();
+    var cat = window.StudyWithDr.getCategoryBySlug(slug);
     return {
-      slug: categorySelect.value,
-      name: categorySelect.options[categorySelect.selectedIndex].dataset.name
+      slug: slug,
+      name: cat ? cat.name : slug,
+      subject: subjectSelect.value,
+      level: levelSelect.value
     };
   }
 
@@ -59,8 +62,27 @@
     };
   }
 
+  function showTopicStatus(message, isError) {
+    topicStatus.textContent = message;
+    topicStatus.className = isError ? 'admin-status admin-status-error' : 'admin-status admin-status-success';
+    topicStatus.hidden = !message;
+  }
+
+  function populateLevels() {
+    var levels = window.StudyWithDr.getLevelsForSubject(subjectSelect.value);
+    levelSelect.innerHTML = '';
+
+    levels.forEach(function (level) {
+      var option = document.createElement('option');
+      option.value = level.slug;
+      option.textContent = level.name;
+      option.dataset.name = level.name;
+      levelSelect.appendChild(option);
+    });
+  }
+
   function getFolderMode() {
-    var slug = categorySelect.value;
+    var slug = getCategorySlug();
     if (window.StudyWithDr.getExamBoards(slug).length) return 'exam-board';
     if (window.StudyWithDr.hasCourses(slug)) return 'courses';
     if (window.StudyWithDr.hasTopics(slug)) return 'topics';
@@ -135,8 +157,9 @@
   }
 
   function updateExamBoardField() {
-    var boards = window.StudyWithDr.getExamBoards(categorySelect.value);
-    var hasDirectFolders = window.StudyWithDr.hasDirectFolders(categorySelect.value);
+    var slug = getCategorySlug();
+    var boards = window.StudyWithDr.getExamBoards(slug);
+    var hasDirectFolders = window.StudyWithDr.hasDirectFolders(slug);
     examBoardSelect.innerHTML = '';
 
     if (!boards.length) {
@@ -190,7 +213,13 @@
     });
   }
 
-  categorySelect.addEventListener('change', updateExamBoardField);
+  function updateLevelField() {
+    populateLevels();
+    updateExamBoardField();
+  }
+
+  subjectSelect.addEventListener('change', updateLevelField);
+  levelSelect.addEventListener('change', updateExamBoardField);
   examBoardSelect.addEventListener('change', updateTopicField);
   topicSelect.addEventListener('change', function () {
     var isNew = topicSelect.value === '__new__';
@@ -198,7 +227,7 @@
     topicNewInput.required = isNew;
   });
 
-  updateExamBoardField();
+  updateLevelField();
 
   function createTopic(topicName) {
     var category = getCategoryContext();
@@ -314,7 +343,13 @@
         }
 
         adminList.innerHTML = rows.map(function (row) {
-          var pathParts = [row.category_name];
+          var cat = window.StudyWithDr.getCategoryBySlug(row.category_slug);
+          var pathParts = [];
+          if (cat) {
+            pathParts.push(cat.subjectName, cat.levelName);
+          } else {
+            pathParts.push(row.category_name);
+          }
           if (row.exam_board_name) {
             pathParts.push(row.exam_board_name);
           } else if (row.topic_name && window.StudyWithDr.hasDirectFolders(row.category_slug)) {
@@ -459,7 +494,7 @@
         if (insertResult.error) throw insertResult.error;
 
         uploadForm.reset();
-        updateExamBoardField();
+        updateLevelField();
         uploadStatus.textContent = 'Uploaded successfully.';
         uploadStatus.className = 'admin-status admin-status-success';
         uploadStatus.hidden = false;

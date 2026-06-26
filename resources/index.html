@@ -28,11 +28,11 @@
     <div class="section">
         <div class="container">
             <h2 class="section-title">Revision Notes</h2>
-            <div class="resource-level-tabs" role="tablist" aria-label="Resource level">
-                <button type="button" class="level-tab active" data-level="gcse" role="tab" aria-selected="true">GCSE</button>
-                <button type="button" class="level-tab" data-level="a-level" role="tab" aria-selected="false">A-Level</button>
-                <button type="button" class="level-tab" data-level="university" role="tab" aria-selected="false">University</button>
-                <button type="button" class="level-tab" data-level="drills" role="tab" aria-selected="false">General Maths Drills</button>
+            <div class="resource-level-tabs" role="tablist" aria-label="Subject">
+                <button type="button" class="level-tab subject-tab active" data-subject="maths" role="tab" aria-selected="true">Maths</button>
+                <button type="button" class="level-tab subject-tab" data-subject="physics" role="tab" aria-selected="false">Physics</button>
+                <button type="button" class="level-tab subject-tab" data-subject="chemistry" role="tab" aria-selected="false">Chemistry</button>
+                <button type="button" class="level-tab subject-tab" data-subject="computer-science" role="tab" aria-selected="false">Computer Science</button>
             </div>
             <form class="resource-search" action="./" method="get" role="search">
                 <label class="visually-hidden" for="resource-search">Search resources</label>
@@ -74,8 +74,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="./config.js"></script>
-    <script src="./supabase-client.js?v=8"></script>
+    <script src="./supabase-client.js?v=9"></script>
     <script src="../script.js"></script>
-    <script src="./resources-pdfs.js"></script>
+    <script src="./resources-pdfs.js?v=2"></script>
 </body>
 </html>

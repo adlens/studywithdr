@@ -44,8 +44,11 @@
 
                 <h2>Upload a PDF</h2>
                 <form id="upload-form" class="admin-form">
-                    <label class="admin-label" for="upload-category">Category</label>
-                    <select class="admin-input" id="upload-category" required></select>
+                    <label class="admin-label" for="upload-subject">Subject</label>
+                    <select class="admin-input" id="upload-subject" required></select>
+
+                    <label class="admin-label" for="upload-level">Level</label>
+                    <select class="admin-input" id="upload-level" required></select>
 
                     <div id="exam-board-wrap" hidden>
                         <label class="admin-label" for="upload-exam-board">Exam board</label>
@@ -97,7 +100,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="./config.js"></script>
-    <script src="./supabase-client.js?v=8"></script>
-    <script src="./admin.js?v=2"></script>
+    <script src="./supabase-client.js?v=9"></script>
+    <script src="./admin.js?v=3"></script>
 </body>
 </html>

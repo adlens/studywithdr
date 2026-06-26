@@ -1,39 +1,11 @@
 {
   "categories": [
-    {
-      "name": "GCSE Maths",
-      "slug": "gcse-maths",
-      "items": []
-    },
-    {
-      "name": "GCSE Chemistry",
-      "slug": "chemistry",
-      "items": []
-    },
-    {
-      "name": "A-Level Maths",
-      "slug": "a-level-maths",
-      "items": []
-    },
-    {
-      "name": "A-Level Physics",
-      "slug": "a-level-physics",
-      "items": []
-    },
-    {
-      "name": "A-Level Chemistry",
-      "slug": "a-level-chemistry",
-      "items": []
-    },
-    {
-      "name": "University",
-      "slug": "university",
-      "items": []
-    },
-    {
-      "name": "General Maths Drills",
-      "slug": "general-maths-drills",
-      "items": []
-    }
+    { "name": "Maths · GCSE", "slug": "maths-gcse", "items": [] },
+    { "name": "Chemistry · GCSE", "slug": "chemistry-gcse", "items": [] },
+    { "name": "Maths · A-Level", "slug": "maths-a-level", "items": [] },
+    { "name": "Physics · A-Level", "slug": "physics-a-level", "items": [] },
+    { "name": "Chemistry · A-Level", "slug": "chemistry-a-level", "items": [] },
+    { "name": "Maths · University", "slug": "maths-university", "items": [] },
+    { "name": "Maths · General Maths Drills", "slug": "maths-drills", "items": [] }
   ]
 }

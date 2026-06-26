@@ -1,54 +1,120 @@
 window.StudyWithDr = window.StudyWithDr || {};
 
-window.StudyWithDr.CATEGORIES = [
-  { slug: 'gcse-maths', name: 'GCSE Maths', level: 'gcse' },
-  { slug: 'chemistry', name: 'GCSE Chemistry', level: 'gcse' },
-  { slug: 'a-level-maths', name: 'A-Level Maths', level: 'a-level' },
-  { slug: 'a-level-physics', name: 'A-Level Physics', level: 'a-level' },
-  { slug: 'a-level-chemistry', name: 'A-Level Chemistry', level: 'a-level' },
-  { slug: 'university', name: 'University', level: 'university' },
-  { slug: 'general-maths-drills', name: 'General Maths Drills', level: 'drills' }
-];
-
-window.StudyWithDr.RESOURCE_LEVELS = [
-  { id: 'gcse', label: 'GCSE' },
-  { id: 'a-level', label: 'A-Level' },
-  { id: 'university', label: 'University' },
-  { id: 'drills', label: 'General Maths Drills' }
-];
-
-window.StudyWithDr.getLevelForCategory = function (categorySlug) {
-  var cat = window.StudyWithDr.CATEGORIES.find(function (c) { return c.slug === categorySlug; });
-  return cat ? cat.level : null;
+window.StudyWithDr.LEGACY_CATEGORY_SLUGS = {
+  'gcse-maths': 'maths-gcse',
+  'chemistry': 'chemistry-gcse',
+  'a-level-maths': 'maths-a-level',
+  'a-level-physics': 'physics-a-level',
+  'a-level-chemistry': 'chemistry-a-level',
+  'university': 'maths-university',
+  'general-maths-drills': 'maths-drills'
 };
 
-window.StudyWithDr.getCategoriesForLevel = function (levelId) {
+window.StudyWithDr.RESOURCE_SUBJECTS = [
+  {
+    slug: 'maths',
+    name: 'Maths',
+    levels: [
+      { slug: 'gcse', name: 'GCSE', hasTopics: true, boards: [] },
+      { slug: 'a-level', name: 'A-Level', hasTopics: true, boards: [] },
+      { slug: 'university', name: 'University', hasCourses: true },
+      { slug: 'drills', name: 'General Maths Drills' }
+    ]
+  },
+  {
+    slug: 'physics',
+    name: 'Physics',
+    levels: [
+      { slug: 'gcse', name: 'GCSE', hasTopics: true, boards: [] },
+      { slug: 'a-level', name: 'A-Level', hasTopics: true, boards: [] },
+      { slug: 'university', name: 'University', hasCourses: true }
+    ]
+  },
+  {
+    slug: 'chemistry',
+    name: 'Chemistry',
+    levels: [
+      { slug: 'gcse', name: 'GCSE', hasTopics: true, boards: [] },
+      {
+        slug: 'a-level',
+        name: 'A-Level',
+        hasTopics: true,
+        boards: [{ slug: 'edexcel-intl', name: 'International Edexcel' }]
+      },
+      { slug: 'university', name: 'University', hasCourses: true }
+    ]
+  },
+  {
+    slug: 'computer-science',
+    name: 'Computer Science',
+    levels: [
+      { slug: 'gcse', name: 'GCSE', hasTopics: true, boards: [] },
+      { slug: 'a-level', name: 'A-Level', hasTopics: true, boards: [] },
+      { slug: 'university', name: 'University', hasCourses: true }
+    ]
+  }
+];
+
+window.StudyWithDr.normalizeCategorySlug = function (categorySlug) {
+  return window.StudyWithDr.LEGACY_CATEGORY_SLUGS[categorySlug] || categorySlug;
+};
+
+window.StudyWithDr.buildCategories = function () {
+  var categories = [];
+
+  window.StudyWithDr.RESOURCE_SUBJECTS.forEach(function (subject) {
+    subject.levels.forEach(function (level) {
+      categories.push({
+        slug: subject.slug + '-' + level.slug,
+        name: subject.name + ' · ' + level.name,
+        subject: subject.slug,
+        subjectName: subject.name,
+        level: level.slug,
+        levelName: level.name,
+        hasTopics: !!level.hasTopics,
+        hasCourses: !!level.hasCourses,
+        boards: level.boards || []
+      });
+    });
+  });
+
+  return categories;
+};
+
+window.StudyWithDr.CATEGORIES = window.StudyWithDr.buildCategories();
+
+window.StudyWithDr.getCategoryBySlug = function (categorySlug) {
+  var normalized = window.StudyWithDr.normalizeCategorySlug(categorySlug);
+  return window.StudyWithDr.CATEGORIES.find(function (cat) {
+    return cat.slug === normalized;
+  }) || null;
+};
+
+window.StudyWithDr.getCategoriesForSubject = function (subjectSlug) {
   return window.StudyWithDr.CATEGORIES
-    .filter(function (c) { return c.level === levelId; })
-    .map(function (c) { return c.slug; });
+    .filter(function (cat) { return cat.subject === subjectSlug; })
+    .map(function (cat) { return cat.slug; });
 };
 
-window.StudyWithDr.EXAM_BOARDS = {
-  'a-level-chemistry': [
-    { slug: 'edexcel-intl', name: 'International Edexcel' }
-  ]
+window.StudyWithDr.getLevelsForSubject = function (subjectSlug) {
+  var subject = window.StudyWithDr.RESOURCE_SUBJECTS.find(function (item) {
+    return item.slug === subjectSlug;
+  });
+  return subject ? subject.levels : [];
 };
 
-window.StudyWithDr.CATEGORIES_WITH_COURSES = ['university'];
-
-window.StudyWithDr.CATEGORIES_WITH_TOPICS = [
-  'gcse-maths',
-  'chemistry',
-  'a-level-maths',
-  'a-level-physics'
-];
+window.StudyWithDr.getCategorySlug = function (subjectSlug, levelSlug) {
+  return subjectSlug + '-' + levelSlug;
+};
 
 window.StudyWithDr.hasCourses = function (categorySlug) {
-  return window.StudyWithDr.CATEGORIES_WITH_COURSES.indexOf(categorySlug) !== -1;
+  var cat = window.StudyWithDr.getCategoryBySlug(categorySlug);
+  return !!(cat && cat.hasCourses);
 };
 
 window.StudyWithDr.hasTopics = function (categorySlug) {
-  return window.StudyWithDr.CATEGORIES_WITH_TOPICS.indexOf(categorySlug) !== -1;
+  var cat = window.StudyWithDr.getCategoryBySlug(categorySlug);
+  return !!(cat && cat.hasTopics && !window.StudyWithDr.getExamBoards(categorySlug).length);
 };
 
 window.StudyWithDr.hasDirectFolders = function (categorySlug) {
@@ -56,7 +122,8 @@ window.StudyWithDr.hasDirectFolders = function (categorySlug) {
 };
 
 window.StudyWithDr.getExamBoards = function (categorySlug) {
-  return window.StudyWithDr.EXAM_BOARDS[categorySlug] || [];
+  var cat = window.StudyWithDr.getCategoryBySlug(categorySlug);
+  return cat ? cat.boards : [];
 };
 
 window.StudyWithDr.slugify = function (text) {
@@ -77,10 +144,13 @@ window.StudyWithDr.escapeHtml = function (text) {
 };
 
 window.StudyWithDr.getSearchText = function (row) {
+  var cat = window.StudyWithDr.getCategoryBySlug(row.category_slug);
   return [
     row.title,
     row.description,
     row.category_name,
+    cat ? cat.subjectName : '',
+    cat ? cat.levelName : '',
     row.exam_board_name,
     row.topic_name
   ].filter(Boolean).join(' ').toLowerCase();
@@ -126,8 +196,10 @@ window.StudyWithDr.renderPdfItem = function (item, href) {
 };
 
 window.StudyWithDr.getTopicsForBoard = function (topics, categorySlug, examBoardSlug) {
+  var normalized = window.StudyWithDr.normalizeCategorySlug(categorySlug);
   return (topics || []).filter(function (topic) {
-    return topic.category_slug === categorySlug && topic.exam_board === examBoardSlug;
+    return window.StudyWithDr.normalizeCategorySlug(topic.category_slug) === normalized
+      && topic.exam_board === examBoardSlug;
   }).sort(function (a, b) {
     return a.topic_name.localeCompare(b.topic_name);
   });
@@ -176,7 +248,7 @@ window.StudyWithDr.renderTopicGroups = function (boardItems, topicDefs, esc, get
   }).join('');
 };
 
-window.StudyWithDr.renderCategoryWithDirectFolders = function (catName, slug, cat, topics, sectionTitle, esc) {
+window.StudyWithDr.renderCategoryWithDirectFolders = function (sectionTitle, slug, cat, topics, folderTitle, esc) {
   var folderDefs = window.StudyWithDr.getTopicsForBoard(topics, slug, '');
   if (!cat.items.length && !folderDefs.length) return '';
 
@@ -188,43 +260,107 @@ window.StudyWithDr.renderCategoryWithDirectFolders = function (catName, slug, ca
   );
 
   return (
-    '<section class="pdf-category">' +
-      '<h2 class="pdf-category-title">' + esc(catName) + '</h2>' +
+    '<section class="pdf-level-section">' +
+      '<h3 class="pdf-level-title">' + esc(sectionTitle) + '</h3>' +
       '<div class="pdf-board-group">' +
-        '<h3 class="pdf-board-title">' + esc(sectionTitle) + '</h3>' +
+        '<h4 class="pdf-board-title">' + esc(folderTitle) + '</h4>' +
         groupHtml +
       '</div>' +
     '</section>'
   );
 };
 
+window.StudyWithDr.renderCategorySection = function (slug, cat, topics, esc) {
+  var catDef = window.StudyWithDr.getCategoryBySlug(slug);
+  var sectionTitle = catDef ? catDef.levelName : (cat.name || slug);
+  var boards = window.StudyWithDr.getExamBoards(slug);
+  var hasBoards = boards.length > 0;
+  var hasCourses = window.StudyWithDr.hasCourses(slug);
+  var hasTopics = window.StudyWithDr.hasTopics(slug);
+
+  if (hasCourses) {
+    return window.StudyWithDr.renderCategoryWithDirectFolders(sectionTitle, slug, cat, topics, 'Courses', esc);
+  }
+
+  if (hasTopics && !hasBoards) {
+    return window.StudyWithDr.renderCategoryWithDirectFolders(sectionTitle, slug, cat, topics, 'Topics', esc);
+  }
+
+  if (!hasBoards) {
+    if (!cat.items.length) return '';
+    var flatItems = cat.items.map(function (item) {
+      var href = item._local
+        ? './files/' + item.category_slug + '/' + encodeURIComponent(item._file)
+        : window.StudyWithDr.getPdfUrl(item.file_path);
+      return window.StudyWithDr.renderPdfItem(item, href);
+    }).join('');
+
+    return (
+      '<section class="pdf-level-section">' +
+        '<h3 class="pdf-level-title">' + esc(sectionTitle) + '</h3>' +
+        '<ul class="pdf-list">' + flatItems + '</ul>' +
+      '</section>'
+    );
+  }
+
+  var boardSections = boards.map(function (board) {
+    var boardItems = cat.items.filter(function (item) {
+      return item.exam_board === board.slug;
+    });
+    var boardTopics = window.StudyWithDr.getTopicsForBoard(topics, slug, board.slug);
+
+    if (!boardItems.length && !boardTopics.length) return '';
+
+    var topicHtml = window.StudyWithDr.renderTopicGroups(
+      boardItems,
+      boardTopics,
+      esc,
+      function (item) { return window.StudyWithDr.getPdfUrl(item.file_path); }
+    );
+
+    return (
+      '<div class="pdf-board-group">' +
+        '<h4 class="pdf-board-title">' + esc(board.name) + '</h4>' +
+        topicHtml +
+      '</div>'
+    );
+  }).join('');
+
+  return boardSections
+    ? '<section class="pdf-level-section"><h3 class="pdf-level-title">' + esc(sectionTitle) + '</h3>' + boardSections + '</section>'
+    : '';
+};
+
 window.StudyWithDr.renderPdfList = function (container, rows, options) {
   options = options || {};
   var query = (options.query || '').trim().toLowerCase();
   var topics = options.topics || [];
-  var level = options.level || '';
-  var levelDef = window.StudyWithDr.RESOURCE_LEVELS.find(function (l) { return l.id === level; });
+  var subject = options.subject || '';
+  var subjectDef = window.StudyWithDr.RESOURCE_SUBJECTS.find(function (item) {
+    return item.slug === subject;
+  });
   var filtered = rows;
 
   if (query) {
     filtered = rows.filter(function (row) {
       return window.StudyWithDr.getSearchText(row).indexOf(query) !== -1;
     });
-  } else if (levelDef) {
-    var levelCategories = window.StudyWithDr.getCategoriesForLevel(level);
+  } else if (subjectDef) {
     filtered = rows.filter(function (row) {
-      return levelCategories.indexOf(row.category_slug) !== -1;
+      var cat = window.StudyWithDr.getCategoryBySlug(row.category_slug);
+      return cat && cat.subject === subject;
     });
     topics = topics.filter(function (topic) {
-      return levelCategories.indexOf(topic.category_slug) !== -1;
+      var cat = window.StudyWithDr.getCategoryBySlug(topic.category_slug);
+      return cat && cat.subject === subject;
     });
   }
 
   if (!filtered.length && !topics.length) {
     var emptyMsg = query
       ? 'No resources matched your search. Try a different keyword.'
-      : levelDef
-        ? 'No ' + levelDef.label + ' resources yet. Check back soon.'
+      : subjectDef
+        ? 'No ' + subjectDef.name + ' resources yet. Check back soon.'
         : 'Revision PDFs will appear here soon. Check back after your next lesson.';
     container.innerHTML = '<p class="pdf-empty">' + emptyMsg + '</p>';
     return;
@@ -249,80 +385,30 @@ window.StudyWithDr.renderPdfList = function (container, rows, options) {
 
   var byCategory = {};
   filtered.forEach(function (row) {
-    if (!byCategory[row.category_slug]) {
-      byCategory[row.category_slug] = { name: row.category_name, items: [] };
+    var slug = window.StudyWithDr.normalizeCategorySlug(row.category_slug);
+    if (!byCategory[slug]) {
+      var catDef = window.StudyWithDr.getCategoryBySlug(slug);
+      byCategory[slug] = { name: catDef ? catDef.name : row.category_name, items: [] };
     }
-    byCategory[row.category_slug].items.push(row);
+    byCategory[slug].items.push(row);
   });
 
-  var order = levelDef
-    ? window.StudyWithDr.getCategoriesForLevel(level)
-    : window.StudyWithDr.CATEGORIES.map(function (c) { return c.slug; });
   var esc = window.StudyWithDr.escapeHtml;
+  var levelOrder = subjectDef
+    ? subjectDef.levels.map(function (level) { return level.slug; })
+    : window.StudyWithDr.CATEGORIES.map(function (cat) { return cat.slug; });
 
-  var html = order
-    .filter(function (slug) {
-      return byCategory[slug] || topics.some(function (t) { return t.category_slug === slug; });
-    })
-    .map(function (slug) {
+  var html = levelOrder
+    .map(function (levelSlug) {
+      var slug = subjectDef
+        ? window.StudyWithDr.getCategorySlug(subject, levelSlug)
+        : levelSlug;
       var cat = byCategory[slug] || { name: '', items: [] };
-      var catName = cat.name || (topics.find(function (t) { return t.category_slug === slug; }) || {}).category_name;
-      var boards = window.StudyWithDr.getExamBoards(slug);
-      var hasBoards = boards.length > 0;
-      var hasCourses = window.StudyWithDr.hasCourses(slug);
-      var hasTopics = window.StudyWithDr.hasTopics(slug);
-
-      if (hasCourses) {
-        return window.StudyWithDr.renderCategoryWithDirectFolders(catName, slug, cat, topics, 'Courses', esc);
-      }
-
-      if (hasTopics && !hasBoards) {
-        return window.StudyWithDr.renderCategoryWithDirectFolders(catName, slug, cat, topics, 'Topics', esc);
-      }
-
-      if (!hasBoards) {
-        if (!cat.items.length) return '';
-        var flatItems = cat.items.map(function (item) {
-          var href = item._local
-            ? './files/' + item.category_slug + '/' + encodeURIComponent(item._file)
-            : window.StudyWithDr.getPdfUrl(item.file_path);
-          return window.StudyWithDr.renderPdfItem(item, href);
-        }).join('');
-
-        return (
-          '<section class="pdf-category">' +
-            '<h2 class="pdf-category-title">' + esc(catName) + '</h2>' +
-            '<ul class="pdf-list">' + flatItems + '</ul>' +
-          '</section>'
-        );
-      }
-
-      var boardSections = boards.map(function (board) {
-        var boardItems = cat.items.filter(function (item) {
-          return item.exam_board === board.slug;
-        });
-        var boardTopics = window.StudyWithDr.getTopicsForBoard(topics, slug, board.slug);
-
-        if (!boardItems.length && !boardTopics.length) return '';
-
-        var topicHtml = window.StudyWithDr.renderTopicGroups(
-          boardItems,
-          boardTopics,
-          esc,
-          function (item) { return window.StudyWithDr.getPdfUrl(item.file_path); }
-        );
-
-        return (
-          '<div class="pdf-board-group">' +
-            '<h3 class="pdf-board-title">' + esc(board.name) + '</h3>' +
-            topicHtml +
-          '</div>'
-        );
-      }).join('');
-
-      return boardSections
-        ? '<section class="pdf-category"><h2 class="pdf-category-title">' + esc(catName) + '</h2>' + boardSections + '</section>'
-        : '';
+      var hasTopicRows = topics.some(function (topic) {
+        return window.StudyWithDr.normalizeCategorySlug(topic.category_slug) === slug;
+      });
+      if (!cat.items.length && !hasTopicRows) return '';
+      return window.StudyWithDr.renderCategorySection(slug, cat, topics, esc);
     })
     .filter(Boolean)
     .join('');

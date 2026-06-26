@@ -487,6 +487,22 @@ h1 {
     border: 0;
 }
 
+.pdf-level-section {
+    margin-bottom: 32px;
+}
+
+.pdf-level-section:last-child {
+    margin-bottom: 0;
+}
+
+.pdf-level-title {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 14px;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
 .pdf-board-group {
     margin-bottom: 24px;
 }
