@@ -180,6 +180,13 @@
     examBoardWrap.hidden = false;
     examBoardSelect.required = true;
 
+    var placeholder = document.createElement('option');
+    placeholder.value = '';
+    placeholder.textContent = 'Select exam board';
+    placeholder.disabled = true;
+    placeholder.selected = true;
+    examBoardSelect.appendChild(placeholder);
+
     boards.forEach(function (board) {
       var option = document.createElement('option');
       option.value = board.slug;

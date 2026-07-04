@@ -10,13 +10,27 @@ window.StudyWithDr.LEGACY_CATEGORY_SLUGS = {
   'general-maths-drills': 'maths-drills'
 };
 
+window.StudyWithDr.EXAM_BOARD_OPTIONS = [
+  { slug: 'aqa', name: 'AQA' },
+  { slug: 'edexcel', name: 'Edexcel' },
+  { slug: 'ocr', name: 'OCR' },
+  { slug: 'cie', name: 'CIE (Cambridge)' },
+  { slug: 'edexcel-intl', name: 'International Edexcel' },
+  { slug: 'wjec', name: 'WJEC' },
+  { slug: 'eduqas', name: 'Eduqas' },
+  { slug: 'ib', name: 'IB' }
+];
+
+var GCSE_WITH_BOARDS = { slug: 'gcse', name: 'GCSE', hasTopics: true, hasExamBoards: true };
+var ALEVEL_WITH_BOARDS = { slug: 'a-level', name: 'A-Level', hasTopics: true, hasExamBoards: true };
+
 window.StudyWithDr.RESOURCE_SUBJECTS = [
   {
     slug: 'maths',
     name: 'Maths',
     levels: [
-      { slug: 'gcse', name: 'GCSE', hasTopics: true, boards: [] },
-      { slug: 'a-level', name: 'A-Level', hasTopics: true, boards: [] },
+      GCSE_WITH_BOARDS,
+      ALEVEL_WITH_BOARDS,
       { slug: 'university', name: 'University', hasCourses: true },
       { slug: 'drills', name: 'General Maths Drills' }
     ]
@@ -25,13 +39,8 @@ window.StudyWithDr.RESOURCE_SUBJECTS = [
     slug: 'physics',
     name: 'Physics',
     levels: [
-      {
-        slug: 'gcse',
-        name: 'GCSE',
-        hasTopics: true,
-        boards: [{ slug: 'edexcel-intl', name: 'International Edexcel' }]
-      },
-      { slug: 'a-level', name: 'A-Level', hasTopics: true, boards: [] },
+      GCSE_WITH_BOARDS,
+      ALEVEL_WITH_BOARDS,
       { slug: 'university', name: 'University', hasCourses: true }
     ]
   },
@@ -39,13 +48,8 @@ window.StudyWithDr.RESOURCE_SUBJECTS = [
     slug: 'chemistry',
     name: 'Chemistry',
     levels: [
-      { slug: 'gcse', name: 'GCSE', hasTopics: true, boards: [] },
-      {
-        slug: 'a-level',
-        name: 'A-Level',
-        hasTopics: true,
-        boards: [{ slug: 'edexcel-intl', name: 'International Edexcel' }]
-      },
+      GCSE_WITH_BOARDS,
+      ALEVEL_WITH_BOARDS,
       { slug: 'university', name: 'University', hasCourses: true }
     ]
   },
@@ -53,8 +57,8 @@ window.StudyWithDr.RESOURCE_SUBJECTS = [
     slug: 'computer-science',
     name: 'Computer Science',
     levels: [
-      { slug: 'gcse', name: 'GCSE', hasTopics: true, boards: [] },
-      { slug: 'a-level', name: 'A-Level', hasTopics: true, boards: [] },
+      GCSE_WITH_BOARDS,
+      ALEVEL_WITH_BOARDS,
       { slug: 'university', name: 'University', hasCourses: true }
     ]
   }
@@ -78,7 +82,7 @@ window.StudyWithDr.buildCategories = function () {
         levelName: level.name,
         hasTopics: !!level.hasTopics,
         hasCourses: !!level.hasCourses,
-        boards: level.boards || []
+        hasExamBoards: !!level.hasExamBoards
       });
     });
   });
@@ -128,7 +132,10 @@ window.StudyWithDr.hasDirectFolders = function (categorySlug) {
 
 window.StudyWithDr.getExamBoards = function (categorySlug) {
   var cat = window.StudyWithDr.getCategoryBySlug(categorySlug);
-  return cat ? cat.boards : [];
+  if (cat && cat.hasExamBoards) {
+    return window.StudyWithDr.EXAM_BOARD_OPTIONS.slice();
+  }
+  return [];
 };
 
 window.StudyWithDr.slugify = function (text) {
