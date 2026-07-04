@@ -25,7 +25,12 @@ window.StudyWithDr.RESOURCE_SUBJECTS = [
     slug: 'physics',
     name: 'Physics',
     levels: [
-      { slug: 'gcse', name: 'GCSE', hasTopics: true, boards: [] },
+      {
+        slug: 'gcse',
+        name: 'GCSE',
+        hasTopics: true,
+        boards: [{ slug: 'edexcel-intl', name: 'International Edexcel' }]
+      },
       { slug: 'a-level', name: 'A-Level', hasTopics: true, boards: [] },
       { slug: 'university', name: 'University', hasCourses: true }
     ]
