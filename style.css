@@ -6,7 +6,10 @@
     --cta: #d97706;
     --cta-dark: #b45309;
     --text: #1a202c;
+    --text-body: #2d3748;
     --text-muted: #4a5568;
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-serif: Georgia, 'Times New Roman', serif;
     --bg-light: #f5f7fa;
     --bg-warm: #fafbfc;
     --border: #e2e8f0;
@@ -24,7 +27,7 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: var(--font-serif);
     line-height: 1.65;
     color: var(--text);
     background-color: var(--bg-warm);
@@ -57,6 +60,7 @@ header::after {
 }
 
 .brand {
+    font-family: var(--font-sans);
     font-size: 0.8125rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
@@ -74,6 +78,7 @@ header::after {
 }
 
 .nav-link {
+    font-family: var(--font-sans);
     display: inline-block;
     padding: 10px 16px;
     border-radius: 999px;
@@ -154,7 +159,7 @@ h1 {
 
 .hero-subtitle {
     font-size: 1.125rem;
-    color: var(--text-muted);
+    color: var(--text-body);
     max-width: 560px;
     margin: 0 auto 28px;
     line-height: 1.55;
@@ -168,6 +173,7 @@ h1 {
 }
 
 .btn {
+    font-family: var(--font-sans);
     display: inline-block;
     padding: 12px 22px;
     border-radius: var(--radius-sm);
@@ -285,7 +291,7 @@ h1 {
 
 .intro-tagline {
     font-size: 0.9375rem;
-    color: var(--text-muted);
+    color: var(--text-body);
     text-align: center;
     max-width: 520px;
     margin: 0 auto 24px;
@@ -303,6 +309,7 @@ h1 {
 }
 
 .intro-badges li {
+    font-family: var(--font-sans);
     font-size: 0.8125rem;
     padding: 8px 16px;
     background: #fff;
@@ -350,6 +357,7 @@ h1 {
 }
 
 .service-tag {
+    font-family: var(--font-sans);
     display: inline-block;
     font-size: 0.6875rem;
     font-weight: 700;
@@ -381,7 +389,7 @@ h1 {
 
 .service-card p {
     font-size: 0.875rem;
-    color: var(--text-muted);
+    color: var(--text-body);
     line-height: 1.6;
 }
 
@@ -437,7 +445,7 @@ h1 {
     color: var(--primary);
     font-size: 0.875rem;
     font-weight: 600;
-    font-family: inherit;
+    font-family: var(--font-sans);
     cursor: pointer;
     box-shadow: var(--shadow-sm);
     transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
@@ -464,7 +472,7 @@ h1 {
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
     font-size: 1rem;
-    font-family: inherit;
+    font-family: var(--font-sans);
     box-shadow: var(--shadow-sm);
 }
 
@@ -579,6 +587,7 @@ h1 {
 }
 
 .pdf-link {
+    font-family: var(--font-sans);
     display: block;
     padding: 14px 20px;
     color: var(--text);
@@ -673,7 +682,7 @@ h1 {
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
     font-size: 1rem;
-    font-family: inherit;
+    font-family: var(--font-sans);
 }
 
 .admin-file {
@@ -832,7 +841,7 @@ h1 {
 
 .about-body p {
     margin-bottom: 16px;
-    color: var(--text-muted);
+    color: var(--text-body);
     line-height: 1.7;
 }
 
@@ -951,7 +960,7 @@ h1 {
 
 .testimonial-carousel .testimonial p {
     font-size: 0.9375rem;
-    color: var(--text-muted);
+    color: var(--text-body);
     line-height: 1.6;
 }
 
@@ -1122,6 +1131,7 @@ h1 {
 }
 
 input[type="email"] {
+    font-family: var(--font-sans);
     flex: 1;
     padding: 12px 14px;
     border: 1px solid var(--border);
@@ -1131,6 +1141,7 @@ input[type="email"] {
 }
 
 button {
+    font-family: var(--font-sans);
     background: var(--primary);
     color: white;
     border: none;
@@ -1197,14 +1208,14 @@ button:hover {
 .article-body p {
     font-size: 1.0625rem;
     line-height: 1.75;
-    color: var(--text-muted);
+    color: var(--text-body);
     margin-bottom: 18px;
 }
 
 .article-body ul,
 .article-body ol {
     margin: 0 0 20px 22px;
-    color: var(--text-muted);
+    color: var(--text-body);
     font-size: 1.0625rem;
     line-height: 1.7;
 }
@@ -1245,6 +1256,7 @@ button:hover {
 
 /* Footer */
 footer {
+    font-family: var(--font-sans);
     text-align: center;
     padding: 40px 0;
     color: var(--text-muted);
