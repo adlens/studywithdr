@@ -246,24 +246,16 @@
         </div>
     </div>
 
-    <div class="newsletter">
-        <div class="container">
-            <div class="newsletter-content">
-                <h2>Tips &amp; updates by email</h2>
-                <p>Revision tips and exam-board advice, sent occasionally. No spam, and you can unsubscribe anytime.</p>
-                <form id="newsletter-form" class="newsletter-form" action="https://formspree.io/f/xqelgqbj" method="POST">
-                    <div class="form-group">
-                        <input type="email" id="email-input" name="email" placeholder="Your email address" required>
-                        <button type="submit">Subscribe</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
     <footer>
         <div class="container">
-            <p>&copy; 2026 Study with Dr · Maths & Science Tutoring, Manchester</p>
+            <div class="footer-newsletter">
+                <p class="footer-newsletter-label">Want revision tips and exam-board advice by email? No spam, unsubscribe anytime.</p>
+                <form id="newsletter-form" class="footer-newsletter-form" action="https://formspree.io/f/xqelgqbj" method="POST">
+                    <input type="email" id="email-input" name="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            <p class="footer-copyright">&copy; 2026 Study with Dr · Maths & Science Tutoring, Manchester</p>
         </div>
     </footer>
     <script src="script.js"></script>
