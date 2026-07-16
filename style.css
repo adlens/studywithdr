@@ -1266,11 +1266,15 @@ button:hover {
     font-size: 1.5rem;
     color: var(--text);
     margin: 44px 0 16px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
     letter-spacing: -0.01em;
 }
 
 .article-body h2:first-child {
     margin-top: 0;
+    padding-top: 0;
+    border-top: none;
 }
 
 .article-body h3 {
@@ -1322,8 +1326,41 @@ button:hover {
     background: var(--cta);
 }
 
+.related-guides {
+    margin: 48px 0 0;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+}
+
+.related-guides h3 {
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+}
+
+.related-guides ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.related-guides a {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.0625rem;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.related-guides a:hover {
+    text-decoration: underline;
+}
+
 .article-links {
-    margin: 40px 0;
+    margin: 24px 0 0;
     padding-top: 24px;
     border-top: 1px solid var(--border);
     font-size: 0.9375rem;
@@ -1331,6 +1368,10 @@ button:hover {
 
 .article-links a {
     color: var(--primary);
+}
+
+.article-header {
+    padding: 36px 0 26px;
 }
 
 /* Footer */
