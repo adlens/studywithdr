@@ -77,6 +77,11 @@ header::after {
     margin: 18px 0 10px;
 }
 
+.container > .top-nav:first-child {
+    margin-top: 32px;
+    margin-bottom: 0;
+}
+
 .nav-link {
     font-family: var(--font-sans);
     display: inline-block;
