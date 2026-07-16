@@ -1328,7 +1328,7 @@ button:hover {
 
 .related-guides {
     margin: 48px 0 0;
-    padding-top: 28px;
+    padding-top: 32px;
     border-top: 1px solid var(--border);
 }
 
@@ -1338,25 +1338,49 @@ button:hover {
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--text-muted);
-    margin-bottom: 14px;
+    margin-bottom: 16px;
 }
 
-.related-guides ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.related-guides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
 }
 
-.related-guides a {
+.related-guide-card {
+    display: block;
+    background: #fff;
+    padding: 20px 22px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.2s ease;
+}
+
+.related-guide-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(30, 58, 95, 0.12);
+}
+
+.related-guide-card .related-guide-label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--cta-dark);
+    margin-bottom: 8px;
+}
+
+.related-guide-card .related-guide-title {
     font-family: Georgia, 'Times New Roman', serif;
     font-size: 1.0625rem;
-    color: var(--primary);
-    text-decoration: none;
-}
-
-.related-guides a:hover {
-    text-decoration: underline;
+    line-height: 1.4;
+    color: var(--text);
 }
 
 .article-links {
