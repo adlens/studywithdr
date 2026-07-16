@@ -422,6 +422,36 @@ h1 {
     padding-top: 0;
 }
 
+.guides-pointer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    box-shadow: var(--shadow-sm);
+}
+
+.guides-pointer h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.25rem;
+    margin-bottom: 6px;
+    color: var(--text);
+}
+
+.guides-pointer p {
+    font-size: 0.9375rem;
+    color: var(--text-body);
+    max-width: 480px;
+}
+
+.guides-pointer .btn {
+    flex-shrink: 0;
+}
+
 .pdf-resources {
     max-width: 720px;
     margin: 0 auto;
