@@ -911,22 +911,43 @@ h1 {
     margin-bottom: 16px;
 }
 
-.about-highlights-teach {
+.teach-principles {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
-    margin-top: 32px;
-    margin-bottom: 56px;
+    gap: 28px 32px;
+    max-width: 680px;
+    margin: 8px auto 48px;
 }
 
-.about-highlights-teach .about-card h3 {
+.teach-principle {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+}
+
+.teach-principle-num {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(30, 58, 95, 0.08);
+    color: var(--primary);
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 700;
+}
+
+.teach-principle h4 {
     font-family: Georgia, 'Times New Roman', serif;
     font-size: 1.0625rem;
-    text-transform: none;
-    letter-spacing: normal;
     color: var(--text);
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 
-.about-card-text {
+.teach-principle p {
     font-size: 0.875rem;
     color: var(--text-body);
     line-height: 1.6;
@@ -1513,6 +1534,11 @@ footer {
     .about-highlights {
         grid-template-columns: 1fr;
         margin-top: 40px;
+    }
+
+    .teach-principles {
+        grid-template-columns: 1fr;
+        gap: 24px;
     }
 
     .topic-create-row {
