@@ -911,6 +911,27 @@ h1 {
     margin-bottom: 16px;
 }
 
+.about-highlights-teach {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 32px;
+    margin-bottom: 56px;
+}
+
+.about-highlights-teach .about-card h3 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.0625rem;
+    text-transform: none;
+    letter-spacing: normal;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
+.about-card-text {
+    font-size: 0.875rem;
+    color: var(--text-body);
+    line-height: 1.6;
+}
+
 .about-card-list {
     list-style: none;
 }
