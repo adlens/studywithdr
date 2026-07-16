@@ -1069,6 +1069,80 @@ h1 {
     opacity: 0.95;
 }
 
+/* Contact form (inside .cta, on navy background) */
+.contact-form {
+    font-family: var(--font-sans);
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.contact-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.contact-field {
+    margin-bottom: 14px;
+}
+
+.contact-field-full {
+    grid-column: 1 / -1;
+}
+
+.contact-field label {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 6px;
+}
+
+.contact-optional {
+    font-weight: 400;
+    opacity: 0.75;
+}
+
+.contact-field input,
+.contact-field select,
+.contact-field textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: var(--radius-sm);
+    font-size: 0.9375rem;
+    font-family: var(--font-sans);
+    background: rgba(255, 255, 255, 0.96);
+    color: var(--text);
+}
+
+.contact-field textarea {
+    resize: vertical;
+}
+
+.contact-field input:focus,
+.contact-field select:focus,
+.contact-field textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35);
+}
+
+.contact-form .btn-cta {
+    width: 100%;
+    text-align: center;
+    margin-top: 4px;
+    border: none;
+    font-size: 0.9375rem;
+    cursor: pointer;
+}
+
+@media (max-width: 560px) {
+    .contact-form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
 .cta-email {
     font-size: 0.9375rem;
     margin-top: 18px;
@@ -1230,17 +1304,22 @@ button:hover {
 
 .article-cta {
     margin: 48px 0 8px;
-    padding: 32px;
-    background: var(--bg-light);
-    border: 1px solid var(--border);
+    padding: 36px 32px;
+    background: linear-gradient(160deg, var(--primary) 0%, var(--primary-light) 100%);
     border-radius: var(--radius);
     text-align: center;
+    box-shadow: var(--shadow-lg);
 }
 
 .article-cta p {
-    color: var(--text);
+    color: #fff;
+    opacity: 0.95;
     font-size: 1.0625rem;
     margin-bottom: 18px;
+}
+
+.article-cta .btn-primary {
+    background: var(--cta);
 }
 
 .article-links {

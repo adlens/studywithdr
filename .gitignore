@@ -14,3 +14,7 @@
 
 # Local Netlify folder
 .netlify
+
+# Credentials - never commit
+.secrets/
+*.json.key

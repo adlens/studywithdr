@@ -37,7 +37,7 @@
             </h1>
             <p class="hero-subtitle">I work with GCSE, A-Level and university students who want to build confidence through clear thinking and real understanding.</p>
             <div class="hero-buttons">
-                <a class="btn btn-primary" href="mailto:contact@studywithdr.co.uk?subject=Book%20a%20First%20Lesson">Book a First Lesson</a>
+                <a class="btn btn-primary" href="#contact">Book a First Lesson</a>
                 <a class="btn btn-secondary" href="resources/">View Free Resources</a>
             </div>
         </header>
@@ -176,12 +176,48 @@
         </div>
     </div>
 
-    <div class="cta section">
+    <div class="cta section" id="contact">
         <div class="container">
             <div class="cta-content">
                 <h2>Get in touch</h2>
-                <p><strong>50% off your first lesson.</strong> I teach Maths, Physics, Chemistry and Coding from secondary school through to university, online or in Manchester.</p>
-                <a class="btn btn-cta" href="mailto:contact@studywithdr.co.uk?subject=Book%20a%20First%20Lesson">Book a First Lesson</a>
+                <p><strong>50% off your first lesson.</strong> We teach Maths, Physics, Chemistry and Coding from secondary school through to university, online or in Manchester.</p>
+
+                <form id="contact-form" class="contact-form" action="https://formspree.io/f/xjgngpkg" method="POST">
+                    <input type="hidden" name="_subject" value="New booking inquiry from studywithdr.co.uk">
+                    <div class="contact-form-row">
+                        <div class="contact-field">
+                            <label for="contact-name">Name</label>
+                            <input type="text" id="contact-name" name="name" required>
+                        </div>
+                        <div class="contact-field">
+                            <label for="contact-email">Email</label>
+                            <input type="email" id="contact-email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="contact-form-row">
+                        <div class="contact-field">
+                            <label for="contact-level">Student's level</label>
+                            <select id="contact-level" name="level">
+                                <option value="11+">11+</option>
+                                <option value="GCSE" selected>GCSE</option>
+                                <option value="A-Level">A-Level</option>
+                                <option value="University">University</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="contact-field">
+                            <label for="contact-subject">Subject(s)</label>
+                            <input type="text" id="contact-subject" name="subject" placeholder="e.g. A-Level Maths">
+                        </div>
+                    </div>
+                    <div class="contact-field contact-field-full">
+                        <label for="contact-message">What would you like help with? <span class="contact-optional">(optional)</span></label>
+                        <textarea id="contact-message" name="message" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-cta">Send enquiry</button>
+                </form>
+
+                <p class="cta-email">Prefer email? Write to <a href="mailto:contact@studywithdr.co.uk">contact@studywithdr.co.uk</a></p>
             </div>
         </div>
     </div>
