@@ -57,7 +57,10 @@
 
   function loadFromJson() {
     return fetch('./pdfs.json')
-      .then(function (res) { return res.json(); })
+      .then(function (res) {
+        if (!res.ok) throw new Error('pdfs.json HTTP ' + res.status);
+        return res.json();
+      })
       .then(function (data) {
         var rows = [];
         (data.categories || []).forEach(function (cat) {
@@ -77,38 +80,55 @@
             });
           });
         });
-        return rows;
+        return { rows: rows, failed: false };
+      })
+      .catch(function (err) {
+        console.warn('[Study with Dr] Local pdfs.json fallback unavailable:', err.message || err);
+        return { rows: [], failed: true };
       });
   }
 
   function loadFromSupabase() {
     var client = window.StudyWithDr.getSupabase();
-    if (!client) return Promise.resolve({ rows: [], topics: [] });
+    if (!client) {
+      return Promise.resolve({ rows: [], topics: [], failed: true });
+    }
 
     return Promise.all([
       client.from('pdf_resources').select('*').order('category_name').order('exam_board_name').order('topic_name').order('created_at', { ascending: false }),
       client.from('resource_topics').select('*').order('topic_name')
-    ]).then(function (results) {
-      if (results[0].error) throw results[0].error;
-      if (results[1].error) throw results[1].error;
-      return {
-        rows: results[0].data || [],
-        topics: results[1].data || []
-      };
-    });
+    ])
+      .then(function (results) {
+        if (results[0].error) throw results[0].error;
+        if (results[1].error) throw results[1].error;
+        return {
+          rows: results[0].data || [],
+          topics: results[1].data || [],
+          failed: false
+        };
+      })
+      .catch(function (err) {
+        console.warn('[Study with Dr] Supabase resources unavailable:', err.message || err);
+        return { rows: [], topics: [], failed: true };
+      });
   }
 
   Promise.all([loadFromSupabase(), loadFromJson()])
     .then(function (results) {
       var supabaseData = results[0];
-      var jsonRows = results[1];
+      var jsonData = results[1];
 
       if (supabaseData.rows.length) {
         allRows = supabaseData.rows;
         allTopics = supabaseData.topics;
       } else {
-        allRows = jsonRows;
+        allRows = jsonData.rows;
         allTopics = [];
+      }
+
+      if (!allRows.length && supabaseData.failed && jsonData.failed) {
+        container.innerHTML = '<p class="pdf-empty">Unable to load resources right now. Please try again later.</p>';
+        return;
       }
 
       window.StudyWithDr._allPdfRows = allRows;
@@ -123,7 +143,8 @@
       }
       render(initialQuery);
     })
-    .catch(function () {
+    .catch(function (err) {
+      console.error('[Study with Dr] Resource list failed:', err);
       container.innerHTML = '<p class="pdf-empty">Unable to load resources right now. Please try again later.</p>';
     });
 
