@@ -53,15 +53,27 @@
     </script>
 </head>
 <body class="page-guides">
-    <div class="container">
-        <nav class="top-nav" aria-label="Primary navigation">
-            <a class="nav-link" href="../index.html">Home</a>
-            <a class="nav-link" href="../resources/">Resources</a>
-            <a class="nav-link active" href="./">Guides</a>
-        </nav>
+    <header class="site-header" role="banner">
+        <div class="site-container site-header-inner">
+            <a class="site-brand" href="/">Study with Dr</a>
+            <button type="button" class="site-nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+                <span class="site-nav-toggle-bar" aria-hidden="true"></span>
+                <span class="site-nav-toggle-bar" aria-hidden="true"></span>
+                <span class="site-nav-toggle-bar" aria-hidden="true"></span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+                <ul class="site-nav-list">
+                    <li><a class="site-nav-link" href="/">Home</a></li>
+                    <li><a class="site-nav-link" href="/resources/">Resources</a></li>
+                    <li><a class="site-nav-link is-active" href="/guides/" aria-current="page">Guides</a></li>
+                </ul>
+                <a class="btn btn-navy site-nav-cta" href="/#contact">Book a lesson</a>
+            </nav>
+        </div>
+    </header>
 
+    <div class="container">
         <header>
-            <p class="brand">Study with Dr</p>
             <h1 class="hero-headline page-heading">
                 <span class="headline-main">Guides</span>
                 <span class="headline-sub">Practical articles on exam technique, transitions and revision strategy.</span>
@@ -113,9 +125,17 @@
     </div>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Study with Dr · Maths & Science Tutoring, Manchester</p>
+        <div class="site-container">
+            <div class="footer-newsletter">
+                <p class="footer-newsletter-label">Want revision tips and exam-board advice by email? No spam, unsubscribe anytime.</p>
+                <form id="newsletter-form" class="footer-newsletter-form" action="https://formspree.io/f/xqelgqbj" method="POST">
+                    <input type="email" id="email-input" name="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            <p class="footer-copyright">&copy; 2026 Study with Dr · Maths & Science Tutoring, Manchester</p>
         </div>
     </footer>
+    <script src="../script.js"></script>
 </body>
 </html>

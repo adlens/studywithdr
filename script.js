@@ -1,8 +1,12 @@
-// Smooth scrolling for anchor links
+// Smooth scrolling for same-page anchor links only
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (!href || href === '#') return;
+        const target = document.querySelector(href);
+        if (!target) return;
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
+        target.scrollIntoView({
             behavior: 'smooth'
         });
     });
@@ -41,10 +45,10 @@ document.getElementById('newsletter-form')?.addEventListener('submit', async fun
     submitBtn.textContent = originalText;
 });
 
-// Mobile site navigation (homepage)
+// Mobile site navigation
 (function () {
-    const header = document.querySelector('.page-home .site-header');
-    const toggle = document.querySelector('.page-home .site-nav-toggle');
+    const header = document.querySelector('.site-header');
+    const toggle = document.querySelector('.site-nav-toggle');
     const nav = document.getElementById('site-nav');
     if (!header || !toggle || !nav) return;
 
@@ -62,14 +66,6 @@ document.getElementById('newsletter-form')?.addEventListener('submit', async fun
         });
     });
 })();
-
-// Mobile menu toggle (legacy pages)
-function toggleMenu() {
-    const nav = document.querySelector('.nav-links');
-    if (nav) {
-        nav.classList.toggle('active');
-    }
-}
 
 // Add subtle animations on scroll
 const observerOptions = {
