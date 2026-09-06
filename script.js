@@ -41,7 +41,29 @@ document.getElementById('newsletter-form')?.addEventListener('submit', async fun
     submitBtn.textContent = originalText;
 });
 
-// Mobile menu toggle (if we add it later)
+// Mobile site navigation (homepage)
+(function () {
+    const header = document.querySelector('.page-home .site-header');
+    const toggle = document.querySelector('.page-home .site-nav-toggle');
+    const nav = document.getElementById('site-nav');
+    if (!header || !toggle || !nav) return;
+
+    toggle.addEventListener('click', function () {
+        const open = header.classList.toggle('nav-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+
+    nav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+            header.classList.remove('nav-open');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.setAttribute('aria-label', 'Open menu');
+        });
+    });
+})();
+
+// Mobile menu toggle (legacy pages)
 function toggleMenu() {
     const nav = document.querySelector('.nav-links');
     if (nav) {

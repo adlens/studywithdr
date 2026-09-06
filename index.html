@@ -78,69 +78,67 @@
 }
     </script>
 </head>
-<body>
-    <div class="container">
-        <nav class="top-nav" aria-label="Primary navigation">
-            <a class="nav-link active" href="./index.html">Home</a>
-            <a class="nav-link" href="resources/">Resources</a>
-            <a class="nav-link" href="guides/">Guides</a>
-        </nav>
-
-        <header>
-            <p class="brand">Study with Dr</p>
-            <h1 class="hero-headline">
-                <span class="headline-main">STEM doesn't have to feel intimidating.</span>
-            </h1>
-            <p class="hero-subtitle">PhD-qualified tutoring in Maths, Physics, Chemistry and Coding, from GCSE through to university level. We build confidence through clear thinking and real understanding.</p>
-            <div class="hero-buttons">
-                <a class="btn btn-primary" href="#contact">Book a First Lesson</a>
-            </div>
-        </header>
-
-        <form class="site-search" action="resources/" method="get" role="search">
-            <label class="visually-hidden" for="site-resource-search">Search resources</label>
-            <input
-                class="site-search-input"
-                type="search"
-                id="site-resource-search"
-                name="q"
-                placeholder="Search revision resources…"
-                autocomplete="off"
-            >
-        </form>
-    </div>
-
-    <div class="intro-strip">
-        <div class="container">
-            <p class="intro-specialism">Specialist in University, A-Level & GCSE Mathematics & Sciences</p>
-            <p class="intro-tagline">We help students move from school-level basics to advanced university work, with clear and calm support along the way.</p>
-            <ul class="intro-badges">
-                <li>PhD, University of Manchester</li>
-                <li>7+ years experience</li>
-                <li>Highly rated by parents & students</li>
-            </ul>
+<body class="page-home">
+    <header class="site-header" role="banner">
+        <div class="site-container site-header-inner">
+            <a class="site-brand" href="./index.html">Study with Dr</a>
+            <button type="button" class="site-nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+                <span class="site-nav-toggle-bar" aria-hidden="true"></span>
+                <span class="site-nav-toggle-bar" aria-hidden="true"></span>
+                <span class="site-nav-toggle-bar" aria-hidden="true"></span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+                <ul class="site-nav-list">
+                    <li><a class="site-nav-link is-active" href="./index.html" aria-current="page">Home</a></li>
+                    <li><a class="site-nav-link" href="resources/">Resources</a></li>
+                    <li><a class="site-nav-link" href="guides/">Guides</a></li>
+                </ul>
+                <a class="btn btn-navy site-nav-cta" href="#contact">Book a lesson</a>
+            </nav>
         </div>
-    </div>
+    </header>
+
+    <section class="hero" aria-labelledby="hero-heading">
+        <div class="site-container hero-grid">
+            <div class="hero-content">
+                <h1 id="hero-heading" class="hero-title">Maths and science, explained clearly.</h1>
+                <p class="hero-lead">PhD-qualified, personalised tuition in Maths, Physics, Chemistry and Coding for students from 11+ to university level — online and in Manchester.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-navy" href="#contact">Book a first lesson</a>
+                    <a class="btn btn-secondary" href="resources/">Explore free resources</a>
+                </div>
+                <p class="hero-promo">New weekly students receive 50% off their first lesson.</p>
+            </div>
+            <aside class="hero-panel" aria-label="Qualifications and support">
+                <ul class="hero-credentials">
+                    <li>PhD, University of Manchester</li>
+                    <li>7+ years&rsquo; teaching experience</li>
+                    <li>Personalised notes and homework</li>
+                    <li>Online and in-person support</li>
+                </ul>
+            </aside>
+        </div>
+    </section>
 
     <div class="section">
-        <div class="container">
-            <h2 class="section-title">Who We Help</h2>
+        <div class="site-container">
+            <h2 class="section-heading">Who We Help</h2>
             <div class="services-grid">
                 <div class="service-card">
                     <span class="service-tag">GCSE &amp; A-Level</span>
-                    <h3>School students</h3>
+                    <h3 class="card-heading">School students</h3>
                     <p class="service-highlight">Maths, physics and further maths across AQA, Edexcel, OCR and CIE.</p>
                     <p>With regular lessons, many students improve by one to three grades within a term. Several have gone on to Cambridge, UCL and Imperial.</p>
                 </div>
                 <div class="service-card">
                     <span class="service-tag">University &amp; Adults</span>
-                    <h3>University and adult learners</h3>
+                    <h3 class="card-heading">University and adult learners</h3>
                     <p class="service-highlight">Calculus, linear algebra, mechanics, statistics and engineering modules.</p>
                     <p>For resits, mid-term catch-up, or ongoing module support. We work at your pace and focus on the topics you find hardest.</p>
                 </div>
                 <div class="service-card">
                     <span class="service-tag">Fast-Track &amp; Resits</span>
-                    <h3>Resits and intensive courses</h3>
+                    <h3 class="card-heading">Resits and intensive courses</h3>
                     <p class="service-highlight">Focused preparation for resit and private candidates.</p>
                     <p>We can work through a full syllabus in a shorter block of lessons. Weekday daytime slots are usually reserved for university and fast-track A-Level students.</p>
                 </div>
@@ -148,9 +146,9 @@
         </div>
     </div>
 
-    <div class="section section-tight">
-        <div class="container">
-            <h2 class="section-title">From the Guides</h2>
+    <div class="section">
+        <div class="site-container">
+            <h2 class="section-heading">From the Guides</h2>
             <div class="related-guides-grid">
                 <a class="related-guide-card" href="guides/gcse-to-a-level-maths-transition.html">
                     <span class="related-guide-label">Guide</span>
@@ -177,54 +175,54 @@
     </div>
 
     <div class="about section">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
+        <div class="site-container">
+            <h2 class="section-heading">About Me</h2>
             <div class="about-body">
                 <p>Hi, I'm <strong>Dr Xin</strong>. I'm a private Maths & Science tutor with nearly seven years of experience, teaching from 11+ and GCSE through to A-Level and university.</p>
                 <p>My background is in Materials Science & Engineering, and I completed my <strong>PhD at the University of Manchester</strong>. As well as GCSE and A-Level teaching, I regularly teach university-level mathematics, including calculus, linear algebra, probability and statistics, mechanics, optimisation and mathematical modelling.</p>
                 <p>Over the years I've realised that many students don't lack ability or interest. Often <strong>they simply haven't been shown mathematics in a way that feels logical, intuitive and approachable</strong>. My goal isn't only to improve grades, but to help students build confidence, feel less anxious about problem solving, and think through problems step by step.</p>
-                <h3>How I Teach</h3>
+                <h3 class="subsection-heading">How I Teach</h3>
             </div>
             <div class="teach-principles">
                 <div class="teach-principle">
                     <span class="teach-principle-num">1</span>
                     <div>
-                        <h4>Find the real gap</h4>
+                        <h4 class="card-heading">Find the real gap</h4>
                         <p>Usually not "difficulty with maths" &mdash; a specific gap in reasoning, algebraic fluency, or exam technique that's built up over time.</p>
                     </div>
                 </div>
                 <div class="teach-principle">
                     <span class="teach-principle-num">2</span>
                     <div>
-                        <h4>Explain thinking aloud</h4>
+                        <h4 class="card-heading">Explain thinking aloud</h4>
                         <p>Breaking problems down step by step and talking through the reasoning surfaces gaps early, so confidence builds as we go.</p>
                     </div>
                 </div>
                 <div class="teach-principle">
                     <span class="teach-principle-num">3</span>
                     <div>
-                        <h4>Structured support</h4>
+                        <h4 class="card-heading">Structured support</h4>
                         <p>Notes, worksheets, homework and feedback between every lesson, tailored to each student's level and learning style.</p>
                     </div>
                 </div>
                 <div class="teach-principle">
                     <span class="teach-principle-num">4</span>
                     <div>
-                        <h4>Calm, not stressful</h4>
+                        <h4 class="card-heading">Calm, not stressful</h4>
                         <p>Mathematics is a logical language. With the right approach, it can be understood step by step.</p>
                     </div>
                 </div>
             </div>
             <div class="about-highlights">
                 <div class="about-card">
-                    <h3>Qualifications</h3>
+                    <h3 class="card-heading">Qualifications</h3>
                     <ul class="about-card-list">
                         <li><strong>PhD</strong> Materials Science &amp; Engineering<span>University of Manchester · 2021</span></li>
                         <li><strong>MSc</strong> Materials Science &amp; Engineering<span>University of Manchester · 2016</span></li>
                     </ul>
                 </div>
                 <div class="about-card">
-                    <h3>Subjects &amp; Levels</h3>
+                    <h3 class="card-heading">Subjects &amp; Levels</h3>
                     <ul class="about-card-list">
                         <li>GCSE &amp; IGCSE Maths and Science</li>
                         <li>A-Level Maths, Further Maths, Physics &amp; Mechanics</li>
@@ -233,7 +231,7 @@
                     </ul>
                 </div>
                 <div class="about-card">
-                    <h3>At a Glance</h3>
+                    <h3 class="card-heading">At a Glance</h3>
                     <ul class="about-card-list about-card-list--facts">
                         <li><strong>Languages</strong><span>English (British) &amp; Chinese</span></li>
                         <li><strong>Format</strong><span>Online &amp; in-person, Manchester</span></li>
@@ -245,9 +243,10 @@
     </div>
 
     <div class="testimonials section">
-        <div class="container">
-            <h2 class="section-title">What Parents & Students Say</h2>
-            <div class="testimonial-carousel">
+        <div class="site-container">
+            <div class="testimonials-inner">
+                <h2 class="section-heading">What Parents & Students Say</h2>
+                <div class="testimonial-carousel">
                 <div class="testimonial-track" id="testimonial-track">
                     <div class="testimonial">
                         <h4>From Farah</h4>
@@ -275,16 +274,17 @@
                     <button type="button" class="carousel-btn carousel-next" id="carousel-next" aria-label="Next review">›</button>
                 </div>
                 <div class="carousel-dots" id="carousel-dots" aria-hidden="true"></div>
+                </div>
+                <p class="testimonials-verify">These reviews are verified on my <a href="https://tutordex.net/tutor/495/xin" target="_blank" rel="noopener">TutorDex profile</a> (formerly First Tutors).</p>
             </div>
-            <p class="testimonials-verify">These reviews are verified on my <a href="https://tutordex.net/tutor/495/xin" target="_blank" rel="noopener">TutorDex profile</a> (formerly First Tutors).</p>
         </div>
     </div>
 
     <div class="cta section" id="contact">
-        <div class="container">
+        <div class="site-container">
             <div class="cta-content">
-                <h2>Get in touch</h2>
-                <p><strong>50% off your first lesson.</strong> We teach Maths, Physics, Chemistry and Coding from secondary school through to university, online or in Manchester.</p>
+                <h2 class="section-heading">Get in touch</h2>
+                <p class="cta-intro"><strong>50% off your first lesson.</strong> We teach Maths, Physics, Chemistry and Coding from secondary school through to university, online or in Manchester.</p>
 
                 <form id="contact-form" class="contact-form" action="https://formspree.io/f/xjgngpkg" method="POST">
                     <input type="hidden" name="_subject" value="New booking inquiry from studywithdr.co.uk">
@@ -327,7 +327,7 @@
     </div>
 
     <footer>
-        <div class="container">
+        <div class="site-container">
             <div class="footer-newsletter">
                 <p class="footer-newsletter-label">Want revision tips and exam-board advice by email? No spam, unsubscribe anytime.</p>
                 <form id="newsletter-form" class="footer-newsletter-form" action="https://formspree.io/f/xqelgqbj" method="POST">
