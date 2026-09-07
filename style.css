@@ -498,7 +498,8 @@ body {
 }
 
 .page-home .about-body {
-    max-width: var(--reading-max);
+    max-width: none;
+    width: 100%;
     margin: 0;
 }
 
