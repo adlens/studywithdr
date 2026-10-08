@@ -88,6 +88,38 @@
       });
   }
 
+  function loadCatalog() {
+    return fetch('./catalog.json')
+      .then(function (res) {
+        if (!res.ok) throw new Error('catalog.json HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        return (data.resources || []).map(function (item) {
+          var cat = window.StudyWithDr.getCategoryBySlug(item.subject + '-' + item.level);
+          return {
+            id: item.id,
+            category_slug: item.subject + '-' + item.level,
+            category_name: cat ? cat.name : '',
+            title: item.title,
+            description: item.description || '',
+            exam_board: item.exam_board || null,
+            exam_board_name: item.exam_board_name || null,
+            resource_type: item.resource_type || null,
+            topics: item.topics || [],
+            format: item.format || 'PDF',
+            price: item.price || '',
+            external_url: item.url,
+            _catalog: true
+          };
+        });
+      })
+      .catch(function (err) {
+        console.warn('[Study with Dr] Resource catalog unavailable:', err.message || err);
+        return [];
+      });
+  }
+
   function loadFromSupabase() {
     var client = window.StudyWithDr.getSupabase();
     if (!client) {
@@ -113,40 +145,57 @@
       });
   }
 
-  Promise.all([loadFromSupabase(), loadFromJson()])
+  var catalogRows = [];
+  var supabaseApplied = false;
+
+  function applyRows(rows, topics) {
+    allRows = catalogRows.concat(rows);
+    allTopics = topics;
+    window.StudyWithDr._allPdfRows = allRows;
+    window.StudyWithDr._allTopics = allTopics;
+    render(searchInput ? searchInput.value.trim() : '');
+  }
+
+  function showUnavailable() {
+    container.innerHTML = '<p class="pdf-empty">Unable to load resources right now. Please try again later.</p>';
+  }
+
+  function showLoadError(err) {
+    console.error('[Study with Dr] Resource list failed:', err);
+    showUnavailable();
+  }
+
+  currentSubject = getSubjectFromUrl();
+  updateSubjectTabs(currentSubject);
+  if (searchInput) {
+    searchInput.value = getQueryFromUrl();
+  }
+
+  // The Supabase client retries failed requests with backoff, so local data renders first.
+  var localData = Promise.all([loadFromJson(), loadCatalog()])
+    .then(function (results) {
+      catalogRows = results[1];
+      if (!supabaseApplied && (catalogRows.length || results[0].rows.length)) {
+        applyRows(results[0].rows, []);
+      }
+      return results[0];
+    });
+
+  Promise.all([loadFromSupabase(), localData])
     .then(function (results) {
       var supabaseData = results[0];
       var jsonData = results[1];
 
       if (supabaseData.rows.length) {
-        allRows = supabaseData.rows;
-        allTopics = supabaseData.topics;
-      } else {
-        allRows = jsonData.rows;
-        allTopics = [];
+        supabaseApplied = true;
+        applyRows(supabaseData.rows, supabaseData.topics);
+      } else if (!allRows.length && supabaseData.failed && jsonData.failed) {
+        showUnavailable();
+      } else if (!allRows.length) {
+        applyRows(jsonData.rows, []);
       }
-
-      if (!allRows.length && supabaseData.failed && jsonData.failed) {
-        container.innerHTML = '<p class="pdf-empty">Unable to load resources right now. Please try again later.</p>';
-        return;
-      }
-
-      window.StudyWithDr._allPdfRows = allRows;
-      window.StudyWithDr._allTopics = allTopics;
-
-      currentSubject = getSubjectFromUrl();
-      var initialQuery = getQueryFromUrl();
-
-      updateSubjectTabs(currentSubject);
-      if (searchInput) {
-        searchInput.value = initialQuery;
-      }
-      render(initialQuery);
     })
-    .catch(function (err) {
-      console.error('[Study with Dr] Resource list failed:', err);
-      container.innerHTML = '<p class="pdf-empty">Unable to load resources right now. Please try again later.</p>';
-    });
+    .catch(showLoadError);
 
   subjectTabs.forEach(function (tab) {
     tab.addEventListener('click', function () {

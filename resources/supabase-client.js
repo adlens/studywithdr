@@ -155,6 +155,18 @@ window.StudyWithDr.escapeHtml = function (text) {
     .replace(/"/g, '&quot;');
 };
 
+window.StudyWithDr.RESOURCE_TYPES = [
+  { slug: 'revision-notes', name: 'Revision Notes' },
+  { slug: 'targeted-practice', name: 'Targeted Practice' }
+];
+
+window.StudyWithDr.getResourceTypeName = function (slug) {
+  var type = window.StudyWithDr.RESOURCE_TYPES.find(function (item) {
+    return item.slug === slug;
+  });
+  return type ? type.name : '';
+};
+
 window.StudyWithDr.getSearchText = function (row) {
   var cat = window.StudyWithDr.getCategoryBySlug(row.category_slug);
   return [
@@ -164,7 +176,10 @@ window.StudyWithDr.getSearchText = function (row) {
     cat ? cat.subjectName : '',
     cat ? cat.levelName : '',
     row.exam_board_name,
-    row.topic_name
+    row.topic_name,
+    (row.topics || []).join(' '),
+    window.StudyWithDr.getResourceTypeName(row.resource_type),
+    row.format
   ].filter(Boolean).join(' ').toLowerCase();
 };
 
@@ -186,7 +201,41 @@ window.StudyWithDr.getPdfUrl = function (filePath) {
   return client.storage.from('pdf-resources').getPublicUrl(filePath).data.publicUrl;
 };
 
+window.StudyWithDr.getItemHref = function (item) {
+  if (item.external_url) return item.external_url;
+  if (item._local) return './files/' + item.category_slug + '/' + encodeURIComponent(item._file);
+  return window.StudyWithDr.getPdfUrl(item.file_path);
+};
+
+window.StudyWithDr.renderCatalogItem = function (item) {
+  var esc = window.StudyWithDr.escapeHtml;
+  var isFree = String(item.price || '').toLowerCase() === 'free';
+  var format = item.format || 'PDF';
+  var typeName = window.StudyWithDr.getResourceTypeName(item.resource_type);
+  var meta = [];
+  if (typeName) meta.push('<span class="pdf-board-tag">' + esc(typeName) + '</span>');
+  meta.push('<span class="pdf-board-tag">' + esc(isFree ? 'Free ' + format : format) + '</span>');
+  var topics = (item.topics || []).map(function (topic) {
+    return '<span class="resource-topic-tag">' + esc(topic) + '</span>';
+  }).join('');
+  var ctaLabel = isFree ? 'Get Free ' + format : 'View resource';
+  var desc = item.description ? '<p class="resource-item-desc">' + esc(item.description) + '</p>' : '';
+
+  return (
+    '<li class="resource-item" data-search-text="' + esc(window.StudyWithDr.getSearchText(item)) + '">' +
+      '<div class="resource-item-main">' +
+        '<p class="resource-item-title">' + esc(item.title) + '</p>' +
+        '<div class="resource-item-meta">' + meta.join('') + '</div>' +
+        desc +
+        (topics ? '<div class="resource-item-topics" aria-label="Topics">' + topics + '</div>' : '') +
+      '</div>' +
+      '<a class="btn btn-navy resource-item-cta" href="' + esc(item.external_url) + '" target="_blank" rel="noopener noreferrer" aria-label="' + esc(ctaLabel + ': ' + item.title) + '">' + esc(ctaLabel) + '</a>' +
+    '</li>'
+  );
+};
+
 window.StudyWithDr.renderPdfItem = function (item, href) {
+  if (item._catalog) return window.StudyWithDr.renderCatalogItem(item);
   var esc = window.StudyWithDr.escapeHtml;
   var desc = item.description ? '<span class="pdf-desc">' + esc(item.description) + '</span>' : '';
   var meta = [];
@@ -268,7 +317,7 @@ window.StudyWithDr.renderCategoryWithDirectFolders = function (sectionTitle, slu
     cat.items,
     folderDefs,
     esc,
-    function (item) { return window.StudyWithDr.getPdfUrl(item.file_path); }
+    window.StudyWithDr.getItemHref
   );
 
   return (
@@ -301,10 +350,7 @@ window.StudyWithDr.renderCategorySection = function (slug, cat, topics, esc) {
   if (!hasBoards) {
     if (!cat.items.length) return '';
     var flatItems = cat.items.map(function (item) {
-      var href = item._local
-        ? './files/' + item.category_slug + '/' + encodeURIComponent(item._file)
-        : window.StudyWithDr.getPdfUrl(item.file_path);
-      return window.StudyWithDr.renderPdfItem(item, href);
+      return window.StudyWithDr.renderPdfItem(item, window.StudyWithDr.getItemHref(item));
     }).join('');
 
     return (
@@ -315,7 +361,19 @@ window.StudyWithDr.renderCategorySection = function (slug, cat, topics, esc) {
     );
   }
 
-  var boardSections = boards.map(function (board) {
+  var unboardedItems = cat.items.filter(function (item) {
+    return !item.exam_board;
+  });
+  var unboardedHtml = unboardedItems.length
+    ? '<div class="pdf-board-group">' +
+        '<h4 class="pdf-board-title">All exam boards</h4>' +
+        '<ul class="pdf-list">' + unboardedItems.map(function (item) {
+          return window.StudyWithDr.renderPdfItem(item, window.StudyWithDr.getItemHref(item));
+        }).join('') + '</ul>' +
+      '</div>'
+    : '';
+
+  var boardSections = unboardedHtml + boards.map(function (board) {
     var boardItems = cat.items.filter(function (item) {
       return item.exam_board === board.slug;
     });
@@ -327,7 +385,7 @@ window.StudyWithDr.renderCategorySection = function (slug, cat, topics, esc) {
       boardItems,
       boardTopics,
       esc,
-      function (item) { return window.StudyWithDr.getPdfUrl(item.file_path); }
+      window.StudyWithDr.getItemHref
     );
 
     return (
@@ -380,10 +438,7 @@ window.StudyWithDr.renderPdfList = function (container, rows, options) {
 
   if (query) {
     var searchItems = filtered.map(function (item) {
-      var href = item._local
-        ? './files/' + item.category_slug + '/' + encodeURIComponent(item._file)
-        : window.StudyWithDr.getPdfUrl(item.file_path);
-      return window.StudyWithDr.renderPdfItem(item, href);
+      return window.StudyWithDr.renderPdfItem(item, window.StudyWithDr.getItemHref(item));
     }).join('');
 
     container.innerHTML =
