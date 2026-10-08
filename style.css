@@ -1431,10 +1431,124 @@ h1 {
     margin-top: 0;
 }
 
+.featured-exam {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+        "intro resource"
+        "enquiry resource";
+    grid-template-rows: auto 1fr;
+    column-gap: 32px;
+    row-gap: 4px;
+    align-items: start;
+    padding: 28px 32px;
+}
+
+.featured-exam-intro {
+    grid-area: intro;
+}
+
+.featured-exam-resource {
+    grid-area: resource;
+    align-self: stretch;
+}
+
+.featured-exam-enquiry {
+    grid-area: enquiry;
+}
+
+.featured-exam-countdown {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--cta-dark);
+    background: #faf7f0;
+    border: 1px solid #eadfc8;
+    border-radius: 999px;
+    padding: 3px 10px;
+}
+
+.featured-exam-date {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+
+.featured-exam-intro .featured-resource-details {
+    margin-bottom: 14px;
+}
+
+.featured-exam-enquiry .featured-resource-desc {
+    font-family: var(--font-sans);
+    margin-bottom: 18px;
+}
+
+.featured-exam-enquire:focus-visible,
+.featured-exam .featured-resource-cta:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.featured-exam-resource {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: var(--bg-light);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 22px 24px;
+}
+
+.featured-exam-resource-label {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.featured-exam-resource-title {
+    font-family: var(--font-serif);
+    font-size: 1.1875rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--text);
+    margin-bottom: 12px;
+}
+
+.featured-exam-resource .resource-item-topics {
+    margin-bottom: 20px;
+}
+
+.featured-exam-resource .resource-topic-tag {
+    background: #fff;
+}
+
+.featured-exam-resource .featured-resource-cta {
+    margin-top: auto;
+}
+
 @media (max-width: 900px) {
     .featured-resource {
         grid-template-columns: 1fr;
         gap: 20px;
+    }
+
+    .featured-exam {
+        grid-template-areas:
+            "intro"
+            "resource"
+            "enquiry";
+        grid-template-rows: auto;
+        row-gap: 20px;
+        padding: 24px;
+    }
+
+    .featured-exam-intro .featured-resource-details {
+        margin-bottom: 0;
     }
 
     .featured-resource-media {
@@ -1689,6 +1803,14 @@ h1 {
     line-height: 1.5;
     color: var(--text-muted);
     margin: 0 0 10px;
+}
+
+.resource-item-details {
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin: -4px 0 10px;
 }
 
 .resource-item-topics {
@@ -2694,9 +2816,14 @@ footer {
         font-size: 1.25rem;
     }
 
-    .featured-resource-cta {
+    .featured-resource-cta,
+    .featured-exam-enquire {
         display: block;
         width: 100%;
         text-align: center;
+    }
+
+    .featured-exam-resource {
+        padding: 18px;
     }
 }

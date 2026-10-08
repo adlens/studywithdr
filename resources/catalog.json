@@ -1,10 +1,13 @@
 {
   "resources": [
     {
-      "id": "a-level-maths-functions-inverse-functions-domain-range",
+      "id": "ial-p3-functions-inverse-functions-domain-range",
       "title": "Functions, Inverse Functions, Domain & Range",
       "subject": "maths",
       "level": "a-level",
+      "exam_board": "edexcel-intl",
+      "unit": "Pure Mathematics 3 (P3)",
+      "qualification": "Edexcel IAL P3",
       "resource_type": "revision-notes",
       "topics": [
         "Functions",
@@ -15,6 +18,20 @@
       "format": "PDF",
       "price": "free",
       "url": "https://payhip.com/b/Bz5wj"
+    },
+    {
+      "id": "11-plus-maths-starting-check",
+      "title": "Free 11+ Maths Starting Check",
+      "subject": "maths",
+      "level": "11-plus",
+      "qualification": "11+ Maths",
+      "resource_type": "diagnostic-assessment",
+      "description": "A free 20-question diagnostic assessment designed to identify strengths, spot gaps and suggest the next learning priorities.",
+      "details": "20 questions · 20–25 minutes · Answers included",
+      "topics": [],
+      "price": "free",
+      "cta_label": "Download the free check",
+      "url": "https://payhip.com/b/Hy0nt"
     }
   ]
 }

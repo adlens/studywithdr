@@ -29,6 +29,7 @@ window.StudyWithDr.RESOURCE_SUBJECTS = [
     slug: 'maths',
     name: 'Maths',
     levels: [
+      { slug: '11-plus', name: '11+' },
       GCSE_WITH_BOARDS,
       ALEVEL_WITH_BOARDS,
       { slug: 'university', name: 'University', hasCourses: true },
@@ -157,7 +158,8 @@ window.StudyWithDr.escapeHtml = function (text) {
 
 window.StudyWithDr.RESOURCE_TYPES = [
   { slug: 'revision-notes', name: 'Revision Notes' },
-  { slug: 'targeted-practice', name: 'Targeted Practice' }
+  { slug: 'targeted-practice', name: 'Targeted Practice' },
+  { slug: 'diagnostic-assessment', name: 'Diagnostic Assessment' }
 ];
 
 window.StudyWithDr.getResourceTypeName = function (slug) {
@@ -177,6 +179,7 @@ window.StudyWithDr.getSearchText = function (row) {
     cat ? cat.levelName : '',
     row.exam_board_name,
     row.topic_name,
+    row.qualification,
     (row.topics || []).join(' '),
     window.StudyWithDr.getResourceTypeName(row.resource_type),
     row.format
@@ -210,16 +213,19 @@ window.StudyWithDr.getItemHref = function (item) {
 window.StudyWithDr.renderCatalogItem = function (item) {
   var esc = window.StudyWithDr.escapeHtml;
   var isFree = String(item.price || '').toLowerCase() === 'free';
-  var format = item.format || 'PDF';
+  var format = item.format || '';
   var typeName = window.StudyWithDr.getResourceTypeName(item.resource_type);
+  var priceLabel = [isFree ? 'Free' : '', format].filter(Boolean).join(' ');
   var meta = [];
+  if (item.qualification) meta.push('<span class="pdf-board-tag">' + esc(item.qualification) + '</span>');
   if (typeName) meta.push('<span class="pdf-board-tag">' + esc(typeName) + '</span>');
-  meta.push('<span class="pdf-board-tag">' + esc(isFree ? 'Free ' + format : format) + '</span>');
+  if (priceLabel) meta.push('<span class="pdf-board-tag">' + esc(priceLabel) + '</span>');
   var topics = (item.topics || []).map(function (topic) {
     return '<span class="resource-topic-tag">' + esc(topic) + '</span>';
   }).join('');
-  var ctaLabel = isFree ? 'Get Free ' + format : 'View resource';
+  var ctaLabel = item.cta_label || (isFree && format ? 'Get Free ' + format : 'View resource');
   var desc = item.description ? '<p class="resource-item-desc">' + esc(item.description) + '</p>' : '';
+  if (item.details) desc += '<p class="resource-item-details">' + esc(item.details) + '</p>';
 
   return (
     '<li class="resource-item" data-search-text="' + esc(window.StudyWithDr.getSearchText(item)) + '">' +
