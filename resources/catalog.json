@@ -2,6 +2,7 @@
   "resources": [
     {
       "id": "ial-p3-functions-inverse-functions-domain-range",
+      "slug": "ial-p3-functions-inverse-domain-range",
       "title": "Functions, Inverse Functions, Domain & Range",
       "subject": "maths",
       "level": "a-level",
@@ -9,15 +10,56 @@
       "unit": "Pure Mathematics 3 (P3)",
       "qualification": "Edexcel IAL P3",
       "resource_type": "revision-notes",
-      "topics": [
-        "Functions",
-        "Composite Functions",
-        "Inverse Functions",
-        "Domain and Range"
-      ],
+      "description": "Revision notes on functions and function notation, composite functions, inverse functions, and domain and range.",
+      "topics": ["Functions", "Composite Functions", "Inverse Functions", "Domain and Range"],
       "format": "PDF",
       "price": "free",
-      "url": "https://payhip.com/b/Bz5wj"
+      "url": "https://payhip.com/b/Bz5wj",
+      "date_published": "2026-10-08",
+      "date_modified": "2026-10-08",
+      "page": {
+        "title_tag": "Edexcel IAL P3 Functions Revision Notes: Free PDF | Study with Dr",
+        "meta_description": "Free revision notes for Edexcel International A-Level Pure Mathematics 3 (WMA13): functions and function notation, composite functions, inverse functions, and domain and range.",
+        "h1": "Edexcel IAL P3 Revision Notes: Functions, Inverse Functions, Domain & Range",
+        "subtitle": "Free PDF revision notes for Edexcel International A-Level Pure Mathematics 3.",
+        "educational_level": "International A-Level",
+        "alignment": {
+          "framework": "Pearson Edexcel International Advanced Level Mathematics",
+          "target": "Pure Mathematics 3 (WMA13)"
+        },
+        "intro": [
+          "These free revision notes are for students taking Edexcel International A-Level Pure Mathematics 3 (P3, paper code WMA13). They focus on one topic area: functions, composite functions, inverse functions, and domain and range.",
+          "They are written for students who want a structured summary of this topic while revising for P3, and for anyone studying functions at A-Level who wants to strengthen the foundations."
+        ],
+        "covers": [
+          "Functions and function notation",
+          "Composite functions",
+          "Inverse functions",
+          "Domain and range"
+        ],
+        "scope_note": "The notes cover this one topic area of P3. They are not a complete P3 revision pack.",
+        "key_ideas": [
+          {
+            "heading": "Functions and function notation",
+            "text": "A function assigns exactly one output to each input in its domain. f(x) is the output when the function f is applied to the input x."
+          },
+          {
+            "heading": "Composite functions",
+            "text": "The composite function fg(x) means f(g(x)): apply g first, then apply f to the result. The order matters, and in general fg(x) is not the same as gf(x)."
+          },
+          {
+            "heading": "Inverse functions",
+            "text": "The inverse function f⁻¹ reverses the effect of f. It exists only when f is one-to-one. The domain of f⁻¹ is the range of f, the range of f⁻¹ is the domain of f, and the graph of y = f⁻¹(x) is the reflection of y = f(x) in the line y = x."
+          },
+          {
+            "heading": "Domain and range",
+            "text": "The domain is the set of inputs a function is defined for. The range is the set of outputs it produces from that domain."
+          }
+        ],
+        "tuition_heading": "Need help with other P3 topics?",
+        "tuition_text": "Study with Dr offers one-to-one online Maths tuition, including focused revision sessions for Edexcel IAL P3.",
+        "tuition_cta": "Enquire about P3 tuition"
+      }
     },
     {
       "id": "11-plus-maths-starting-check",

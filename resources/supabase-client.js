@@ -159,8 +159,41 @@ window.StudyWithDr.escapeHtml = function (text) {
 window.StudyWithDr.RESOURCE_TYPES = [
   { slug: 'revision-notes', name: 'Revision Notes' },
   { slug: 'targeted-practice', name: 'Targeted Practice' },
+  { slug: 'mixed-practice', name: 'Mixed-Topic Practice' },
   { slug: 'diagnostic-assessment', name: 'Diagnostic Assessment' }
 ];
+
+window.StudyWithDr.getResourcePagePath = function (item) {
+  return item.slug && item.page ? '/resources/' + item.slug : '';
+};
+
+window.StudyWithDr.mapCatalogItem = function (item) {
+  var cat = window.StudyWithDr.getCategoryBySlug(item.subject + '-' + item.level);
+  var board = window.StudyWithDr.EXAM_BOARD_OPTIONS.find(function (option) {
+    return option.slug === item.exam_board;
+  });
+  return {
+    id: item.id,
+    category_slug: item.subject + '-' + item.level,
+    category_name: cat ? cat.name : '',
+    title: item.title,
+    description: item.description || '',
+    details: item.details || '',
+    exam_board: item.exam_board || null,
+    exam_board_name: board ? board.name : null,
+    topic_slug: item.unit ? window.StudyWithDr.slugify(item.unit) : null,
+    topic_name: item.unit || null,
+    qualification: item.qualification || '',
+    resource_type: item.resource_type || null,
+    topics: item.topics || [],
+    format: item.format || '',
+    price: item.price || '',
+    cta_label: item.cta_label || '',
+    page_url: window.StudyWithDr.getResourcePagePath(item),
+    external_url: item.url,
+    _catalog: true
+  };
+};
 
 window.StudyWithDr.getResourceTypeName = function (slug) {
   var type = window.StudyWithDr.RESOURCE_TYPES.find(function (item) {
@@ -230,7 +263,9 @@ window.StudyWithDr.renderCatalogItem = function (item) {
   return (
     '<li class="resource-item" data-search-text="' + esc(window.StudyWithDr.getSearchText(item)) + '">' +
       '<div class="resource-item-main">' +
-        '<p class="resource-item-title">' + esc(item.title) + '</p>' +
+        '<p class="resource-item-title">' +
+          (item.page_url ? '<a href="' + esc(item.page_url) + '">' + esc(item.title) + '</a>' : esc(item.title)) +
+        '</p>' +
         '<div class="resource-item-meta">' + meta.join('') + '</div>' +
         desc +
         (topics ? '<div class="resource-item-topics" aria-label="Topics">' + topics + '</div>' : '') +

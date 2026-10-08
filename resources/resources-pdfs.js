@@ -95,32 +95,7 @@
         return res.json();
       })
       .then(function (data) {
-        return (data.resources || []).map(function (item) {
-          var cat = window.StudyWithDr.getCategoryBySlug(item.subject + '-' + item.level);
-          var board = window.StudyWithDr.EXAM_BOARD_OPTIONS.find(function (option) {
-            return option.slug === item.exam_board;
-          });
-          return {
-            id: item.id,
-            category_slug: item.subject + '-' + item.level,
-            category_name: cat ? cat.name : '',
-            title: item.title,
-            description: item.description || '',
-            details: item.details || '',
-            exam_board: item.exam_board || null,
-            exam_board_name: board ? board.name : null,
-            topic_slug: item.unit ? window.StudyWithDr.slugify(item.unit) : null,
-            topic_name: item.unit || null,
-            qualification: item.qualification || '',
-            resource_type: item.resource_type || null,
-            topics: item.topics || [],
-            format: item.format || '',
-            price: item.price || '',
-            cta_label: item.cta_label || '',
-            external_url: item.url,
-            _catalog: true
-          };
-        });
+        return (data.resources || []).map(window.StudyWithDr.mapCatalogItem);
       })
       .catch(function (err) {
         console.warn('[Study with Dr] Resource catalog unavailable:', err.message || err);
