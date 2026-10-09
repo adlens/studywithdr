@@ -1,19 +1,82 @@
 {
   "resources": [
     {
-      "id": "ial-p3-functions-inverse-functions-domain-range",
+      "slug": "ial-p3-harmonic-equations",
+      "status": "published",
+      "title": "Harmonic Equations",
+      "subject": "maths",
+      "level": "ial",
+      "exam_board": "edexcel-intl",
+      "paper": "Pure Mathematics 3 (P3)",
+      "label": "Edexcel IAL P3",
+      "resource_type": "revision-notes",
+      "topics": ["Harmonic Equations", "Harmonic Form", "Trigonometry", "Coefficient Matching", "Maximum and Minimum", "Range", "Trigonometric Equations"],
+      "description": "Free 8-page P3 revision notes on harmonic forms, coefficient matching, angle signs, maximum and minimum values, range and solving harmonic equations. Includes worked examples, targeted practice and selected answers.",
+      "details": "8 pages · Worked examples · Targeted practice · Selected answers",
+      "format": "PDF",
+      "url": "https://payhip.com/b/71rOL",
+      "cover_image": "/images/ial-p3-harmonic-equations.png",
+      "date_published": "2026-10-09",
+      "date_modified": "2026-10-09",
+      "page": {
+        "title_tag": "Edexcel IAL P3 Harmonic Equations Revision Notes: Free PDF | Study with Dr",
+        "meta_description": "Free 8-page Edexcel IAL P3 harmonic equations PDF: harmonic form, angle signs, extrema, range, worked examples, targeted practice and selected answers.",
+        "h1": "Edexcel IAL P3 Revision Notes: Harmonic Equations",
+        "subtitle": "Free 8-page PDF revision notes for Edexcel International A-Level Pure Mathematics 3.",
+        "alignment": {
+          "framework": "Pearson Edexcel International Advanced Level Mathematics",
+          "target": "Pure Mathematics 3 (WMA13)"
+        },
+        "intro_heading": "Who these notes are for",
+        "intro": [
+          "These free revision notes are for students revising Edexcel International A-Level Pure Mathematics 3 (P3, paper code WMA13). They focus on harmonic equations: combining sine and cosine terms into one trigonometric expression and using that form to answer questions.",
+          "The 8-page PDF moves from coefficient matching and angle signs to maximum, minimum and range questions, then solving equations in a shifted interval. It includes worked examples, short Try It exercises, common pitfalls, targeted practice and an answers and quick-check page."
+        ],
+        "covers_heading": "What the notes cover",
+        "covers": [
+          "Rewriting a sin x + b cos x as R sin(x + α) or R cos(x - α)",
+          "Finding R = √(a² + b²) and comparing coefficients",
+          "Checking the signs and quadrants of the angle α",
+          "Maximum, minimum and range, including a constant vertical shift",
+          "Solving harmonic equations using the shifted-angle interval",
+          "Targeted practice, exam-style reasoning and selected answers"
+        ],
+        "scope_note": "This is one P3 topic area, not a complete P3 revision pack. Answers are provided for Sections 1, 2, 3, 5 and 7; the Section 4 Try It exercises are left for self-checking by expansion.",
+        "key_ideas": [
+          {
+            "heading": "Find R, then compare coefficients",
+            "text": "For R sin(x + α), expansion gives R cos α = a and R sin α = b. With non-zero coefficients, R = √(a² + b²). For R cos(x - α), the coefficient equations change to R sin α = a and R cos α = b. Always expand the form requested in the question."
+          },
+          {
+            "heading": "Check angle signs before using your calculator",
+            "text": "The signs of the original coefficients determine the signs of sin α and cos α. For example, 3 sin x - 4 cos x = 5 sin(x - α), with α = tan⁻¹(4/3). Expand your final expression to check that both coefficient signs match."
+          },
+          {
+            "heading": "Read maximum, minimum and range from harmonic form",
+            "text": "For unrestricted real x, a sin x + b cos x + c has maximum c + R, minimum c - R and range [c - R, c + R]. The handout example y = 6 + 3 sin x - 4 cos x therefore has range [1, 11]. On a restricted interval, check whether the extrema occur within that interval."
+          },
+          {
+            "heading": "Solve in the shifted interval, then return to x",
+            "text": "For 3 sin x + 4 cos x = 2 with 0 ≤ x < 2π, put α = tan⁻¹(4/3) and θ = x + α. Solve sin θ = 0.4 in α ≤ θ < 2π + α. With β = sin⁻¹(0.4), use θ = π - β or 2π + β, then subtract α. The solutions are x ≈ 1.8028 and 5.7674 radians."
+          }
+        ],
+        "tuition_heading": "Need help with harmonic equations or other P3 topics?",
+        "tuition_text": "Study with Dr offers one-to-one online Maths tuition, including focused revision sessions for Edexcel IAL P3.",
+        "tuition_cta": "Enquire about P3 tuition"
+      }
+    },
+    {
       "slug": "ial-p3-functions-inverse-domain-range",
+      "status": "published",
       "title": "Functions, Inverse Functions, Domain & Range",
       "subject": "maths",
-      "level": "a-level",
+      "level": "ial",
       "exam_board": "edexcel-intl",
-      "unit": "Pure Mathematics 3 (P3)",
-      "qualification": "Edexcel IAL P3",
+      "paper": "Pure Mathematics 3 (P3)",
+      "label": "Edexcel IAL P3",
       "resource_type": "revision-notes",
-      "description": "Revision notes on functions and function notation, composite functions, inverse functions, and domain and range.",
       "topics": ["Functions", "Composite Functions", "Inverse Functions", "Domain and Range"],
-      "format": "PDF",
-      "price": "free",
+      "description": "Revision notes on functions and function notation, composite functions, inverse functions, and domain and range.",
       "url": "https://payhip.com/b/Bz5wj",
       "date_published": "2026-10-08",
       "date_modified": "2026-10-08",
@@ -22,15 +85,16 @@
         "meta_description": "Free revision notes for Edexcel International A-Level Pure Mathematics 3 (WMA13): functions and function notation, composite functions, inverse functions, and domain and range.",
         "h1": "Edexcel IAL P3 Revision Notes: Functions, Inverse Functions, Domain & Range",
         "subtitle": "Free PDF revision notes for Edexcel International A-Level Pure Mathematics 3.",
-        "educational_level": "International A-Level",
         "alignment": {
           "framework": "Pearson Edexcel International Advanced Level Mathematics",
           "target": "Pure Mathematics 3 (WMA13)"
         },
+        "intro_heading": "Who these notes are for",
         "intro": [
           "These free revision notes are for students taking Edexcel International A-Level Pure Mathematics 3 (P3, paper code WMA13). They focus on one topic area: functions, composite functions, inverse functions, and domain and range.",
           "They are written for students who want a structured summary of this topic while revising for P3, and for anyone studying functions at A-Level who wants to strengthen the foundations."
         ],
+        "covers_heading": "What the notes cover",
         "covers": [
           "Functions and function notation",
           "Composite functions",
@@ -62,18 +126,21 @@
       }
     },
     {
-      "id": "11-plus-maths-starting-check",
+      "slug": "11-plus-maths-starting-check",
+      "status": "published",
       "title": "Free 11+ Maths Starting Check",
       "subject": "maths",
       "level": "11-plus",
-      "qualification": "11+ Maths",
+      "label": "11+ Maths",
       "resource_type": "diagnostic-assessment",
+      "topics": [],
       "description": "A free 20-question diagnostic assessment designed to identify strengths, spot gaps and suggest the next learning priorities.",
       "details": "20 questions · 20–25 minutes · Answers included",
-      "topics": [],
-      "price": "free",
+      "format": "",
       "cta_label": "Download the free check",
-      "url": "https://payhip.com/b/Hy0nt"
+      "url": "https://payhip.com/b/Hy0nt",
+      "cover_image": "/images/free-11-plus-maths-starting-check.png",
+      "date_published": "2026-09-05"
     }
   ]
 }

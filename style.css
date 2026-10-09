@@ -1765,7 +1765,32 @@ h1 {
 }
 
 .resource-item-main {
+    flex: 1;
     min-width: 0;
+}
+
+.resource-item-cover {
+    flex-shrink: 0;
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    align-self: flex-start;
+}
+
+.resource-item-more {
+    display: inline-block;
+    margin-top: 10px;
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.resource-item-more:hover {
+    text-decoration: underline;
 }
 
 .resource-item-title {
@@ -1843,6 +1868,11 @@ h1 {
     .resource-item-cta {
         width: 100%;
         text-align: center;
+    }
+
+    .resource-item-cover {
+        width: 56px;
+        height: 56px;
     }
 }
 
@@ -2532,6 +2562,20 @@ button:hover {
     border-radius: var(--radius);
 }
 
+.resource-download-cover {
+    flex-shrink: 0;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 1px solid #eadfc8;
+    border-radius: var(--radius-sm);
+}
+
+.resource-download-info {
+    flex: 1;
+    min-width: 0;
+}
+
 .resource-download-title {
     font-family: var(--font-serif);
     font-size: 1.25rem;
@@ -2582,6 +2626,11 @@ button:hover {
 
     .resource-download-title {
         display: none;
+    }
+
+    .resource-download-cover {
+        width: 88px;
+        height: 88px;
     }
 
     .resource-download-actions .btn {

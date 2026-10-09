@@ -5,7 +5,6 @@
   if (!container) return;
 
   var allRows = [];
-  var allTopics = [];
   var currentSubject = 'maths';
 
   function getQueryFromUrl() {
@@ -50,76 +49,13 @@
 
     window.StudyWithDr.renderPdfList(container, allRows, {
       query: query,
-      topics: allTopics,
+      topics: [],
       subject: searching ? '' : currentSubject
     });
   }
 
-  function loadFromJson() {
-    return fetch('./pdfs.json')
-      .then(function (res) {
-        if (!res.ok) throw new Error('pdfs.json HTTP ' + res.status);
-        return res.json();
-      })
-      .then(function (data) {
-        var rows = [];
-        (data.categories || []).forEach(function (cat) {
-          (cat.items || []).forEach(function (item) {
-            rows.push({
-              category_slug: cat.slug,
-              category_name: cat.name,
-              title: item.title,
-              description: item.description || '',
-              exam_board: item.exam_board || null,
-              exam_board_name: item.exam_board_name || null,
-              topic_slug: item.topic_slug || null,
-              topic_name: item.topic_name || null,
-              file_path: cat.slug + '/' + item.file,
-              _local: true,
-              _file: item.file
-            });
-          });
-        });
-        return { rows: rows, failed: false };
-      })
-      .catch(function (err) {
-        console.warn('[Study with Dr] Local pdfs.json fallback unavailable:', err.message || err);
-        return { rows: [], failed: true };
-      });
-  }
-
-  function loadCatalog() {
-    return fetch('./catalog.json')
-      .then(function (res) {
-        if (!res.ok) throw new Error('catalog.json HTTP ' + res.status);
-        return res.json();
-      })
-      .then(function (data) {
-        return (data.resources || []).map(window.StudyWithDr.mapCatalogItem);
-      })
-      .catch(function (err) {
-        console.warn('[Study with Dr] Resource catalog unavailable:', err.message || err);
-        return [];
-      });
-  }
-
-  var catalogRows = [];
-
-  function applyRows(rows, topics) {
-    allRows = catalogRows.concat(rows);
-    allTopics = topics;
-    window.StudyWithDr._allPdfRows = allRows;
-    window.StudyWithDr._allTopics = allTopics;
-    render(searchInput ? searchInput.value.trim() : '');
-  }
-
   function showUnavailable() {
     container.innerHTML = '<p class="pdf-empty">Unable to load resources right now. Please try again later.</p>';
-  }
-
-  function showLoadError(err) {
-    console.error('[Study with Dr] Resource list failed:', err);
-    showUnavailable();
   }
 
   currentSubject = getSubjectFromUrl();
@@ -128,17 +64,22 @@
     searchInput.value = getQueryFromUrl();
   }
 
-  Promise.all([loadFromJson(), loadCatalog()])
-    .then(function (results) {
-      var jsonData = results[0];
-      catalogRows = results[1];
-      if (!catalogRows.length && jsonData.failed) {
-        showUnavailable();
-        return;
-      }
-      applyRows(jsonData.rows, []);
+  fetch('./catalog.json')
+    .then(function (res) {
+      if (!res.ok) throw new Error('catalog.json HTTP ' + res.status);
+      return res.json();
     })
-    .catch(showLoadError);
+    .then(function (data) {
+      allRows = (data.resources || [])
+        .filter(window.StudyWithDr.isPublished)
+        .map(window.StudyWithDr.mapCatalogItem);
+      render(searchInput ? searchInput.value.trim() : '');
+    })
+    .catch(function (err) {
+      // The prerendered list is still valid, so only replace it when it is missing.
+      console.warn('[Study with Dr] Resource catalog unavailable:', err.message || err);
+      if (!container.querySelector('.resource-item')) showUnavailable();
+    });
 
   subjectTabs.forEach(function (tab) {
     tab.addEventListener('click', function () {

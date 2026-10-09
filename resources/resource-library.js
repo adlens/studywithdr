@@ -23,6 +23,7 @@ window.StudyWithDr.EXAM_BOARD_OPTIONS = [
 
 var GCSE_WITH_BOARDS = { slug: 'gcse', name: 'GCSE', hasTopics: true, hasExamBoards: true };
 var ALEVEL_WITH_BOARDS = { slug: 'a-level', name: 'A-Level', hasTopics: true, hasExamBoards: true };
+var IAL_WITH_BOARDS = { slug: 'ial', name: 'International A-Level', hasTopics: true, hasExamBoards: true };
 
 window.StudyWithDr.RESOURCE_SUBJECTS = [
   {
@@ -32,6 +33,7 @@ window.StudyWithDr.RESOURCE_SUBJECTS = [
       { slug: '11-plus', name: '11+' },
       GCSE_WITH_BOARDS,
       ALEVEL_WITH_BOARDS,
+      IAL_WITH_BOARDS,
       { slug: 'university', name: 'University', hasCourses: true },
       { slug: 'drills', name: 'General Maths Drills' }
     ]
@@ -42,6 +44,7 @@ window.StudyWithDr.RESOURCE_SUBJECTS = [
     levels: [
       GCSE_WITH_BOARDS,
       ALEVEL_WITH_BOARDS,
+      IAL_WITH_BOARDS,
       { slug: 'university', name: 'University', hasCourses: true }
     ]
   },
@@ -51,6 +54,7 @@ window.StudyWithDr.RESOURCE_SUBJECTS = [
     levels: [
       GCSE_WITH_BOARDS,
       ALEVEL_WITH_BOARDS,
+      IAL_WITH_BOARDS,
       { slug: 'university', name: 'University', hasCourses: true }
     ]
   },
@@ -159,36 +163,51 @@ window.StudyWithDr.escapeHtml = function (text) {
 window.StudyWithDr.RESOURCE_TYPES = [
   { slug: 'revision-notes', name: 'Revision Notes' },
   { slug: 'targeted-practice', name: 'Targeted Practice' },
-  { slug: 'mixed-practice', name: 'Mixed-Topic Practice' },
   { slug: 'diagnostic-assessment', name: 'Diagnostic Assessment' }
 ];
 
+window.StudyWithDr.isPublished = function (item) {
+  return item.status === 'published';
+};
+
 window.StudyWithDr.getResourcePagePath = function (item) {
-  return item.slug && item.page ? '/resources/' + item.slug : '';
+  return '/resources/' + item.slug;
+};
+
+window.StudyWithDr.getExamBoardName = function (slug) {
+  var board = window.StudyWithDr.EXAM_BOARD_OPTIONS.find(function (option) {
+    return option.slug === slug;
+  });
+  return board ? board.name : null;
+};
+
+// Short label shown as the first tag, e.g. "Edexcel IAL P3" or "11+ Maths".
+window.StudyWithDr.getResourceLabel = function (item) {
+  if (item.label) return item.label;
+  var cat = window.StudyWithDr.getCategoryBySlug(item.subject + '-' + item.level);
+  return cat ? cat.levelName + ' ' + cat.subjectName : '';
 };
 
 window.StudyWithDr.mapCatalogItem = function (item) {
   var cat = window.StudyWithDr.getCategoryBySlug(item.subject + '-' + item.level);
-  var board = window.StudyWithDr.EXAM_BOARD_OPTIONS.find(function (option) {
-    return option.slug === item.exam_board;
-  });
   return {
-    id: item.id,
+    id: item.slug,
     category_slug: item.subject + '-' + item.level,
     category_name: cat ? cat.name : '',
     title: item.title,
     description: item.description || '',
     details: item.details || '',
     exam_board: item.exam_board || null,
-    exam_board_name: board ? board.name : null,
-    topic_slug: item.unit ? window.StudyWithDr.slugify(item.unit) : null,
-    topic_name: item.unit || null,
-    qualification: item.qualification || '',
+    exam_board_name: window.StudyWithDr.getExamBoardName(item.exam_board),
+    topic_slug: item.paper ? window.StudyWithDr.slugify(item.paper) : null,
+    topic_name: item.paper || null,
+    qualification: window.StudyWithDr.getResourceLabel(item),
     resource_type: item.resource_type || null,
     topics: item.topics || [],
-    format: item.format || '',
-    price: item.price || '',
+    format: item.format === undefined ? 'PDF' : item.format,
+    price: item.price || 'free',
     cta_label: item.cta_label || '',
+    cover_image: item.cover_image || '',
     page_url: window.StudyWithDr.getResourcePagePath(item),
     external_url: item.url,
     _catalog: true
@@ -220,9 +239,7 @@ window.StudyWithDr.getSearchText = function (row) {
 };
 
 window.StudyWithDr.getItemHref = function (item) {
-  if (item.external_url) return item.external_url;
-  if (item._local) return './files/' + item.category_slug + '/' + encodeURIComponent(item._file);
-  return '#';
+  return item.external_url || '#';
 };
 
 window.StudyWithDr.renderCatalogItem = function (item) {
@@ -244,6 +261,7 @@ window.StudyWithDr.renderCatalogItem = function (item) {
 
   return (
     '<li class="resource-item" data-search-text="' + esc(window.StudyWithDr.getSearchText(item)) + '">' +
+      (item.cover_image ? '<img class="resource-item-cover" src="' + esc(item.cover_image) + '" alt="" width="72" height="72" loading="lazy">' : '') +
       '<div class="resource-item-main">' +
         '<p class="resource-item-title">' +
           (item.page_url ? '<a href="' + esc(item.page_url) + '">' + esc(item.title) + '</a>' : esc(item.title)) +
@@ -251,6 +269,7 @@ window.StudyWithDr.renderCatalogItem = function (item) {
         '<div class="resource-item-meta">' + meta.join('') + '</div>' +
         desc +
         (topics ? '<div class="resource-item-topics" aria-label="Topics">' + topics + '</div>' : '') +
+        (item.page_url ? '<a class="resource-item-more" href="' + esc(item.page_url) + '">About this resource &rarr;</a>' : '') +
       '</div>' +
       '<a class="btn btn-navy resource-item-cta" href="' + esc(item.external_url) + '" target="_blank" rel="noopener noreferrer" aria-label="' + esc(ctaLabel + ': ' + item.title) + '">' + esc(ctaLabel) + '</a>' +
     '</li>'
