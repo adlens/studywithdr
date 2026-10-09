@@ -219,28 +219,10 @@ window.StudyWithDr.getSearchText = function (row) {
   ].filter(Boolean).join(' ').toLowerCase();
 };
 
-window.StudyWithDr.getSupabase = function () {
-  if (window.StudyWithDr._client) return window.StudyWithDr._client;
-
-  var cfg = window.STUDY_WITH_DR_SUPABASE;
-  if (!cfg || !cfg.url || !cfg.anonKey || cfg.url.indexOf('YOUR_PROJECT') !== -1) {
-    return null;
-  }
-
-  window.StudyWithDr._client = window.supabase.createClient(cfg.url, cfg.anonKey);
-  return window.StudyWithDr._client;
-};
-
-window.StudyWithDr.getPdfUrl = function (filePath) {
-  var client = window.StudyWithDr.getSupabase();
-  if (!client) return '#';
-  return client.storage.from('pdf-resources').getPublicUrl(filePath).data.publicUrl;
-};
-
 window.StudyWithDr.getItemHref = function (item) {
   if (item.external_url) return item.external_url;
   if (item._local) return './files/' + item.category_slug + '/' + encodeURIComponent(item._file);
-  return window.StudyWithDr.getPdfUrl(item.file_path);
+  return '#';
 };
 
 window.StudyWithDr.renderCatalogItem = function (item) {

@@ -103,33 +103,7 @@
       });
   }
 
-  function loadFromSupabase() {
-    var client = window.StudyWithDr.getSupabase();
-    if (!client) {
-      return Promise.resolve({ rows: [], topics: [], failed: true });
-    }
-
-    return Promise.all([
-      client.from('pdf_resources').select('*').order('category_name').order('exam_board_name').order('topic_name').order('created_at', { ascending: false }),
-      client.from('resource_topics').select('*').order('topic_name')
-    ])
-      .then(function (results) {
-        if (results[0].error) throw results[0].error;
-        if (results[1].error) throw results[1].error;
-        return {
-          rows: results[0].data || [],
-          topics: results[1].data || [],
-          failed: false
-        };
-      })
-      .catch(function (err) {
-        console.warn('[Study with Dr] Supabase resources unavailable:', err.message || err);
-        return { rows: [], topics: [], failed: true };
-      });
-  }
-
   var catalogRows = [];
-  var supabaseApplied = false;
 
   function applyRows(rows, topics) {
     allRows = catalogRows.concat(rows);
@@ -154,29 +128,15 @@
     searchInput.value = getQueryFromUrl();
   }
 
-  // The Supabase client retries failed requests with backoff, so local data renders first.
-  var localData = Promise.all([loadFromJson(), loadCatalog()])
+  Promise.all([loadFromJson(), loadCatalog()])
     .then(function (results) {
+      var jsonData = results[0];
       catalogRows = results[1];
-      if (!supabaseApplied && (catalogRows.length || results[0].rows.length)) {
-        applyRows(results[0].rows, []);
-      }
-      return results[0];
-    });
-
-  Promise.all([loadFromSupabase(), localData])
-    .then(function (results) {
-      var supabaseData = results[0];
-      var jsonData = results[1];
-
-      if (supabaseData.rows.length) {
-        supabaseApplied = true;
-        applyRows(supabaseData.rows, supabaseData.topics);
-      } else if (!allRows.length && supabaseData.failed && jsonData.failed) {
+      if (!catalogRows.length && jsonData.failed) {
         showUnavailable();
-      } else if (!allRows.length) {
-        applyRows(jsonData.rows, []);
+        return;
       }
+      applyRows(jsonData.rows, []);
     })
     .catch(showLoadError);
 

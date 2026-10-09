@@ -165,7 +165,11 @@ function renderResourcePage(item) {
     <meta property="og:title" content="${esc(page.h1)}">
     <meta property="og:description" content="${esc(page.meta_description)}">
     <meta property="og:locale" content="en_GB">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:image" content="${SITE}/images/og-study-with-dr.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Study with Dr: Maths and science that finally makes sense.">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="author" content="Dr Zhiying Xin">
     <link rel="stylesheet" href="/style.css">
     <!-- Google tag (gtag.js) -->
