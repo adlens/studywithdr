@@ -1,6 +1,46 @@
 {
   "resources": [
     {
+      "slug": "ial-p3-trigonometric-equations-cast",
+      "status": "published",
+      "title": "Solving Trigonometric Equations: CAST & Domains",
+      "subject": "maths",
+      "level": "ial",
+      "exam_board": "edexcel-intl",
+      "paper": "Pure Mathematics 3 (P3)",
+      "label": "Edexcel IAL P3",
+      "resource_type": "revision-notes",
+      "topics": ["Trigonometric Equations", "CAST", "Reference Angles", "Domains", "Multiple Angles", "Shifted Angles", "Double-Angle Identities", "Quadratic Trigonometric Equations", "Harmonic Form"],
+      "description": "Free 11-page P3 revision notes on reference angles, CAST, domains, multiple and shifted angles, double-angle identities and quadratic trig equations. Includes worked examples, nine exam-style practice questions and answers.",
+      "details": "11 pages · Worked examples · Targeted practice · Answers",
+      "format": "PDF",
+      "url": "https://payhip.com/b/vlzbh",
+      "cover_image": "/images/ial-p3-trigonometric-equations-cast.png",
+      "date_published": "2026-10-10",
+      "date_modified": "2026-10-10",
+      "page": {
+        "title_tag": "Edexcel IAL P3 Trigonometric Equations: Free CAST Revision PDF | Study with Dr",
+        "meta_description": "Free 11-page Edexcel IAL P3 PDF: reference angles, CAST, domains, multiple and shifted angles, identities, quadratic trig equations and practice answers.",
+        "h1": "Edexcel IAL P3 Revision Notes: Solving Trigonometric Equations",
+        "subtitle": "Free 11-page PDF on reference angles, CAST, double angles and domains for Edexcel International A-Level Pure Mathematics 3.",
+        "alignment": {"framework": "Pearson Edexcel International Advanced Level Mathematics", "target": "Pure Mathematics 3 (WMA13)"},
+        "intro_heading": "Who these notes are for",
+        "intro": ["These free revision notes help Edexcel International A-Level P3 students find every solution of a trigonometric equation within its stated domain, rather than relying only on the calculator's principal value.", "The 11-page handout follows a consistent sequence: reference angle, CAST quadrants, one-cycle solutions, then extend to the required interval. It includes a CAST diagram, worked examples, quick checks, nine exam-style targeted practice questions, answers and a final exam checklist."],
+        "covers_heading": "What the notes cover",
+        "covers": ["Reference angles, principal values and the CAST sign pattern", "Solving sine, cosine and tangent equations in radians and degrees", "Intervals wider than one cycle and tangent periodicity", "Transforming the domain for multiple and shifted angles", "Double-angle identities, reciprocal functions and quadratic trig equations", "Connecting harmonic form to angle-solving, plus practice and answers"],
+        "scope_note": "This is focused P3 trigonometry revision, not a complete P3 revision pack. Answers are supplied for the practice exercises, including all nine exam-style questions; these are not full worked solutions for every question. The harmonic-form section explains the method without specifying a numerical solution domain.",
+        "key_ideas": [
+          {"heading": "Use CAST after finding the reference angle", "text": "Find a positive acute reference angle for non-axis cases, then use the original sign to select quadrants: all functions are positive in I, sine in II, tangent in III and cosine in IV. Handle axis cases separately."},
+          {"heading": "Extend solutions to the whole domain", "text": "Sine and cosine repeat every 2π radians or 360°. Tangent repeats every π radians or 180°. Add or subtract the relevant period and retain only values in the stated interval, respecting open and closed endpoints."},
+          {"heading": "Transform the inside-angle interval first", "text": "For sin 2x = 3/4 with 0 < x < π, first solve in 0 < 2x < 2π, then divide by two. For a shifted expression such as 2x - 70°, transform both endpoints before applying CAST and return to x at the end."},
+          {"heading": "Simplify with identities and solve every branch", "text": "Use sin 2x = 2 sin x cos x and cos 2x = 2 cos²x - 1 = 1 - 2 sin²x to simplify equations. When factorising gives several possible sine or cosine values, solve every valid branch and check the original equation and domain."}
+        ],
+        "tuition_heading": "Need help solving P3 trigonometric equations?",
+        "tuition_text": "Study with Dr offers one-to-one online Maths tuition, including focused revision sessions for Edexcel IAL P3.",
+        "tuition_cta": "Enquire about P3 tuition"
+      }
+    },
+    {
       "slug": "ial-p3-harmonic-equations",
       "status": "published",
       "title": "Harmonic Equations",
