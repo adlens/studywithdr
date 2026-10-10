@@ -1,6 +1,78 @@
 {
   "resources": [
     {
+      "slug": "year-9-rearranging-formulae-foundations",
+      "status": "published",
+      "title": "Rearranging Formulae 01: Foundations",
+      "subject": "maths",
+      "level": "ks3",
+      "label": "Year 9 · KS3 Maths",
+      "resource_type": "worksheet",
+      "topics": ["Algebra", "Rearranging Formulae", "Changing the Subject", "Inverse Operations", "Fractions", "Brackets", "Substitution", "Year 9"],
+      "description": "Free six-page Year 9 KS3 classroom worksheet on rearranging formulae using inverse operations, fractions and brackets. Includes four worked examples, 16 class exercises and worked solutions with marking points.",
+      "details": "6 pages · 16 exercises · Worked solutions",
+      "format": "PDF",
+      "url": "https://payhip.com/b/VchQg",
+      "cover_image": "/images/year9-rearranging-formulae-foundations.png",
+      "date_published": "2026-10-10",
+      "page": {
+        "title_tag": "Year 9 Rearranging Formulae: Foundations Free Worksheet | Study with Dr",
+        "meta_description": "Free six-page Year 9 KS3 rearranging formulae worksheet: inverse operations, fractions, brackets, 16 exercises and worked solutions with marking points.",
+        "h1": "Year 9 Maths: Rearranging Formulae 01 - Foundations",
+        "subtitle": "Free six-page KS3 classroom handout with worked examples, practice and worked solutions.",
+        "educational_level": "Year 9 / Key Stage 3",
+        "intro_heading": "Who this worksheet is for",
+        "intro": ["This Year 9 Maths handout introduces changing the subject of a formula through inverse operations, fractions and brackets. It is designed for KS3 classroom teaching, supported independent practice and revision, without tying the material to a GCSE exam board.", "Each of the four teaching sections contains a core concept, one worked example and four class exercises, with space to show working. The final two pages provide worked solutions for all 16 exercises, marking points and a note that equivalent rearrangements are accepted."],
+        "covers_heading": "What the worksheet covers",
+        "covers": ["Identifying the subject and applying inverse operations to both sides", "Removing fractions and checking non-zero divisors", "Rearranging brackets using efficient choices", "Checking rearrangements by substitution", "Applications involving perimeter, temperature and taxi fares"],
+        "scope_note": "Part 01 of a two-part Year 9 sequence. Work through Foundations before Next Steps if fractions, brackets or inverse operations are not yet secure. The included marking points are classroom guidance, not an official examination mark scheme.",
+        "key_ideas": [
+          {"heading": "Apply the same operation to both sides", "text": "The subject is the letter on its own. For v = u + at, subtract u and divide by t to obtain a = (v - u)/t, with t ≠ 0."},
+          {"heading": "Keep the whole numerator together", "text": "For y = (x - 5)/3, multiplying by 3 gives 3y = x - 5, then x = 3y + 5. A fraction bar groups its entire numerator."},
+          {"heading": "Choose an efficient route and check it", "text": "For P = 2(l + w), divide by 2 before subtracting l: w = P/2 - l. Check by substituting allowed values into the original formula."}
+        ],
+        "tuition_heading": "Need support with Year 9 algebra?",
+        "tuition_text": "Study with Dr offers personalised one-to-one online Maths tuition, including KS3 algebra and changing the subject of a formula.",
+        "tuition_cta": "Enquire about Year 9 Maths tuition"
+      }
+    },
+    {
+      "slug": "year-9-rearranging-formulae-next-steps",
+      "status": "published",
+      "title": "Rearranging Formulae 02: Next Steps",
+      "subject": "maths",
+      "level": "ks3",
+      "label": "Year 9 · KS3 Maths",
+      "resource_type": "worksheet",
+      "topics": ["Algebra", "Rearranging Formulae", "Changing the Subject", "Squares and Square Roots", "Factorising", "Target Letter on Both Sides", "Restrictions", "Year 9"],
+      "description": "Free six-page Year 9 KS3 classroom worksheet extending rearranging formulae to roots, factorising and target letters on both sides. Includes 16 exercises, extension reasoning and worked solutions with marking points.",
+      "details": "6 pages · 16 exercises · Worked solutions",
+      "format": "PDF",
+      "url": "https://payhip.com/b/kxUqC",
+      "cover_image": "/images/year9-rearranging-formulae-next-steps.png",
+      "date_published": "2026-10-10",
+      "page": {
+        "title_tag": "Year 9 Rearranging Formulae: Next Steps Free Worksheet | Study with Dr",
+        "meta_description": "Free six-page Year 9 KS3 worksheet: rearranging formulae with roots, factorising, letters on both sides, 16 exercises and worked solutions.",
+        "h1": "Year 9 Maths: Rearranging Formulae 02 - Next Steps",
+        "subtitle": "Free six-page KS3 classroom handout extending rearrangement skills, with stretch questions and worked solutions.",
+        "educational_level": "Year 9 / Key Stage 3",
+        "intro_heading": "Who this worksheet is for",
+        "intro": ["This handout is for Year 9 students ready to move beyond basic inverse operations, fractions and brackets. It extends changing-the-subject work to square roots, factorising and target-letter terms on both sides, with extension questions for additional challenge.", "The four sections each contain a core concept, worked example and four class exercises, giving 16 exercises in total. The final two pages supply worked solutions and marking points. Foundations is the recommended starting point if the prerequisite skills need practice."],
+        "covers_heading": "What the worksheet covers",
+        "covers": ["Isolating squares before taking square roots", "Choosing positive roots for non-negative lengths and using ± roots in algebra", "Collecting and factorising target-letter terms", "Handling a target letter on both sides", "Non-zero denominators, restrictions and extension reasoning", "Applying rearrangement to circle area, rectangle perimeter and equal costs"],
+        "scope_note": "Part 02 of a two-part Year 9 sequence, including stretch questions. Students should be comfortable with the Foundations techniques. This is a KS3 classroom resource, not an exam-board-specific GCSE worksheet; marking points are classroom guidance.",
+        "key_ideas": [
+          {"heading": "Isolate the square and choose the appropriate root", "text": "For A = πr² with r ≥ 0, r = √(A/π). For unrestricted real x with y = x², use x = ±√y when y ≥ 0; the two roots coincide when y = 0."},
+          {"heading": "Factorise to isolate repeated target letters", "text": "For p = ax + bx + d, collect the x terms: p - d = x(a + b). Then x = (p - d)/(a + b), provided a + b ≠ 0."},
+          {"heading": "Check restrictions before dividing", "text": "For ax + b = cx + d, x = (d - b)/(a - c) only when a ≠ c. If the target terms cancel, inspect the remaining equality rather than dividing by zero."}
+        ],
+        "tuition_heading": "Need help with the next step in Year 9 algebra?",
+        "tuition_text": "Study with Dr offers personalised one-to-one online Maths tuition, including factorising, formula rearrangement and KS3 extension work.",
+        "tuition_cta": "Enquire about Year 9 Maths tuition"
+      }
+    },
+    {
       "slug": "ial-p3-trigonometric-equations-cast",
       "status": "published",
       "title": "Solving Trigonometric Equations: CAST & Domains",

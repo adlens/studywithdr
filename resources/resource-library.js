@@ -31,6 +31,7 @@ window.StudyWithDr.RESOURCE_SUBJECTS = [
     name: 'Maths',
     levels: [
       { slug: '11-plus', name: '11+' },
+      { slug: 'ks3', name: 'KS3' },
       GCSE_WITH_BOARDS,
       ALEVEL_WITH_BOARDS,
       IAL_WITH_BOARDS,
@@ -162,6 +163,7 @@ window.StudyWithDr.escapeHtml = function (text) {
 
 window.StudyWithDr.RESOURCE_TYPES = [
   { slug: 'revision-notes', name: 'Revision Notes' },
+  { slug: 'worksheet', name: 'Worksheet' },
   { slug: 'targeted-practice', name: 'Targeted Practice' },
   { slug: 'diagnostic-assessment', name: 'Diagnostic Assessment' }
 ];
