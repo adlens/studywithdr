@@ -1859,6 +1859,65 @@ h1 {
     outline-offset: 2px;
 }
 
+.resource-item-compact {
+    gap: 14px;
+    padding: 12px 16px;
+}
+
+.resource-item-compact .resource-item-cover {
+    width: 44px;
+    height: 44px;
+    align-self: center;
+}
+
+.resource-item-compact .resource-item-title {
+    margin-bottom: 4px;
+}
+
+.resource-item-summary {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+}
+
+.resource-item-compact .resource-item-cta {
+    padding: 8px 12px;
+    font-size: 0.8125rem;
+}
+
+.featured-exam-compact {
+    padding: 16px 0;
+}
+
+.featured-exam-compact .featured-exam-context,
+.featured-exam-compact .featured-exam-resource {
+    padding: 0 24px;
+}
+
+.featured-exam-compact .featured-exam-resource-title {
+    font-size: 1.125rem;
+    margin-bottom: 10px;
+}
+
+.featured-exam-compact .featured-exam-actions {
+    gap: 8px;
+    margin-bottom: 0;
+}
+
+.featured-exam-compact .featured-exam-actions .btn {
+    padding: 8px 12px;
+    font-size: 0.8125rem;
+}
+
+@media (max-width: 900px) {
+    .featured-exam-compact .featured-exam-resource {
+        margin-top: 8px;
+        padding-top: 12px;
+    }
+}
+
 @media (max-width: 640px) {
     .resource-item {
         flex-direction: column;
@@ -1873,6 +1932,31 @@ h1 {
     .resource-item-cover {
         width: 56px;
         height: 56px;
+    }
+
+    .resource-item-compact {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .resource-item-compact .resource-item-cover {
+        display: none;
+    }
+
+    .resource-item-compact .resource-item-title {
+        font-size: 0.9375rem;
+    }
+
+    .resource-item-compact .resource-item-cta {
+        width: auto;
+    }
+
+    .featured-exam-compact .featured-exam-context,
+    .featured-exam-compact .featured-exam-resource {
+        padding: 12px 16px;
     }
 }
 

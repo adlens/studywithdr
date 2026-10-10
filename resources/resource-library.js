@@ -248,28 +248,18 @@ window.StudyWithDr.renderCatalogItem = function (item) {
   var format = item.format || '';
   var typeName = window.StudyWithDr.getResourceTypeName(item.resource_type);
   var priceLabel = [isFree ? 'Free' : '', format].filter(Boolean).join(' ');
-  var meta = [];
-  if (item.qualification) meta.push('<span class="pdf-board-tag">' + esc(item.qualification) + '</span>');
-  if (typeName) meta.push('<span class="pdf-board-tag">' + esc(typeName) + '</span>');
-  if (priceLabel) meta.push('<span class="pdf-board-tag">' + esc(priceLabel) + '</span>');
-  var topics = (item.topics || []).map(function (topic) {
-    return '<span class="resource-topic-tag">' + esc(topic) + '</span>';
-  }).join('');
-  var ctaLabel = item.cta_label || (isFree && format ? 'Get Free ' + format : 'View resource');
-  var desc = item.description ? '<p class="resource-item-desc">' + esc(item.description) + '</p>' : '';
-  if (item.details) desc += '<p class="resource-item-details">' + esc(item.details) + '</p>';
+  var pageCount = (item.details || '').match(/^\s*\d+\s+pages\b/i);
+  var meta = [item.qualification, typeName, pageCount ? pageCount[0].trim() : priceLabel].filter(Boolean);
+  var ctaLabel = isFree ? (format ? 'Get Free ' + format : 'Free Download') : (item.cta_label || 'View resource');
 
   return (
-    '<li class="resource-item" data-search-text="' + esc(window.StudyWithDr.getSearchText(item)) + '">' +
-      (item.cover_image ? '<img class="resource-item-cover" src="' + esc(item.cover_image) + '" alt="" width="72" height="72" loading="lazy">' : '') +
+    '<li class="resource-item resource-item-compact" data-search-text="' + esc(window.StudyWithDr.getSearchText(item)) + '">' +
+      (item.cover_image ? '<img class="resource-item-cover" src="' + esc(item.cover_image) + '" alt="" width="44" height="44" loading="lazy">' : '') +
       '<div class="resource-item-main">' +
         '<p class="resource-item-title">' +
           (item.page_url ? '<a href="' + esc(item.page_url) + '">' + esc(item.title) + '</a>' : esc(item.title)) +
         '</p>' +
-        '<div class="resource-item-meta">' + meta.join('') + '</div>' +
-        desc +
-        (topics ? '<div class="resource-item-topics" aria-label="Topics">' + topics + '</div>' : '') +
-        (item.page_url ? '<a class="resource-item-more" href="' + esc(item.page_url) + '">About this resource &rarr;</a>' : '') +
+        '<p class="resource-item-summary">' + esc(meta.join(' · ')) + '</p>' +
       '</div>' +
       '<a class="btn btn-navy resource-item-cta" href="' + esc(item.external_url) + '" target="_blank" rel="noopener noreferrer" aria-label="' + esc(ctaLabel + ': ' + item.title) + '">' + esc(ctaLabel) + '</a>' +
     '</li>'
