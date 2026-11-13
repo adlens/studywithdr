@@ -1,6 +1,44 @@
 {
   "resources": [
     {
+      "slug": "edexcel-gcse-physics-electromagnetic-induction",
+      "status": "published",
+      "title": "Electromagnetic Induction",
+      "subject": "physics",
+      "level": "gcse",
+      "exam_board": "edexcel",
+      "label": "Edexcel GCSE Physics",
+      "resource_type": "revision-notes",
+      "topics": ["Electromagnetic Induction", "Generator Effect", "Induced Voltage", "Alternators", "Dynamos", "Microphones", "Loudspeakers", "Transformers", "National Grid", "Transmission Losses"],
+      "description": "Free 19-page Edexcel GCSE Physics handout on electromagnetic induction, generators, transformers and the National Grid. Includes diagrams, worked calculations, 15 class exercises and solutions with marking points.",
+      "details": "19 pages · 15 exercises · Solutions with marking points",
+      "format": "PDF",
+      "url": "https://payhip.com/b/oELig",
+      "cover_image": "/images/edexcel-gcse-physics-electromagnetic-induction.png",
+      "date_published": "2026-11-13",
+      "page": {
+        "title_tag": "Edexcel GCSE Physics Electromagnetic Induction: Free PDF | Study with Dr",
+        "meta_description": "Free 19-page Edexcel GCSE Physics PDF on induction, generators, transformers and the National Grid, with 15 exercises, worked calculations and solutions.",
+        "h1": "Edexcel GCSE Physics: Electromagnetic Induction",
+        "subtitle": "Free 19-page teaching and revision handout with diagrams, class exercises and solutions.",
+        "educational_level": "GCSE",
+        "intro_heading": "Who this handout is for",
+        "intro": ["This free handout supports students studying electromagnetic induction in Edexcel GCSE Physics. It connects induced voltage and current with generators, audio devices, transformers and electricity transmission.", "The PDF contains 15 teaching sections with class exercises, diagrams, core concepts, exam tips and worked calculations. Four pages of solutions cover all 15 exercises with marking points. It can be used during lessons or for supported revision."],
+        "covers_heading": "What the handout covers",
+        "covers": ["The generator effect and factors affecting induced voltage", "Opposing the change and the direction of induced current", "Alternators, split-ring dynamos and a.c./pulsating d.c. graphs", "Bicycle dynamos and moving-coil microphones", "Loudspeakers and headphones using the motor effect", "Transformer operation, turns ratios and ideal-transformer current", "The National Grid and high-voltage transmission", "Power and energy losses in transmission cables"],
+        "scope_note": "This is a focused topic handout, not a complete GCSE revision guide. It includes extension calculations on transmission losses. It is an independent Study with Dr teaching resource, not an official Pearson Edexcel publication or official examination mark scheme. Existing diagram credits are retained in the PDF.",
+        "key_ideas": [
+          {"heading": "Voltage can be induced without a current flowing", "text": "A wire cutting magnetic field lines, or a changing magnetic field through a coil, induces a potential difference. An induced current additionally requires a complete conducting circuit. A stationary magnet and stationary coil give no sustained induced voltage."},
+          {"heading": "Distinguish alternators and simple dynamos", "text": "An alternator uses two slip rings and produces alternating voltage. A simple dynamo with a split-ring commutator keeps external current in one direction, but its size varies: pulsating d.c. The bicycle dynamo illustrated in the handout uses a rotating magnet and produces a.c."},
+          {"heading": "Transformers require a changing magnetic field", "text": "Alternating current in the primary coil produces a changing field linked through the iron core to the secondary coil. The turns equation is Vs/Vp = Ns/Np. For an ideal transformer, VpIp = VsIs: increasing voltage reduces current for the same power."},
+          {"heading": "Higher transmission voltage reduces cable heating", "text": "For fixed transferred power, I = P/V. Cable heating is Ploss = I²R, so doubling voltage halves current and reduces the heating loss to one quarter for unchanged resistance. Energy lost is Eloss = Ploss × time, with time in seconds."}
+        ],
+        "tuition_heading": "Need help with GCSE Physics?",
+        "tuition_text": "Study with Dr offers personalised one-to-one online Physics tuition, including electromagnetic induction, transformer calculations and exam technique.",
+        "tuition_cta": "Enquire about GCSE Physics tuition"
+      }
+    },
+    {
       "slug": "year-9-rearranging-formulae-foundations",
       "status": "published",
       "title": "Rearranging Formulae 01: Foundations",
