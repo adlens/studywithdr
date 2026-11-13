@@ -1,6 +1,111 @@
 {
   "resources": [
     {
+      "slug": "edexcel-gcse-physics-current-potential-difference-resistance",
+      "status": "published",
+      "title": "Current, Potential Difference & Resistance",
+      "subject": "physics",
+      "level": "gcse",
+      "exam_board": "edexcel",
+      "label": "Edexcel GCSE Physics",
+      "resource_type": "revision-notes",
+      "topics": ["Electricity", "Current", "Potential Difference", "Resistance", "Charge", "Circuit Symbols", "Ammeters", "Voltmeters", "Junctions", "V = IR", "Q = It", "E = QV"],
+      "description": "Free 16-page Edexcel GCSE Physics handout on charge, current, potential difference, resistance and circuit measurements. Includes 12 exercise sets and four pages of worked solutions with marking points.",
+      "details": "16 pages · 12 exercise sets · Worked solutions",
+      "format": "PDF",
+      "url": "https://payhip.com/b/6ufzI",
+      "cover_image": "/images/edexcel-gcse-physics-current-potential-difference-resistance.png",
+      "date_published": "2026-11-13",
+      "page": {
+        "title_tag": "Edexcel GCSE Physics Current, Voltage & Resistance: Free PDF | Study with Dr",
+        "meta_description": "Free 16-page Edexcel GCSE Physics PDF on current, potential difference, charge, resistance and meters, with 12 exercise sets and worked solutions.",
+        "h1": "Edexcel GCSE Physics: Current, Potential Difference & Resistance",
+        "subtitle": "Free 16-page teaching and revision handout with diagrams, calculations and worked solutions.",
+        "intro_heading": "Who these notes are for",
+        "intro": ["This handout introduces the electricity foundations needed for Edexcel GCSE Physics: charge, current, potential difference, resistance and measurements in circuits.", "Twelve teaching sections contain diagrams, core concepts, worked examples, exam tips and numbered exercise sets with subquestions. The final four pages give worked solutions and classroom marking points, including guidance for circuit drawings."],
+        "covers": ["Atomic structure, charge and standard circuit symbols", "Sensors, diodes, switches and complete circuits", "Potential difference as energy per coulomb and E = QV", "Voltmeter connections and ideal meter resistance", "Current, Q = It, electron drift and conventional current", "Ammeters, series current and conservation of charge at junctions", "Resistance, V = IR and mixed circuit calculations"],
+        "scope_note": "A focused electricity handout, not a complete GCSE Physics course. This is an independent Study with Dr resource, not an official Pearson Edexcel publication or examination mark scheme. Existing source and diagram credits are retained.",
+        "key_ideas": [
+          {"heading": "Distinguish current and potential difference", "text": "Current is charge passing per second: I = Q/t. Potential difference is energy transferred per coulomb: V = E/Q. Charge is conserved; a component transfers energy rather than using up current."},
+          {"heading": "Connect meters correctly", "text": "An ammeter goes in series and ideally has zero resistance. A voltmeter goes in parallel across the selected component and ideally has infinite resistance, so it draws no current."},
+          {"heading": "Convert units before calculating", "text": "Use amperes rather than milliamperes and seconds rather than minutes in Q = It. For a 20 Ω resistor across 4.0 V for five minutes, I = 0.20 A, Q = 60 C and E = 240 J."}
+        ],
+        "tuition_heading": "Need help with GCSE electricity?",
+        "tuition_text": "Study with Dr offers personalised one-to-one online Physics tuition, including circuit calculations and clear explanations of current, voltage and resistance.",
+        "tuition_cta": "Enquire about GCSE Physics tuition"
+      }
+    },
+    {
+      "slug": "edexcel-gcse-physics-components-series-parallel",
+      "status": "published",
+      "title": "Components in Series & Parallel Circuits",
+      "subject": "physics",
+      "level": "gcse",
+      "exam_board": "edexcel",
+      "label": "Edexcel GCSE Physics",
+      "resource_type": "revision-notes",
+      "topics": ["Electricity", "Series Circuits", "Parallel Circuits", "Resistance", "I-V Graphs", "Filament Lamps", "Diodes", "LDRs", "Thermistors", "Circuit Practicals", "Measurement Errors"],
+      "description": "Free 20-page Edexcel GCSE Physics handout on series and parallel circuits, I-V graphs, sensors and investigations. Includes 16 exercise sets and solutions with marking points.",
+      "details": "20 pages · 16 exercise sets · Solutions with marking points",
+      "format": "PDF",
+      "url": "https://payhip.com/b/hFm1b",
+      "cover_image": "/images/edexcel-gcse-physics-components-series-parallel.png",
+      "date_published": "2026-11-13",
+      "page": {
+        "title_tag": "Edexcel GCSE Physics Series & Parallel Circuits: Free PDF | Study with Dr",
+        "meta_description": "Free 20-page Edexcel GCSE Physics PDF: series and parallel circuits, I-V graphs, sensors, practicals, 16 exercise sets and solutions.",
+        "h1": "Edexcel GCSE Physics: Components in Series & Parallel Circuits",
+        "subtitle": "Free 20-page handout combining circuit rules, component behaviour and practical investigations.",
+        "intro_heading": "Who these notes are for",
+        "intro": ["These notes support Edexcel GCSE Physics students applying series and parallel rules, interpreting component graphs and planning circuit investigations.", "Sixteen teaching sections contain diagrams, core concepts, worked calculations and numbered exercise sets with subquestions. Four pages of solutions provide marking points and explanation guidance. Current, Potential Difference & Resistance is a useful starting point if the foundations need practice."],
+        "covers": ["Current, voltage and resistance in series and parallel", "Independent switching, circuit design and meter connections", "I-V graphs for fixed resistors, filament lamps and diodes", "LDRs and NTC thermistors", "Collecting readings, plotting graphs and investigating sensors", "Comparing combined resistance at controlled voltage and temperature", "Random variation, zero errors, meter loading and safe practical work"],
+        "scope_note": "A focused circuit handout, not a complete GCSE course. Independent Study with Dr material, not an official Pearson Edexcel publication or examination mark scheme. Existing source and diagram credits are retained. Practical activities require suitable low-voltage equipment and teacher-approved methods.",
+        "key_ideas": [
+          {"heading": "Apply the correct circuit rule", "text": "In series, steady current is the same throughout, voltages add and resistances add. In parallel, each branch has the same voltage and branch currents add. For positive resistances, the combined parallel resistance is below the smallest branch resistance."},
+          {"heading": "Use the axes when interpreting I-V graphs", "text": "For current on the vertical axis and voltage on the horizontal axis, a steeper straight ohmic-resistor line means lower resistance. For a curved graph, use R = V/I at the chosen operating point rather than treating a tangent gradient as 1/R."},
+          {"heading": "Control conditions and evaluate measurements", "text": "Keep fixed-resistor temperatures approximately constant when comparing resistance. Repeat readings to reduce random variation; repeating does not remove a persistent zero offset. Measure voltage across the whole arrangement and total current when calculating combined resistance."}
+        ],
+        "tuition_heading": "Need support with circuits and practical questions?",
+        "tuition_text": "Study with Dr offers personalised one-to-one online Physics tuition, including circuit reasoning, graph interpretation and practical evaluation.",
+        "tuition_cta": "Enquire about GCSE Physics tuition"
+      }
+    },
+    {
+      "slug": "edexcel-gcse-physics-electricity-summary",
+      "status": "published",
+      "title": "Electricity Summary",
+      "subject": "physics",
+      "level": "gcse",
+      "exam_board": "edexcel",
+      "label": "Edexcel GCSE Physics",
+      "resource_type": "revision-notes",
+      "topics": ["Electricity", "Revision Summary", "Charge", "Circuits", "Resistance", "Power", "Energy", "Domestic Electricity", "Static Electricity", "Electric Fields", "Transformers", "National Grid"],
+      "description": "Free four-page Edexcel GCSE Physics electricity summary covering charge, circuits, equations, power, domestic electricity, static electricity, transformers and transmission.",
+      "details": "4 pages · Equation bank · Definitions and explanation chains",
+      "format": "PDF",
+      "url": "https://payhip.com/b/YCx6q",
+      "cover_image": "/images/edexcel-gcse-physics-electricity-summary.png",
+      "date_published": "2026-11-13",
+      "page": {
+        "title_tag": "Edexcel GCSE Physics Electricity Summary: Free 4-Page PDF | Study with Dr",
+        "meta_description": "Free four-page Edexcel GCSE Physics electricity summary: definitions, equations, circuits, power, domestic electricity, static electricity and transformers.",
+        "h1": "Edexcel GCSE Physics: Electricity Summary",
+        "subtitle": "Free four-page quick-reference sheet for electricity definitions, equations and explanations.",
+        "intro_heading": "How to use this summary",
+        "intro": ["This compact, two-column reference sheet supports quick recall across selected Edexcel GCSE Physics electricity topics. Use it alongside fuller teaching notes and question practice, rather than as a substitute for learning the concepts.", "The four pages bring together definitions, circuit symbols, equations, unit conversions, short worked examples, cause-and-effect explanation chains and frequent mistakes. There are no separate exercise sets or answer section."],
+        "covers": ["Page 1: charge, circuit symbols, meters, equations and units", "Page 2: series and parallel rules, component graphs, sensors and practical methods", "Page 3: power, energy, kWh, domestic electricity and safety concepts", "Page 4: static electricity, electric fields, generation, transformers and transmission"],
+        "scope_note": "A summary of selected electricity content, not a full GCSE Physics revision guide or question workbook. This independent Study with Dr resource is not an official Pearson Edexcel publication. Original diagram attribution is retained. This is not a guide to working on mains wiring; practical work should use teacher-approved low-voltage equipment.",
+        "key_ideas": [
+          {"heading": "Use the equation bank with consistent units", "text": "The summary collects Q = It, E = QV, V = IR, P = IV, P = I²R and E = Pt. Convert milliamperes to amperes and minutes to seconds before using SI equations."},
+          {"heading": "State the condition that makes a rule true", "text": "When predicting current, state whether voltage is constant. For ohmic-resistor behaviour, specify constant temperature. For high-voltage transmission comparisons, specify the same transferred power."},
+          {"heading": "Build an explanation chain", "text": "Link cause, process and result rather than listing disconnected keywords. For example, higher transmission voltage at fixed power gives lower current, which reduces I²R cable heating."}
+        ],
+        "tuition_heading": "Want help turning recall into exam answers?",
+        "tuition_text": "Study with Dr offers personalised one-to-one online Physics tuition, including electricity calculations, explanations and revision planning.",
+        "tuition_cta": "Enquire about GCSE Physics tuition"
+      }
+    },
+    {
       "slug": "edexcel-gcse-physics-electromagnetic-induction",
       "status": "published",
       "title": "Electromagnetic Induction",
