@@ -97,6 +97,30 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://studywithdr.co.uk/resources/year9-factorising-common-factors</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://studywithdr.co.uk/resources/year9-expanding-double-brackets</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://studywithdr.co.uk/resources/year9-factorising-quadratics</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://studywithdr.co.uk/resources/year9-angles-and-equations</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <!-- generated:resource-pages:end -->
   <url>
     <loc>https://studywithdr.co.uk/student-projects.html</loc>

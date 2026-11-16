@@ -8,7 +8,16 @@
       "level": "university",
       "label": "University Maths · Foundations",
       "resource_type": "targeted-practice",
-      "topics": ["Straight Lines", "Coordinate Geometry", "Gradient", "Midpoint", "Distance", "Line Equations", "Intersections", "Foundations"],
+      "topics": [
+        "Straight Lines",
+        "Coordinate Geometry",
+        "Gradient",
+        "Midpoint",
+        "Distance",
+        "Line Equations",
+        "Intersections",
+        "Foundations"
+      ],
       "description": "Free six-page straight-lines refresher with 13 questions on gradient, midpoint, distance, line equations and intersections. Includes quick reminders, examples and complete worked answers.",
       "details": "6 pages · 13 questions · Aim: 30 minutes · Worked answers",
       "format": "PDF",
@@ -22,12 +31,27 @@
         "subtitle": "13 questions with worked answers · Six-page PDF · Suggested target: 30 minutes without a calculator.",
         "educational_level": "University mathematics foundations",
         "intro_heading": "Who this practice is for",
-        "intro": ["This short refresher helps students rebuild coordinate-geometry foundations before or during university mathematics. It can also support learners at earlier stages who are revisiting these techniques; it is not tied to an exam board.", "Four practice pages combine quick reminders, examples and working space, followed by two pages of complete worked answers. Attempt the questions before checking the answers and note any skills that need more practice."],
-        "covers": ["Gradient between two points and the vertical-line exception", "Midpoint and distance, including exact surds", "Reading and writing y = mx + c", "Equations through a known point or two points", "Intersections of two straight lines"],
+        "intro": [
+          "This short refresher helps students rebuild coordinate-geometry foundations before or during university mathematics. It can also support learners at earlier stages who are revisiting these techniques; it is not tied to an exam board.",
+          "Four practice pages combine quick reminders, examples and working space, followed by two pages of complete worked answers. Attempt the questions before checking the answers and note any skills that need more practice."
+        ],
+        "covers": [
+          "Gradient between two points and the vertical-line exception",
+          "Midpoint and distance, including exact surds",
+          "Reading and writing y = mx + c",
+          "Equations through a known point or two points",
+          "Intersections of two straight lines"
+        ],
         "scope_note": "Prerequisites: basic algebra, coordinates and Pythagoras. This is a short skills refresher, not a complete coordinate-geometry course or an exam paper. The 30-minute target is a flexible practice aim, not a validated test duration.",
         "key_ideas": [
-          {"heading": "Keep coordinate differences in the same order", "text": "Use m = (y₂ - y₁)/(x₂ - x₁), with x₂ ≠ x₁. If the x-coordinates are equal, the line is vertical and its gradient is undefined."},
-          {"heading": "Use one point to find the equation", "text": "With gradient m and point (x₁, y₁), use y - y₁ = m(x - x₁). For an intersection, set the two expressions for y equal and substitute the resulting x into either equation."}
+          {
+            "heading": "Keep coordinate differences in the same order",
+            "text": "Use m = (y₂ - y₁)/(x₂ - x₁), with x₂ ≠ x₁. If the x-coordinates are equal, the line is vertical and its gradient is undefined."
+          },
+          {
+            "heading": "Use one point to find the equation",
+            "text": "With gradient m and point (x₁, y₁), use y - y₁ = m(x - x₁). For an intersection, set the two expressions for y equal and substitute the resulting x into either equation."
+          }
         ],
         "tuition_heading": "Need help rebuilding your maths foundations?",
         "tuition_text": "Study with Dr offers personalised one-to-one online Maths tuition, including algebra and coordinate-geometry refreshers.",
@@ -42,7 +66,15 @@
       "level": "university",
       "label": "University Maths · Foundations",
       "resource_type": "targeted-practice",
-      "topics": ["Algebra", "Linear Equations", "Quadratic Equations", "Factorising", "Quadratic Formula", "Surds", "Foundations"],
+      "topics": [
+        "Algebra",
+        "Linear Equations",
+        "Quadratic Equations",
+        "Factorising",
+        "Quadratic Formula",
+        "Surds",
+        "Foundations"
+      ],
       "description": "Free five-page algebra refresher with nine questions on linear and quadratic equations, factorising and the quadratic formula. Includes reminders, examples and complete worked answers.",
       "details": "5 pages · 9 questions · Aim: 25 minutes · Worked answers",
       "format": "PDF",
@@ -56,12 +88,26 @@
         "subtitle": "Nine questions with worked answers · Five-page PDF · Suggested target: 25 minutes without a calculator.",
         "educational_level": "University mathematics foundations",
         "intro_heading": "Who this practice is for",
-        "intro": ["This refresher supports students rebuilding algebra foundations before or during university mathematics. Its linear and quadratic equation practice can also help earlier-stage learners; it is not tied to a specific exam board.", "Three practice pages provide quick reminders, examples and working space. Two answer pages explain the solutions to all nine questions, including exact surd answers where required."],
-        "covers": ["Linear equations with brackets and fractional coefficients", "Unknowns on both sides of an equation", "Quadratic equations by factorising", "The quadratic formula, signs and exact roots"],
+        "intro": [
+          "This refresher supports students rebuilding algebra foundations before or during university mathematics. Its linear and quadratic equation practice can also help earlier-stage learners; it is not tied to a specific exam board.",
+          "Three practice pages provide quick reminders, examples and working space. Two answer pages explain the solutions to all nine questions, including exact surd answers where required."
+        ],
+        "covers": [
+          "Linear equations with brackets and fractional coefficients",
+          "Unknowns on both sides of an equation",
+          "Quadratic equations by factorising",
+          "The quadratic formula, signs and exact roots"
+        ],
         "scope_note": "Prerequisites: basic arithmetic, negative numbers, expanding brackets and simple surds. This is focused skills practice, not a full algebra course or an exam paper. The 25-minute target is a flexible practice aim.",
         "key_ideas": [
-          {"heading": "Choose the operation order from the equation", "text": "Apply the same operation to both sides. Undo operations in reverse order, expanding brackets or collecting terms first when appropriate; there is no single operation order that fits every equation."},
-          {"heading": "Check quadratic-formula conditions and signs", "text": "For ax² + bx + c = 0, the quadratic formula requires a ≠ 0. Identify the signs of a, b and c carefully. Real roots require b² - 4ac ≥ 0; a negative discriminant gives no real roots."}
+          {
+            "heading": "Choose the operation order from the equation",
+            "text": "Apply the same operation to both sides. Undo operations in reverse order, expanding brackets or collecting terms first when appropriate; there is no single operation order that fits every equation."
+          },
+          {
+            "heading": "Check quadratic-formula conditions and signs",
+            "text": "For ax² + bx + c = 0, the quadratic formula requires a ≠ 0. Identify the signs of a, b and c carefully. Real roots require b² - 4ac ≥ 0; a negative discriminant gives no real roots."
+          }
         ],
         "tuition_heading": "Need help refreshing algebra?",
         "tuition_text": "Study with Dr offers personalised one-to-one online Maths tuition, including linear equations, factorising and quadratic equations.",
@@ -76,7 +122,16 @@
       "level": "university",
       "label": "University Maths · Foundations",
       "resource_type": "targeted-practice",
-      "topics": ["Vectors", "Magnitude", "Unit Vectors", "Dot Product", "Cross Product", "Perpendicular Vectors", "Three-Dimensional Vectors", "Foundations"],
+      "topics": [
+        "Vectors",
+        "Magnitude",
+        "Unit Vectors",
+        "Dot Product",
+        "Cross Product",
+        "Perpendicular Vectors",
+        "Three-Dimensional Vectors",
+        "Foundations"
+      ],
       "description": "Free six-page vector refresher with ten questions on vectors between points, magnitude, unit vectors, dot and cross products. Includes reminders, examples and complete worked answers.",
       "details": "6 pages · 10 questions · Aim: 20 minutes · Worked answers",
       "format": "PDF",
@@ -90,12 +145,27 @@
         "subtitle": "Ten questions with worked answers · Six-page PDF · Suggested target: 20 minutes without a calculator.",
         "educational_level": "Introductory university mathematics",
         "intro_heading": "Who this practice is for",
-        "intro": ["This short refresher is for introductory university mathematics and students returning to two- and three-dimensional vectors. Because it includes the cross product, it is not presented as ordinary GCSE vector practice.", "Four practice pages contain quick reminders, examples and ten questions, including one optional scaling challenge. Two pages of worked answers explain all ten solutions. The publication copy clarifies the non-zero-vector and zero-cross-product cases."],
-        "covers": ["Vectors between two points", "Magnitude and unit vectors", "Dot product and perpendicularity of non-zero vectors", "Three-dimensional cross product", "Scaling a vector to a required magnitude"],
+        "intro": [
+          "This short refresher is for introductory university mathematics and students returning to two- and three-dimensional vectors. Because it includes the cross product, it is not presented as ordinary GCSE vector practice.",
+          "Four practice pages contain quick reminders, examples and ten questions, including one optional scaling challenge. Two pages of worked answers explain all ten solutions. The publication copy clarifies the non-zero-vector and zero-cross-product cases."
+        ],
+        "covers": [
+          "Vectors between two points",
+          "Magnitude and unit vectors",
+          "Dot product and perpendicularity of non-zero vectors",
+          "Three-dimensional cross product",
+          "Scaling a vector to a required magnitude"
+        ],
         "scope_note": "Prerequisites: basic algebra, coordinates, vector components and square roots. This is a short skills refresher, not a complete vector course or an exam paper. The 20-minute target is a flexible practice aim; it includes one optional challenge.",
         "key_ideas": [
-          {"heading": "Normalise only a non-zero vector", "text": "Divide a vector by its magnitude to obtain a unit vector in the same direction, provided the original vector is non-zero. The zero vector has no direction and cannot be normalised."},
-          {"heading": "Distinguish scalar and vector products", "text": "The dot product is a scalar; for two non-zero vectors, a zero dot product means perpendicular directions. A non-zero cross product is a vector perpendicular to both inputs. Parallel inputs, or a zero input, give the zero vector with no direction."}
+          {
+            "heading": "Normalise only a non-zero vector",
+            "text": "Divide a vector by its magnitude to obtain a unit vector in the same direction, provided the original vector is non-zero. The zero vector has no direction and cannot be normalised."
+          },
+          {
+            "heading": "Distinguish scalar and vector products",
+            "text": "The dot product is a scalar; for two non-zero vectors, a zero dot product means perpendicular directions. A non-zero cross product is a vector perpendicular to both inputs. Parallel inputs, or a zero input, give the zero vector with no direction."
+          }
         ],
         "tuition_heading": "Need help rebuilding confidence with vectors?",
         "tuition_text": "Study with Dr offers personalised one-to-one online Maths tuition, including introductory university vector skills and prerequisite revision.",
@@ -111,7 +181,19 @@
       "exam_board": "aqa",
       "label": "AQA GCSE Physics · Higher",
       "resource_type": "revision-notes",
-      "topics": ["Electromagnetic Induction", "Generator Effect", "Lenz's Law", "Alternators", "Dynamos", "Output Graphs", "Microphones", "Transformers", "Ideal Transformers", "National Grid", "Higher Tier"],
+      "topics": [
+        "Electromagnetic Induction",
+        "Generator Effect",
+        "Lenz's Law",
+        "Alternators",
+        "Dynamos",
+        "Output Graphs",
+        "Microphones",
+        "Transformers",
+        "Ideal Transformers",
+        "National Grid",
+        "Higher Tier"
+      ],
       "description": "Free 17-page AQA GCSE Physics Higher handout on induction, alternators, dynamos, microphones, transformers and the National Grid. Includes 13 exercise sets and solutions with marking points.",
       "details": "17 pages · 13 exercise sets · Solutions with marking points",
       "format": "PDF",
@@ -125,15 +207,40 @@
         "subtitle": "Free 17-page teaching and revision handout with diagrams, worked calculations and solutions.",
         "educational_level": "GCSE Higher Tier",
         "intro_heading": "Who this handout is for",
-        "intro": ["This handout supports students studying induction, generators and transformers in AQA GCSE Physics Higher. It is the AQA Higher resource, separate from the Edexcel induction handout in the resource library.", "Thirteen teaching sections combine diagrams, core concepts, exam tips, worked calculations and numbered exercise sets with subquestions. Four pages of solutions provide classroom marking points for all 13 sets."],
+        "intro": [
+          "This handout supports students studying induction, generators and transformers in AQA GCSE Physics Higher. It is the AQA Higher resource, separate from the Edexcel induction handout in the resource library.",
+          "Thirteen teaching sections combine diagrams, core concepts, exam tips, worked calculations and numbered exercise sets with subquestions. Four pages of solutions provide classroom marking points for all 13 sets."
+        ],
         "covers_heading": "What the handout covers",
-        "covers": ["The generator effect and factors affecting induced potential difference", "Lenz's law and forces opposing the change", "Alternators, slip rings and output graphs", "Split-ring dynamos and pulsating direct current", "Bicycle generators, peak p.d. and frequency", "Moving-coil microphones and energy transfer", "Transformer operation and voltage/turns ratios", "Ideal-transformer power and current calculations", "High-voltage transmission and the National Grid"],
+        "covers": [
+          "The generator effect and factors affecting induced potential difference",
+          "Lenz's law and forces opposing the change",
+          "Alternators, slip rings and output graphs",
+          "Split-ring dynamos and pulsating direct current",
+          "Bicycle generators, peak p.d. and frequency",
+          "Moving-coil microphones and energy transfer",
+          "Transformer operation and voltage/turns ratios",
+          "Ideal-transformer power and current calculations",
+          "High-voltage transmission and the National Grid"
+        ],
         "scope_note": "A focused topic handout, not a complete GCSE Physics revision guide. Independent Study with Dr teaching material, not an official AQA publication or official examination mark scheme. Existing figure credits are retained in the PDF.",
         "key_ideas": [
-          {"heading": "Distinguish induced p.d. from induced current", "text": "A conductor cutting magnetic field lines, or a changing magnetic field linking a coil, induces a potential difference. Current additionally requires a complete conducting circuit. A stationary magnet inside a stationary coil produces no sustained induced p.d."},
-          {"heading": "Use the change to explain direction", "text": "In a complete circuit, the induced current produces a magnetic field opposing the change that caused it. A north pole approaching a coil makes its near end north; withdrawing that pole makes the near end south."},
-          {"heading": "Read generator graphs carefully", "text": "An alternator produces alternating polarity; a simple split-ring dynamo produces one polarity but a varying magnitude. A bicycle generator with a rotating magnet can produce a.c. Faster rotation increases frequency as well as peak p.d.; more turns alone do not change frequency at fixed rotation speed."},
-          {"heading": "Keep transformer quantities on the correct side", "text": "Use Vs/Vp = Ns/Np for the turns ratio and VpIp = VsIs for an ideal transformer. Raising voltage does not increase power: at the same transferred power it reduces current, reducing cable heating during transmission."}
+          {
+            "heading": "Distinguish induced p.d. from induced current",
+            "text": "A conductor cutting magnetic field lines, or a changing magnetic field linking a coil, induces a potential difference. Current additionally requires a complete conducting circuit. A stationary magnet inside a stationary coil produces no sustained induced p.d."
+          },
+          {
+            "heading": "Use the change to explain direction",
+            "text": "In a complete circuit, the induced current produces a magnetic field opposing the change that caused it. A north pole approaching a coil makes its near end north; withdrawing that pole makes the near end south."
+          },
+          {
+            "heading": "Read generator graphs carefully",
+            "text": "An alternator produces alternating polarity; a simple split-ring dynamo produces one polarity but a varying magnitude. A bicycle generator with a rotating magnet can produce a.c. Faster rotation increases frequency as well as peak p.d.; more turns alone do not change frequency at fixed rotation speed."
+          },
+          {
+            "heading": "Keep transformer quantities on the correct side",
+            "text": "Use Vs/Vp = Ns/Np for the turns ratio and VpIp = VsIs for an ideal transformer. Raising voltage does not increase power: at the same transferred power it reduces current, reducing cable heating during transmission."
+          }
         ],
         "tuition_heading": "Need help with AQA GCSE Physics Higher?",
         "tuition_text": "Study with Dr offers personalised one-to-one online Physics tuition, including induction explanations, transformer calculations and exam technique.",
@@ -149,7 +256,20 @@
       "exam_board": "edexcel",
       "label": "Edexcel GCSE Physics",
       "resource_type": "revision-notes",
-      "topics": ["Electricity", "Current", "Potential Difference", "Resistance", "Charge", "Circuit Symbols", "Ammeters", "Voltmeters", "Junctions", "V = IR", "Q = It", "E = QV"],
+      "topics": [
+        "Electricity",
+        "Current",
+        "Potential Difference",
+        "Resistance",
+        "Charge",
+        "Circuit Symbols",
+        "Ammeters",
+        "Voltmeters",
+        "Junctions",
+        "V = IR",
+        "Q = It",
+        "E = QV"
+      ],
       "description": "Free 16-page Edexcel GCSE Physics handout on charge, current, potential difference, resistance and circuit measurements. Includes 12 exercise sets and four pages of worked solutions with marking points.",
       "details": "16 pages · 12 exercise sets · Worked solutions",
       "format": "PDF",
@@ -162,13 +282,33 @@
         "h1": "Edexcel GCSE Physics: Current, Potential Difference & Resistance",
         "subtitle": "Free 16-page teaching and revision handout with diagrams, calculations and worked solutions.",
         "intro_heading": "Who these notes are for",
-        "intro": ["This handout introduces the electricity foundations needed for Edexcel GCSE Physics: charge, current, potential difference, resistance and measurements in circuits.", "Twelve teaching sections contain diagrams, core concepts, worked examples, exam tips and numbered exercise sets with subquestions. The final four pages give worked solutions and classroom marking points, including guidance for circuit drawings."],
-        "covers": ["Atomic structure, charge and standard circuit symbols", "Sensors, diodes, switches and complete circuits", "Potential difference as energy per coulomb and E = QV", "Voltmeter connections and ideal meter resistance", "Current, Q = It, electron drift and conventional current", "Ammeters, series current and conservation of charge at junctions", "Resistance, V = IR and mixed circuit calculations"],
+        "intro": [
+          "This handout introduces the electricity foundations needed for Edexcel GCSE Physics: charge, current, potential difference, resistance and measurements in circuits.",
+          "Twelve teaching sections contain diagrams, core concepts, worked examples, exam tips and numbered exercise sets with subquestions. The final four pages give worked solutions and classroom marking points, including guidance for circuit drawings."
+        ],
+        "covers": [
+          "Atomic structure, charge and standard circuit symbols",
+          "Sensors, diodes, switches and complete circuits",
+          "Potential difference as energy per coulomb and E = QV",
+          "Voltmeter connections and ideal meter resistance",
+          "Current, Q = It, electron drift and conventional current",
+          "Ammeters, series current and conservation of charge at junctions",
+          "Resistance, V = IR and mixed circuit calculations"
+        ],
         "scope_note": "A focused electricity handout, not a complete GCSE Physics course. This is an independent Study with Dr resource, not an official Pearson Edexcel publication or examination mark scheme. Existing source and diagram credits are retained.",
         "key_ideas": [
-          {"heading": "Distinguish current and potential difference", "text": "Current is charge passing per second: I = Q/t. Potential difference is energy transferred per coulomb: V = E/Q. Charge is conserved; a component transfers energy rather than using up current."},
-          {"heading": "Connect meters correctly", "text": "An ammeter goes in series and ideally has zero resistance. A voltmeter goes in parallel across the selected component and ideally has infinite resistance, so it draws no current."},
-          {"heading": "Convert units before calculating", "text": "Use amperes rather than milliamperes and seconds rather than minutes in Q = It. For a 20 Ω resistor across 4.0 V for five minutes, I = 0.20 A, Q = 60 C and E = 240 J."}
+          {
+            "heading": "Distinguish current and potential difference",
+            "text": "Current is charge passing per second: I = Q/t. Potential difference is energy transferred per coulomb: V = E/Q. Charge is conserved; a component transfers energy rather than using up current."
+          },
+          {
+            "heading": "Connect meters correctly",
+            "text": "An ammeter goes in series and ideally has zero resistance. A voltmeter goes in parallel across the selected component and ideally has infinite resistance, so it draws no current."
+          },
+          {
+            "heading": "Convert units before calculating",
+            "text": "Use amperes rather than milliamperes and seconds rather than minutes in Q = It. For a 20 Ω resistor across 4.0 V for five minutes, I = 0.20 A, Q = 60 C and E = 240 J."
+          }
         ],
         "tuition_heading": "Need help with GCSE electricity?",
         "tuition_text": "Study with Dr offers personalised one-to-one online Physics tuition, including circuit calculations and clear explanations of current, voltage and resistance.",
@@ -184,7 +324,19 @@
       "exam_board": "edexcel",
       "label": "Edexcel GCSE Physics",
       "resource_type": "revision-notes",
-      "topics": ["Electricity", "Series Circuits", "Parallel Circuits", "Resistance", "I-V Graphs", "Filament Lamps", "Diodes", "LDRs", "Thermistors", "Circuit Practicals", "Measurement Errors"],
+      "topics": [
+        "Electricity",
+        "Series Circuits",
+        "Parallel Circuits",
+        "Resistance",
+        "I-V Graphs",
+        "Filament Lamps",
+        "Diodes",
+        "LDRs",
+        "Thermistors",
+        "Circuit Practicals",
+        "Measurement Errors"
+      ],
       "description": "Free 20-page Edexcel GCSE Physics handout on series and parallel circuits, I-V graphs, sensors and investigations. Includes 16 exercise sets and solutions with marking points.",
       "details": "20 pages · 16 exercise sets · Solutions with marking points",
       "format": "PDF",
@@ -197,13 +349,33 @@
         "h1": "Edexcel GCSE Physics: Components in Series & Parallel Circuits",
         "subtitle": "Free 20-page handout combining circuit rules, component behaviour and practical investigations.",
         "intro_heading": "Who these notes are for",
-        "intro": ["These notes support Edexcel GCSE Physics students applying series and parallel rules, interpreting component graphs and planning circuit investigations.", "Sixteen teaching sections contain diagrams, core concepts, worked calculations and numbered exercise sets with subquestions. Four pages of solutions provide marking points and explanation guidance. Current, Potential Difference & Resistance is a useful starting point if the foundations need practice."],
-        "covers": ["Current, voltage and resistance in series and parallel", "Independent switching, circuit design and meter connections", "I-V graphs for fixed resistors, filament lamps and diodes", "LDRs and NTC thermistors", "Collecting readings, plotting graphs and investigating sensors", "Comparing combined resistance at controlled voltage and temperature", "Random variation, zero errors, meter loading and safe practical work"],
+        "intro": [
+          "These notes support Edexcel GCSE Physics students applying series and parallel rules, interpreting component graphs and planning circuit investigations.",
+          "Sixteen teaching sections contain diagrams, core concepts, worked calculations and numbered exercise sets with subquestions. Four pages of solutions provide marking points and explanation guidance. Current, Potential Difference & Resistance is a useful starting point if the foundations need practice."
+        ],
+        "covers": [
+          "Current, voltage and resistance in series and parallel",
+          "Independent switching, circuit design and meter connections",
+          "I-V graphs for fixed resistors, filament lamps and diodes",
+          "LDRs and NTC thermistors",
+          "Collecting readings, plotting graphs and investigating sensors",
+          "Comparing combined resistance at controlled voltage and temperature",
+          "Random variation, zero errors, meter loading and safe practical work"
+        ],
         "scope_note": "A focused circuit handout, not a complete GCSE course. Independent Study with Dr material, not an official Pearson Edexcel publication or examination mark scheme. Existing source and diagram credits are retained. Practical activities require suitable low-voltage equipment and teacher-approved methods.",
         "key_ideas": [
-          {"heading": "Apply the correct circuit rule", "text": "In series, steady current is the same throughout, voltages add and resistances add. In parallel, each branch has the same voltage and branch currents add. For positive resistances, the combined parallel resistance is below the smallest branch resistance."},
-          {"heading": "Use the axes when interpreting I-V graphs", "text": "For current on the vertical axis and voltage on the horizontal axis, a steeper straight ohmic-resistor line means lower resistance. For a curved graph, use R = V/I at the chosen operating point rather than treating a tangent gradient as 1/R."},
-          {"heading": "Control conditions and evaluate measurements", "text": "Keep fixed-resistor temperatures approximately constant when comparing resistance. Repeat readings to reduce random variation; repeating does not remove a persistent zero offset. Measure voltage across the whole arrangement and total current when calculating combined resistance."}
+          {
+            "heading": "Apply the correct circuit rule",
+            "text": "In series, steady current is the same throughout, voltages add and resistances add. In parallel, each branch has the same voltage and branch currents add. For positive resistances, the combined parallel resistance is below the smallest branch resistance."
+          },
+          {
+            "heading": "Use the axes when interpreting I-V graphs",
+            "text": "For current on the vertical axis and voltage on the horizontal axis, a steeper straight ohmic-resistor line means lower resistance. For a curved graph, use R = V/I at the chosen operating point rather than treating a tangent gradient as 1/R."
+          },
+          {
+            "heading": "Control conditions and evaluate measurements",
+            "text": "Keep fixed-resistor temperatures approximately constant when comparing resistance. Repeat readings to reduce random variation; repeating does not remove a persistent zero offset. Measure voltage across the whole arrangement and total current when calculating combined resistance."
+          }
         ],
         "tuition_heading": "Need support with circuits and practical questions?",
         "tuition_text": "Study with Dr offers personalised one-to-one online Physics tuition, including circuit reasoning, graph interpretation and practical evaluation.",
@@ -219,7 +391,20 @@
       "exam_board": "edexcel",
       "label": "Edexcel GCSE Physics",
       "resource_type": "revision-notes",
-      "topics": ["Electricity", "Revision Summary", "Charge", "Circuits", "Resistance", "Power", "Energy", "Domestic Electricity", "Static Electricity", "Electric Fields", "Transformers", "National Grid"],
+      "topics": [
+        "Electricity",
+        "Revision Summary",
+        "Charge",
+        "Circuits",
+        "Resistance",
+        "Power",
+        "Energy",
+        "Domestic Electricity",
+        "Static Electricity",
+        "Electric Fields",
+        "Transformers",
+        "National Grid"
+      ],
       "description": "Free four-page Edexcel GCSE Physics electricity summary covering charge, circuits, equations, power, domestic electricity, static electricity, transformers and transmission.",
       "details": "4 pages · Equation bank · Definitions and explanation chains",
       "format": "PDF",
@@ -232,13 +417,30 @@
         "h1": "Edexcel GCSE Physics: Electricity Summary",
         "subtitle": "Free four-page quick-reference sheet for electricity definitions, equations and explanations.",
         "intro_heading": "How to use this summary",
-        "intro": ["This compact, two-column reference sheet supports quick recall across selected Edexcel GCSE Physics electricity topics. Use it alongside fuller teaching notes and question practice, rather than as a substitute for learning the concepts.", "The four pages bring together definitions, circuit symbols, equations, unit conversions, short worked examples, cause-and-effect explanation chains and frequent mistakes. There are no separate exercise sets or answer section."],
-        "covers": ["Page 1: charge, circuit symbols, meters, equations and units", "Page 2: series and parallel rules, component graphs, sensors and practical methods", "Page 3: power, energy, kWh, domestic electricity and safety concepts", "Page 4: static electricity, electric fields, generation, transformers and transmission"],
+        "intro": [
+          "This compact, two-column reference sheet supports quick recall across selected Edexcel GCSE Physics electricity topics. Use it alongside fuller teaching notes and question practice, rather than as a substitute for learning the concepts.",
+          "The four pages bring together definitions, circuit symbols, equations, unit conversions, short worked examples, cause-and-effect explanation chains and frequent mistakes. There are no separate exercise sets or answer section."
+        ],
+        "covers": [
+          "Page 1: charge, circuit symbols, meters, equations and units",
+          "Page 2: series and parallel rules, component graphs, sensors and practical methods",
+          "Page 3: power, energy, kWh, domestic electricity and safety concepts",
+          "Page 4: static electricity, electric fields, generation, transformers and transmission"
+        ],
         "scope_note": "A summary of selected electricity content, not a full GCSE Physics revision guide or question workbook. This independent Study with Dr resource is not an official Pearson Edexcel publication. Original diagram attribution is retained. This is not a guide to working on mains wiring; practical work should use teacher-approved low-voltage equipment.",
         "key_ideas": [
-          {"heading": "Use the equation bank with consistent units", "text": "The summary collects Q = It, E = QV, V = IR, P = IV, P = I²R and E = Pt. Convert milliamperes to amperes and minutes to seconds before using SI equations."},
-          {"heading": "State the condition that makes a rule true", "text": "When predicting current, state whether voltage is constant. For ohmic-resistor behaviour, specify constant temperature. For high-voltage transmission comparisons, specify the same transferred power."},
-          {"heading": "Build an explanation chain", "text": "Link cause, process and result rather than listing disconnected keywords. For example, higher transmission voltage at fixed power gives lower current, which reduces I²R cable heating."}
+          {
+            "heading": "Use the equation bank with consistent units",
+            "text": "The summary collects Q = It, E = QV, V = IR, P = IV, P = I²R and E = Pt. Convert milliamperes to amperes and minutes to seconds before using SI equations."
+          },
+          {
+            "heading": "State the condition that makes a rule true",
+            "text": "When predicting current, state whether voltage is constant. For ohmic-resistor behaviour, specify constant temperature. For high-voltage transmission comparisons, specify the same transferred power."
+          },
+          {
+            "heading": "Build an explanation chain",
+            "text": "Link cause, process and result rather than listing disconnected keywords. For example, higher transmission voltage at fixed power gives lower current, which reduces I²R cable heating."
+          }
         ],
         "tuition_heading": "Want help turning recall into exam answers?",
         "tuition_text": "Study with Dr offers personalised one-to-one online Physics tuition, including electricity calculations, explanations and revision planning.",
@@ -254,7 +456,18 @@
       "exam_board": "edexcel",
       "label": "Edexcel GCSE Physics",
       "resource_type": "revision-notes",
-      "topics": ["Electromagnetic Induction", "Generator Effect", "Induced Voltage", "Alternators", "Dynamos", "Microphones", "Loudspeakers", "Transformers", "National Grid", "Transmission Losses"],
+      "topics": [
+        "Electromagnetic Induction",
+        "Generator Effect",
+        "Induced Voltage",
+        "Alternators",
+        "Dynamos",
+        "Microphones",
+        "Loudspeakers",
+        "Transformers",
+        "National Grid",
+        "Transmission Losses"
+      ],
       "description": "Free 19-page Edexcel GCSE Physics handout on electromagnetic induction, generators, transformers and the National Grid. Includes diagrams, worked calculations, 15 class exercises and solutions with marking points.",
       "details": "19 pages · 15 exercises · Solutions with marking points",
       "format": "PDF",
@@ -268,15 +481,39 @@
         "subtitle": "Free 19-page teaching and revision handout with diagrams, class exercises and solutions.",
         "educational_level": "GCSE",
         "intro_heading": "Who this handout is for",
-        "intro": ["This free handout supports students studying electromagnetic induction in Edexcel GCSE Physics. It connects induced voltage and current with generators, audio devices, transformers and electricity transmission.", "The PDF contains 15 teaching sections with class exercises, diagrams, core concepts, exam tips and worked calculations. Four pages of solutions cover all 15 exercises with marking points. It can be used during lessons or for supported revision."],
+        "intro": [
+          "This free handout supports students studying electromagnetic induction in Edexcel GCSE Physics. It connects induced voltage and current with generators, audio devices, transformers and electricity transmission.",
+          "The PDF contains 15 teaching sections with class exercises, diagrams, core concepts, exam tips and worked calculations. Four pages of solutions cover all 15 exercises with marking points. It can be used during lessons or for supported revision."
+        ],
         "covers_heading": "What the handout covers",
-        "covers": ["The generator effect and factors affecting induced voltage", "Opposing the change and the direction of induced current", "Alternators, split-ring dynamos and a.c./pulsating d.c. graphs", "Bicycle dynamos and moving-coil microphones", "Loudspeakers and headphones using the motor effect", "Transformer operation, turns ratios and ideal-transformer current", "The National Grid and high-voltage transmission", "Power and energy losses in transmission cables"],
+        "covers": [
+          "The generator effect and factors affecting induced voltage",
+          "Opposing the change and the direction of induced current",
+          "Alternators, split-ring dynamos and a.c./pulsating d.c. graphs",
+          "Bicycle dynamos and moving-coil microphones",
+          "Loudspeakers and headphones using the motor effect",
+          "Transformer operation, turns ratios and ideal-transformer current",
+          "The National Grid and high-voltage transmission",
+          "Power and energy losses in transmission cables"
+        ],
         "scope_note": "This is a focused topic handout, not a complete GCSE revision guide. It includes extension calculations on transmission losses. It is an independent Study with Dr teaching resource, not an official Pearson Edexcel publication or official examination mark scheme. Existing diagram credits are retained in the PDF.",
         "key_ideas": [
-          {"heading": "Voltage can be induced without a current flowing", "text": "A wire cutting magnetic field lines, or a changing magnetic field through a coil, induces a potential difference. An induced current additionally requires a complete conducting circuit. A stationary magnet and stationary coil give no sustained induced voltage."},
-          {"heading": "Distinguish alternators and simple dynamos", "text": "An alternator uses two slip rings and produces alternating voltage. A simple dynamo with a split-ring commutator keeps external current in one direction, but its size varies: pulsating d.c. The bicycle dynamo illustrated in the handout uses a rotating magnet and produces a.c."},
-          {"heading": "Transformers require a changing magnetic field", "text": "Alternating current in the primary coil produces a changing field linked through the iron core to the secondary coil. The turns equation is Vs/Vp = Ns/Np. For an ideal transformer, VpIp = VsIs: increasing voltage reduces current for the same power."},
-          {"heading": "Higher transmission voltage reduces cable heating", "text": "For fixed transferred power, I = P/V. Cable heating is Ploss = I²R, so doubling voltage halves current and reduces the heating loss to one quarter for unchanged resistance. Energy lost is Eloss = Ploss × time, with time in seconds."}
+          {
+            "heading": "Voltage can be induced without a current flowing",
+            "text": "A wire cutting magnetic field lines, or a changing magnetic field through a coil, induces a potential difference. An induced current additionally requires a complete conducting circuit. A stationary magnet and stationary coil give no sustained induced voltage."
+          },
+          {
+            "heading": "Distinguish alternators and simple dynamos",
+            "text": "An alternator uses two slip rings and produces alternating voltage. A simple dynamo with a split-ring commutator keeps external current in one direction, but its size varies: pulsating d.c. The bicycle dynamo illustrated in the handout uses a rotating magnet and produces a.c."
+          },
+          {
+            "heading": "Transformers require a changing magnetic field",
+            "text": "Alternating current in the primary coil produces a changing field linked through the iron core to the secondary coil. The turns equation is Vs/Vp = Ns/Np. For an ideal transformer, VpIp = VsIs: increasing voltage reduces current for the same power."
+          },
+          {
+            "heading": "Higher transmission voltage reduces cable heating",
+            "text": "For fixed transferred power, I = P/V. Cable heating is Ploss = I²R, so doubling voltage halves current and reduces the heating loss to one quarter for unchanged resistance. Energy lost is Eloss = Ploss × time, with time in seconds."
+          }
         ],
         "tuition_heading": "Need help with GCSE Physics?",
         "tuition_text": "Study with Dr offers personalised one-to-one online Physics tuition, including electromagnetic induction, transformer calculations and exam technique.",
@@ -291,7 +528,16 @@
       "level": "ks3",
       "label": "Year 9 · KS3 Maths",
       "resource_type": "worksheet",
-      "topics": ["Algebra", "Rearranging Formulae", "Changing the Subject", "Inverse Operations", "Fractions", "Brackets", "Substitution", "Year 9"],
+      "topics": [
+        "Algebra",
+        "Rearranging Formulae",
+        "Changing the Subject",
+        "Inverse Operations",
+        "Fractions",
+        "Brackets",
+        "Substitution",
+        "Year 9"
+      ],
       "description": "Free six-page Year 9 KS3 classroom worksheet on rearranging formulae using inverse operations, fractions and brackets. Includes four worked examples, 16 class exercises and worked solutions with marking points.",
       "details": "6 pages · 16 exercises · Worked solutions",
       "format": "PDF",
@@ -305,14 +551,32 @@
         "subtitle": "Free six-page KS3 classroom handout with worked examples, practice and worked solutions.",
         "educational_level": "Year 9 / Key Stage 3",
         "intro_heading": "Who this worksheet is for",
-        "intro": ["This Year 9 Maths handout introduces changing the subject of a formula through inverse operations, fractions and brackets. It is designed for KS3 classroom teaching, supported independent practice and revision, without tying the material to a GCSE exam board.", "Each of the four teaching sections contains a core concept, one worked example and four class exercises, with space to show working. The final two pages provide worked solutions for all 16 exercises, marking points and a note that equivalent rearrangements are accepted."],
+        "intro": [
+          "This Year 9 Maths handout introduces changing the subject of a formula through inverse operations, fractions and brackets. It is designed for KS3 classroom teaching, supported independent practice and revision, without tying the material to a GCSE exam board.",
+          "Each of the four teaching sections contains a core concept, one worked example and four class exercises, with space to show working. The final two pages provide worked solutions for all 16 exercises, marking points and a note that equivalent rearrangements are accepted."
+        ],
         "covers_heading": "What the worksheet covers",
-        "covers": ["Identifying the subject and applying inverse operations to both sides", "Removing fractions and checking non-zero divisors", "Rearranging brackets using efficient choices", "Checking rearrangements by substitution", "Applications involving perimeter, temperature and taxi fares"],
+        "covers": [
+          "Identifying the subject and applying inverse operations to both sides",
+          "Removing fractions and checking non-zero divisors",
+          "Rearranging brackets using efficient choices",
+          "Checking rearrangements by substitution",
+          "Applications involving perimeter, temperature and taxi fares"
+        ],
         "scope_note": "Part 01 of a two-part Year 9 sequence. Work through Foundations before Next Steps if fractions, brackets or inverse operations are not yet secure. The included marking points are classroom guidance, not an official examination mark scheme.",
         "key_ideas": [
-          {"heading": "Apply the same operation to both sides", "text": "The subject is the letter on its own. For v = u + at, subtract u and divide by t to obtain a = (v - u)/t, with t ≠ 0."},
-          {"heading": "Keep the whole numerator together", "text": "For y = (x - 5)/3, multiplying by 3 gives 3y = x - 5, then x = 3y + 5. A fraction bar groups its entire numerator."},
-          {"heading": "Choose an efficient route and check it", "text": "For P = 2(l + w), divide by 2 before subtracting l: w = P/2 - l. Check by substituting allowed values into the original formula."}
+          {
+            "heading": "Apply the same operation to both sides",
+            "text": "The subject is the letter on its own. For v = u + at, subtract u and divide by t to obtain a = (v - u)/t, with t ≠ 0."
+          },
+          {
+            "heading": "Keep the whole numerator together",
+            "text": "For y = (x - 5)/3, multiplying by 3 gives 3y = x - 5, then x = 3y + 5. A fraction bar groups its entire numerator."
+          },
+          {
+            "heading": "Choose an efficient route and check it",
+            "text": "For P = 2(l + w), divide by 2 before subtracting l: w = P/2 - l. Check by substituting allowed values into the original formula."
+          }
         ],
         "tuition_heading": "Need support with Year 9 algebra?",
         "tuition_text": "Study with Dr offers personalised one-to-one online Maths tuition, including KS3 algebra and changing the subject of a formula.",
@@ -327,7 +591,16 @@
       "level": "ks3",
       "label": "Year 9 · KS3 Maths",
       "resource_type": "worksheet",
-      "topics": ["Algebra", "Rearranging Formulae", "Changing the Subject", "Squares and Square Roots", "Factorising", "Target Letter on Both Sides", "Restrictions", "Year 9"],
+      "topics": [
+        "Algebra",
+        "Rearranging Formulae",
+        "Changing the Subject",
+        "Squares and Square Roots",
+        "Factorising",
+        "Target Letter on Both Sides",
+        "Restrictions",
+        "Year 9"
+      ],
       "description": "Free six-page Year 9 KS3 classroom worksheet extending rearranging formulae to roots, factorising and target letters on both sides. Includes 16 exercises, extension reasoning and worked solutions with marking points.",
       "details": "6 pages · 16 exercises · Worked solutions",
       "format": "PDF",
@@ -341,14 +614,33 @@
         "subtitle": "Free six-page KS3 classroom handout extending rearrangement skills, with stretch questions and worked solutions.",
         "educational_level": "Year 9 / Key Stage 3",
         "intro_heading": "Who this worksheet is for",
-        "intro": ["This handout is for Year 9 students ready to move beyond basic inverse operations, fractions and brackets. It extends changing-the-subject work to square roots, factorising and target-letter terms on both sides, with extension questions for additional challenge.", "The four sections each contain a core concept, worked example and four class exercises, giving 16 exercises in total. The final two pages supply worked solutions and marking points. Foundations is the recommended starting point if the prerequisite skills need practice."],
+        "intro": [
+          "This handout is for Year 9 students ready to move beyond basic inverse operations, fractions and brackets. It extends changing-the-subject work to square roots, factorising and target-letter terms on both sides, with extension questions for additional challenge.",
+          "The four sections each contain a core concept, worked example and four class exercises, giving 16 exercises in total. The final two pages supply worked solutions and marking points. Foundations is the recommended starting point if the prerequisite skills need practice."
+        ],
         "covers_heading": "What the worksheet covers",
-        "covers": ["Isolating squares before taking square roots", "Choosing positive roots for non-negative lengths and using ± roots in algebra", "Collecting and factorising target-letter terms", "Handling a target letter on both sides", "Non-zero denominators, restrictions and extension reasoning", "Applying rearrangement to circle area, rectangle perimeter and equal costs"],
+        "covers": [
+          "Isolating squares before taking square roots",
+          "Choosing positive roots for non-negative lengths and using ± roots in algebra",
+          "Collecting and factorising target-letter terms",
+          "Handling a target letter on both sides",
+          "Non-zero denominators, restrictions and extension reasoning",
+          "Applying rearrangement to circle area, rectangle perimeter and equal costs"
+        ],
         "scope_note": "Part 02 of a two-part Year 9 sequence, including stretch questions. Students should be comfortable with the Foundations techniques. This is a KS3 classroom resource, not an exam-board-specific GCSE worksheet; marking points are classroom guidance.",
         "key_ideas": [
-          {"heading": "Isolate the square and choose the appropriate root", "text": "For A = πr² with r ≥ 0, r = √(A/π). For unrestricted real x with y = x², use x = ±√y when y ≥ 0; the two roots coincide when y = 0."},
-          {"heading": "Factorise to isolate repeated target letters", "text": "For p = ax + bx + d, collect the x terms: p - d = x(a + b). Then x = (p - d)/(a + b), provided a + b ≠ 0."},
-          {"heading": "Check restrictions before dividing", "text": "For ax + b = cx + d, x = (d - b)/(a - c) only when a ≠ c. If the target terms cancel, inspect the remaining equality rather than dividing by zero."}
+          {
+            "heading": "Isolate the square and choose the appropriate root",
+            "text": "For A = πr² with r ≥ 0, r = √(A/π). For unrestricted real x with y = x², use x = ±√y when y ≥ 0; the two roots coincide when y = 0."
+          },
+          {
+            "heading": "Factorise to isolate repeated target letters",
+            "text": "For p = ax + bx + d, collect the x terms: p - d = x(a + b). Then x = (p - d)/(a + b), provided a + b ≠ 0."
+          },
+          {
+            "heading": "Check restrictions before dividing",
+            "text": "For ax + b = cx + d, x = (d - b)/(a - c) only when a ≠ c. If the target terms cancel, inspect the remaining equality rather than dividing by zero."
+          }
         ],
         "tuition_heading": "Need help with the next step in Year 9 algebra?",
         "tuition_text": "Study with Dr offers personalised one-to-one online Maths tuition, including factorising, formula rearrangement and KS3 extension work.",
@@ -365,7 +657,17 @@
       "paper": "Pure Mathematics 3 (P3)",
       "label": "Edexcel IAL P3",
       "resource_type": "revision-notes",
-      "topics": ["Trigonometric Equations", "CAST", "Reference Angles", "Domains", "Multiple Angles", "Shifted Angles", "Double-Angle Identities", "Quadratic Trigonometric Equations", "Harmonic Form"],
+      "topics": [
+        "Trigonometric Equations",
+        "CAST",
+        "Reference Angles",
+        "Domains",
+        "Multiple Angles",
+        "Shifted Angles",
+        "Double-Angle Identities",
+        "Quadratic Trigonometric Equations",
+        "Harmonic Form"
+      ],
       "description": "Free 11-page P3 revision notes on reference angles, CAST, domains, multiple and shifted angles, double-angle identities and quadratic trig equations. Includes worked examples, nine exam-style practice questions and answers.",
       "details": "11 pages · Worked examples · Targeted practice · Answers",
       "format": "PDF",
@@ -378,17 +680,42 @@
         "meta_description": "Free 11-page Edexcel IAL P3 PDF: reference angles, CAST, domains, multiple and shifted angles, identities, quadratic trig equations and practice answers.",
         "h1": "Edexcel IAL P3 Revision Notes: Solving Trigonometric Equations",
         "subtitle": "Free 11-page PDF on reference angles, CAST, double angles and domains for Edexcel International A-Level Pure Mathematics 3.",
-        "alignment": {"framework": "Pearson Edexcel International Advanced Level Mathematics", "target": "Pure Mathematics 3 (WMA13)"},
+        "alignment": {
+          "framework": "Pearson Edexcel International Advanced Level Mathematics",
+          "target": "Pure Mathematics 3 (WMA13)"
+        },
         "intro_heading": "Who these notes are for",
-        "intro": ["These free revision notes help Edexcel International A-Level P3 students find every solution of a trigonometric equation within its stated domain, rather than relying only on the calculator's principal value.", "The 11-page handout follows a consistent sequence: reference angle, CAST quadrants, one-cycle solutions, then extend to the required interval. It includes a CAST diagram, worked examples, quick checks, nine exam-style targeted practice questions, answers and a final exam checklist."],
+        "intro": [
+          "These free revision notes help Edexcel International A-Level P3 students find every solution of a trigonometric equation within its stated domain, rather than relying only on the calculator's principal value.",
+          "The 11-page handout follows a consistent sequence: reference angle, CAST quadrants, one-cycle solutions, then extend to the required interval. It includes a CAST diagram, worked examples, quick checks, nine exam-style targeted practice questions, answers and a final exam checklist."
+        ],
         "covers_heading": "What the notes cover",
-        "covers": ["Reference angles, principal values and the CAST sign pattern", "Solving sine, cosine and tangent equations in radians and degrees", "Intervals wider than one cycle and tangent periodicity", "Transforming the domain for multiple and shifted angles", "Double-angle identities, reciprocal functions and quadratic trig equations", "Connecting harmonic form to angle-solving, plus practice and answers"],
+        "covers": [
+          "Reference angles, principal values and the CAST sign pattern",
+          "Solving sine, cosine and tangent equations in radians and degrees",
+          "Intervals wider than one cycle and tangent periodicity",
+          "Transforming the domain for multiple and shifted angles",
+          "Double-angle identities, reciprocal functions and quadratic trig equations",
+          "Connecting harmonic form to angle-solving, plus practice and answers"
+        ],
         "scope_note": "This is focused P3 trigonometry revision, not a complete P3 revision pack. Answers are supplied for the practice exercises, including all nine exam-style questions; these are not full worked solutions for every question. The harmonic-form section explains the method without specifying a numerical solution domain.",
         "key_ideas": [
-          {"heading": "Use CAST after finding the reference angle", "text": "Find a positive acute reference angle for non-axis cases, then use the original sign to select quadrants: all functions are positive in I, sine in II, tangent in III and cosine in IV. Handle axis cases separately."},
-          {"heading": "Extend solutions to the whole domain", "text": "Sine and cosine repeat every 2π radians or 360°. Tangent repeats every π radians or 180°. Add or subtract the relevant period and retain only values in the stated interval, respecting open and closed endpoints."},
-          {"heading": "Transform the inside-angle interval first", "text": "For sin 2x = 3/4 with 0 < x < π, first solve in 0 < 2x < 2π, then divide by two. For a shifted expression such as 2x - 70°, transform both endpoints before applying CAST and return to x at the end."},
-          {"heading": "Simplify with identities and solve every branch", "text": "Use sin 2x = 2 sin x cos x and cos 2x = 2 cos²x - 1 = 1 - 2 sin²x to simplify equations. When factorising gives several possible sine or cosine values, solve every valid branch and check the original equation and domain."}
+          {
+            "heading": "Use CAST after finding the reference angle",
+            "text": "Find a positive acute reference angle for non-axis cases, then use the original sign to select quadrants: all functions are positive in I, sine in II, tangent in III and cosine in IV. Handle axis cases separately."
+          },
+          {
+            "heading": "Extend solutions to the whole domain",
+            "text": "Sine and cosine repeat every 2π radians or 360°. Tangent repeats every π radians or 180°. Add or subtract the relevant period and retain only values in the stated interval, respecting open and closed endpoints."
+          },
+          {
+            "heading": "Transform the inside-angle interval first",
+            "text": "For sin 2x = 3/4 with 0 < x < π, first solve in 0 < 2x < 2π, then divide by two. For a shifted expression such as 2x - 70°, transform both endpoints before applying CAST and return to x at the end."
+          },
+          {
+            "heading": "Simplify with identities and solve every branch",
+            "text": "Use sin 2x = 2 sin x cos x and cos 2x = 2 cos²x - 1 = 1 - 2 sin²x to simplify equations. When factorising gives several possible sine or cosine values, solve every valid branch and check the original equation and domain."
+          }
         ],
         "tuition_heading": "Need help solving P3 trigonometric equations?",
         "tuition_text": "Study with Dr offers one-to-one online Maths tuition, including focused revision sessions for Edexcel IAL P3.",
@@ -405,7 +732,15 @@
       "paper": "Pure Mathematics 3 (P3)",
       "label": "Edexcel IAL P3",
       "resource_type": "revision-notes",
-      "topics": ["Harmonic Equations", "Harmonic Form", "Trigonometry", "Coefficient Matching", "Maximum and Minimum", "Range", "Trigonometric Equations"],
+      "topics": [
+        "Harmonic Equations",
+        "Harmonic Form",
+        "Trigonometry",
+        "Coefficient Matching",
+        "Maximum and Minimum",
+        "Range",
+        "Trigonometric Equations"
+      ],
       "description": "Free 8-page P3 revision notes on harmonic forms, coefficient matching, angle signs, maximum and minimum values, range and solving harmonic equations. Includes worked examples, targeted practice and selected answers.",
       "details": "8 pages · Worked examples · Targeted practice · Selected answers",
       "format": "PDF",
@@ -470,7 +805,12 @@
       "paper": "Pure Mathematics 3 (P3)",
       "label": "Edexcel IAL P3",
       "resource_type": "revision-notes",
-      "topics": ["Functions", "Composite Functions", "Inverse Functions", "Domain and Range"],
+      "topics": [
+        "Functions",
+        "Composite Functions",
+        "Inverse Functions",
+        "Domain and Range"
+      ],
       "description": "Revision notes on functions and function notation, composite functions, inverse functions, and domain and range.",
       "url": "https://payhip.com/b/Bz5wj",
       "date_published": "2026-10-08",
@@ -536,6 +876,242 @@
       "url": "https://payhip.com/b/Hy0nt",
       "cover_image": "/images/free-11-plus-maths-starting-check.png",
       "date_published": "2026-09-05"
+    },
+    {
+      "slug": "year9-factorising-common-factors",
+      "title": "Factorising Using Common Factors",
+      "url": "https://payhip.com/b/KOXcp",
+      "topics": [
+        "Algebra",
+        "Factorising",
+        "Common Factors",
+        "Greatest Common Factor",
+        "Expanding Brackets",
+        "Year 9"
+      ],
+      "description": "Free six-page Year 9 KS3 worksheet on factorising using numerical and algebraic common factors, with explanations, examples, exercises and solutions.",
+      "details": "6 pages · Examples, practice & solutions",
+      "page": {
+        "title_tag": "Year 9 Common Factor Factorising: Free Worksheet & Answers | Study with Dr",
+        "meta_description": "Free six-page Year 9 KS3 factorising worksheet: numerical and algebraic common factors, worked examples, practice and solutions.",
+        "h1": "Year 9 Maths: Factorising Using Common Factors",
+        "subtitle": "Free six-page KS3 lesson and practice PDF with examples and solutions.",
+        "intro": [
+          "This worksheet helps Year 9 learners understand factorising as the reverse of expanding, beginning with numerical factors and progressing to factors containing letters.",
+          "Four lesson and exercise pages are followed by two solution pages. Exercises include missing expressions, error spotting and an independent check, alongside teaching notes."
+        ],
+        "covers": [
+          "Taking out common numerical factors",
+          "Common factors involving letters and powers",
+          "Choosing the greatest common factor to factorise fully",
+          "Dividing every term and checking by expansion",
+          "Finding mistakes and completing missing expressions"
+        ],
+        "scope_note": "Prerequisites: multiplication of algebraic terms and expanding a single bracket. A useful foundation before factorising quadratics. This is a focused Year 9 / KS3 worksheet, not an exam-board-specific paper; marks are suggested teaching guidance.",
+        "key_ideas": [
+          {
+            "heading": "Divide every term by the common factor",
+            "text": "For 12x² + 18x, take out 6x to obtain 6x(2x + 3). Both terms must be divided by the factor outside the bracket."
+          },
+          {
+            "heading": "Expand to check",
+            "text": "Multiplying the factor back through the bracket should reproduce the original expression. If a further common factor remains inside, the expression is not yet fully factorised."
+          }
+        ],
+        "educational_level": "Year 9 / Key Stage 3",
+        "intro_heading": "Who this worksheet is for",
+        "covers_heading": "What the worksheet covers",
+        "tuition_heading": "Need support with Year 9 Maths?",
+        "tuition_text": "Study with Dr offers personalised one-to-one online Maths tuition, including KS3 algebra and geometry.",
+        "tuition_cta": "Enquire about Year 9 Maths tuition"
+      },
+      "status": "published",
+      "subject": "maths",
+      "level": "ks3",
+      "label": "Year 9 · KS3 Maths",
+      "resource_type": "worksheet",
+      "format": "PDF",
+      "date_published": "2026-11-16",
+      "cover_image": "/images/year9-factorising-common-factors.png"
+    },
+    {
+      "slug": "year9-expanding-double-brackets",
+      "title": "Expanding Double Brackets",
+      "url": "https://payhip.com/b/xujdb",
+      "topics": [
+        "Algebra",
+        "Expanding Double Brackets",
+        "Collecting Like Terms",
+        "Negative Signs",
+        "Squared Brackets",
+        "Area",
+        "Perimeter",
+        "Year 9"
+      ],
+      "description": "Free six-page Year 9 KS3 worksheet on expanding double brackets, with examples, practice and solutions. Includes a separate two-page follow-up homework with worked answers.",
+      "details": "6 pages + 2-page homework · Answers",
+      "page": {
+        "title_tag": "Year 9 Expanding Double Brackets: Free Worksheet & Answers | Study with Dr",
+        "meta_description": "Free Year 9 KS3 double-bracket worksheet with examples and solutions, plus two-page homework. Practise signs, squared brackets, area and perimeter.",
+        "h1": "Year 9 Maths: Expanding Double Brackets",
+        "subtitle": "Six-page lesson PDF plus a separate two-page follow-up homework PDF; answers included.",
+        "intro": [
+          "This Year 9 / KS3 resource explains why expanding two brackets produces four products, using an area model before moving to negative signs, non-unit coefficients and squared brackets.",
+          "The six-page main PDF contains four lesson and exercise pages and two solution pages. The free download also includes a separate two-page Expanding and Factorising homework: one practice page and one page of worked answers. The same companion homework is included with the Factorising Quadratics resource."
+        ],
+        "covers": [
+          "The four products and an area model",
+          "Collecting like terms",
+          "Keeping negative signs with their terms",
+          "Coefficients and squared brackets",
+          "Rectangle area and perimeter",
+          "Error spotting, independent checks and mixed follow-up homework"
+        ],
+        "scope_note": "Prerequisites: multiplying terms, expanding a single bracket and collecting like terms. Use separate paper where more working space is needed. The companion homework's 12-15 minute target is flexible. Suggested teaching marks are not an official examination scheme; no exam board is claimed.",
+        "key_ideas": [
+          {
+            "heading": "Multiply every term by every term",
+            "text": "For (x + 3)(x + 4), the four products are x², 4x, 3x and 12. Collecting like terms gives x² + 7x + 12."
+          },
+          {
+            "heading": "Keep the middle term when squaring",
+            "text": "(x - 3)² means (x - 3)(x - 3). The two cross-products total -6x, so the expansion is x² - 6x + 9."
+          }
+        ],
+        "educational_level": "Year 9 / Key Stage 3",
+        "intro_heading": "Who this worksheet is for",
+        "covers_heading": "What the worksheet covers",
+        "tuition_heading": "Need support with Year 9 Maths?",
+        "tuition_text": "Study with Dr offers personalised one-to-one online Maths tuition, including KS3 algebra and geometry.",
+        "tuition_cta": "Enquire about Year 9 Maths tuition"
+      },
+      "status": "published",
+      "subject": "maths",
+      "level": "ks3",
+      "label": "Year 9 · KS3 Maths",
+      "resource_type": "worksheet",
+      "format": "PDF",
+      "date_published": "2026-11-16",
+      "cover_image": "/images/year9-expanding-double-brackets.png"
+    },
+    {
+      "slug": "year9-factorising-quadratics",
+      "title": "Factorising Quadratics",
+      "url": "https://payhip.com/b/WYVE8",
+      "topics": [
+        "Algebra",
+        "Factorising Quadratics",
+        "Integer Factor Pairs",
+        "Repeated Factors",
+        "Difference of Two Squares",
+        "Area",
+        "Year 9"
+      ],
+      "description": "Free six-page Year 9 KS3 worksheet on factorising quadratics with x² coefficient 1, including examples and solutions. Includes a separate two-page follow-up homework with worked answers.",
+      "details": "6 pages + 2-page homework · Answers",
+      "page": {
+        "title_tag": "Year 9 Factorising Quadratics: Free Worksheet & Answers | Study with Dr",
+        "meta_description": "Free Year 9 KS3 factorising quadratics worksheet: integer pairs, signs, repeated factors and difference of squares, with solutions and follow-up homework.",
+        "h1": "Year 9 Maths: Factorising Quadratics",
+        "subtitle": "Six-page lesson PDF plus a separate two-page follow-up homework PDF; answers included.",
+        "intro": [
+          "This Year 9 / KS3 worksheet focuses on quadratic expressions with coefficient 1 on x². Learners find integer pairs using the product and sum, then work with negative signs, repeated factors and the difference of two squares.",
+          "The main PDF has four lesson and exercise pages followed by two solution pages. A separate two-page Expanding and Factorising homework provides mixed follow-up practice and worked answers. This is the same companion homework included with Expanding Double Brackets, so there is no need to download it twice."
+        ],
+        "covers": [
+          "Finding integer pairs with the required product and sum",
+          "Choosing positive and negative bracket signs",
+          "Repeated factors and squared brackets",
+          "Difference of two squares",
+          "Using area factors to find rectangle sides and perimeter",
+          "Checking claims, independent practice and mixed homework"
+        ],
+        "scope_note": "Prerequisites: expanding double brackets and working confidently with negative numbers. The lesson treats quadratics with x² coefficient 1 and integer factor pairs, not all quadratic expressions. Use separate paper for working. Homework timing is a flexible aim; teaching marks are suggestions rather than an official exam-board scheme.",
+        "key_ideas": [
+          {
+            "heading": "Match both the product and the sum",
+            "text": "For x² + bx + c = (x + p)(x + q), the numbers must satisfy pq = c and p + q = b. This method needs a suitable integer pair when factorising into integer brackets."
+          },
+          {
+            "heading": "Check the signs by expanding",
+            "text": "For x² - 2x - 15, the pair is 3 and -5, giving (x + 3)(x - 5). Reversing the two signs would produce the wrong middle term."
+          }
+        ],
+        "educational_level": "Year 9 / Key Stage 3",
+        "intro_heading": "Who this worksheet is for",
+        "covers_heading": "What the worksheet covers",
+        "tuition_heading": "Need support with Year 9 Maths?",
+        "tuition_text": "Study with Dr offers personalised one-to-one online Maths tuition, including KS3 algebra and geometry.",
+        "tuition_cta": "Enquire about Year 9 Maths tuition"
+      },
+      "status": "published",
+      "subject": "maths",
+      "level": "ks3",
+      "label": "Year 9 · KS3 Maths",
+      "resource_type": "worksheet",
+      "format": "PDF",
+      "date_published": "2026-11-16",
+      "cover_image": "/images/year9-factorising-quadratics.png"
+    },
+    {
+      "slug": "year9-angles-and-equations",
+      "title": "Angles and Equations",
+      "url": "https://payhip.com/b/Hzmsw",
+      "topics": [
+        "Angles",
+        "Geometry",
+        "Linear Equations",
+        "Triangles",
+        "Straight Line Angles",
+        "Angles Around a Point",
+        "Quadrilaterals",
+        "Year 9"
+      ],
+      "description": "Free six-page Year 9 KS3 worksheet on forming and solving equations from angle facts, with worked examples, text-based exercises and solutions.",
+      "details": "6 pages · Examples, practice & solutions",
+      "page": {
+        "title_tag": "Year 9 Angles and Equations: Free Worksheet & Answers | Study with Dr",
+        "meta_description": "Free six-page Year 9 KS3 angles and equations worksheet: triangle, straight-line, around-a-point and quadrilateral facts, with examples and solutions.",
+        "h1": "Year 9 Maths: Angles and Equations",
+        "subtitle": "Free six-page KS3 lesson and practice PDF with examples and solutions.",
+        "intro": [
+          "This worksheet helps Year 9 learners turn stated angle facts into linear equations. It connects geometry knowledge with algebra rather than treating the two skills separately.",
+          "Four lesson and exercise pages are followed by two solution pages covering all six exercise groups. Activities include choosing an angle fact, explaining an error, finding a missing angle expression and checking all angles."
+        ],
+        "covers": [
+          "Triangle angles totalling 180°",
+          "Adjacent angles on a straight line totalling 180°",
+          "Angles around a point totalling 360°",
+          "Quadrilateral interior angles totalling 360°",
+          "Equal angles in an isosceles triangle",
+          "Missing expressions, error spotting and independent checking"
+        ],
+        "scope_note": "Prerequisites: basic angle facts and solving linear equations. Problems are text-based, with angle expressions stated in words rather than geometry diagrams. Exercise 2(c) intentionally gives a fractional value. This is a focused KS3 classroom worksheet, not a full geometry course or an official exam-board paper.",
+        "key_ideas": [
+          {
+            "heading": "Choose the angle fact before forming an equation",
+            "text": "A triangle's interior angles total 180°, whereas angles around a point total 360°. Add the given angle expressions and set them equal to the appropriate total."
+          },
+          {
+            "heading": "Check the angles after solving",
+            "text": "Substitute the value of x into each angle expression. For the final quadrilateral problem, x = 50 gives 60°, 120°, 80° and 100°, which total 360°."
+          }
+        ],
+        "educational_level": "Year 9 / Key Stage 3",
+        "intro_heading": "Who this worksheet is for",
+        "covers_heading": "What the worksheet covers",
+        "tuition_heading": "Need support with Year 9 Maths?",
+        "tuition_text": "Study with Dr offers personalised one-to-one online Maths tuition, including KS3 algebra and geometry.",
+        "tuition_cta": "Enquire about Year 9 Maths tuition"
+      },
+      "status": "published",
+      "subject": "maths",
+      "level": "ks3",
+      "label": "Year 9 · KS3 Maths",
+      "resource_type": "worksheet",
+      "format": "PDF",
+      "date_published": "2026-11-16",
+      "cover_image": "/images/year9-angles-and-equations.png"
     }
   ]
 }
