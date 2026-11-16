@@ -249,7 +249,7 @@ function renderResourcePage(r) {
       {
         '@type': 'Person',
         '@id': PERSON_ID,
-        name: 'Zhiying Xin',
+        name: 'Dr. Xin',
         honorificPrefix: 'Dr',
         jobTitle: 'Maths and Science Tutor',
         url: `${SITE}/`,
@@ -289,7 +289,7 @@ function renderResourcePage(r) {
   body.push(
     '',
     '<h2>About the author</h2>',
-    '<p>Dr Zhiying Xin is the founder of Study with Dr and a private Maths and Science tutor with nearly seven years of experience, teaching students from 11+ and GCSE through to A-Level and university. She completed her PhD at the University of Manchester.</p>'
+    '<p>Dr. Xin is the founder of Study with Dr and a private Maths and Science tutor supporting students from 11+ and GCSE through to A-Level and university. She completed her PhD at the University of Manchester.</p>'
   );
 
   const related = relatedResources(item);
@@ -329,7 +329,7 @@ ${GENERATED_MARKER}
     <meta property="og:image:height" content="630">`}
     <meta property="og:image:alt" content="${esc(item.cover_image ? `Cover of ${item.title}` : 'Study with Dr: Maths and science that finally makes sense.')}">
     <meta name="twitter:card" content="${item.cover_image ? 'summary' : 'summary_large_image'}">
-    <meta name="author" content="Dr Zhiying Xin">
+    <meta name="author" content="Dr. Xin">
     <link rel="stylesheet" href="/style.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQY10RB4L4"></script>
@@ -381,7 +381,7 @@ ${GENERATED_MARKER}
     <div class="section">
         <div class="container">
             <article class="article-wrap">
-                <p class="article-meta">By <a href="/#about">Dr Zhiying Xin</a>, Study with Dr · Updated <time datetime="${r.dateModified}">${formatDate(r.dateModified)}</time></p>
+                <p class="article-meta">By <a href="/#about">Dr. Xin</a>, Study with Dr · Updated <time datetime="${r.dateModified}">${formatDate(r.dateModified)}</time></p>
 
                 <div class="resource-download">${cover}
                     <div class="resource-download-info">
